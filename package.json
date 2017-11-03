@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "Context Menu based on Vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "XBT1 <xbtop1@gmail.com>",
   "main": "dist/index.js",
   "files": [
@@ -15,11 +15,14 @@
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "node ./build/index.js",
-    "pb": "npm run build && npm publish"
+    "build": "npm run build:package & build:example",
+    "build:package": "node ./build/index.js",
+    "build:example": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "pb": "npm run build:package && npm publish"
   },
   "dependencies": {
-    "vue": "^2.4.4"
+    "vue": "^2.4.4",
+    "vue-click-outside": "^1.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -29,7 +32,9 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "fs-extra": "^4.0.2",
+    "style-loader": "^0.19.0",
     "stylus": "^0.54.5",
+    "url-loader": "^0.6.2",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
