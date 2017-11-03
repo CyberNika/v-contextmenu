@@ -2,6 +2,7 @@
   <ul
     ref="contextmenu"
     class="v-contextmenu"
+    v-click-outside="hide"
     v-show="visible"
     :style="style">
     <slot></slot>
@@ -9,8 +10,14 @@
 </template>
 
 <script>
+  import ClickOutside from 'vue-click-outside'
+
   export default {
     name: 'VContextmenu',
+
+    directives: {
+      ClickOutside
+    },
 
     props: {
       eventType: {
@@ -43,6 +50,8 @@
 
     methods: {
       handleReferenceContextmenu (event) {
+        event.preventDefault()
+
         const eventX = event.clientX
         const eventY = event.clientY
 
@@ -68,7 +77,13 @@
           }
         })
 
+        this.show()
+      },
+      show () {
         this.visible = true
+      },
+      hide () {
+        this.visible = false
       },
     },
   }

@@ -2,9 +2,9 @@ import Vue from 'vue'
 
 import directive from './directive'
 
-import Contextmenu from './components/Contextmenu'
-import ContextmenuItem from './components/ContextmenuItem'
-import ContextmenuSubmenu from './components/ContextmenuSubmenu'
+import Contextmenu from './components/Contextmenu.vue'
+import ContextmenuItem from './components/ContextmenuItem.vue'
+import ContextmenuSubmenu from './components/ContextmenuSubmenu.vue'
 
 Vue.directive('contextmenu', directive)
 
