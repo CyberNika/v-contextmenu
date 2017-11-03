@@ -1,0 +1,47 @@
+{
+  "name": "v-contextmenu",
+  "description": "Context Menu based on Vue",
+  "version": "0.1.0",
+  "author": "XBT1 <xbtop1@gmail.com>",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue-component",
+    "contextmenu",
+    "rightclick"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "node ./build/index.js",
+    "pb": "npm run build && npm publish"
+  },
+  "dependencies": {
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "fs-extra": "^4.0.2",
+    "stylus": "^0.54.5",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XBT1/v-contextmenu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/XBT1/v-contextmenu/issues"
+  },
+  "homepage": "https://github.com/XBT1/v-contextmenu"
+}
