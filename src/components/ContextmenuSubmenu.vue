@@ -53,29 +53,27 @@
         const target = event.target
         const targetDimension = target.getBoundingClientRect()
 
+      this.hover = true
+
         this.$nextTick(() => {
-          this.$nextTick(() => {
-            const submenuWidth = this.$refs.submenu.clientWidth
-            const submenuHeight = this.$refs.submenu.clientHeight
-            const submenuPlacement = []
+          const submenuWidth = this.$refs.submenu.clientWidth
+          const submenuHeight = this.$refs.submenu.clientHeight
+          const submenuPlacement = []
 
-            if (targetDimension.right + submenuWidth >= window.innerWidth) {
-              submenuPlacement.push('left')
-            } else {
-              submenuPlacement.push('right')
-            }
+          if (targetDimension.right + submenuWidth >= window.innerWidth) {
+            submenuPlacement.push('left')
+          } else {
+            submenuPlacement.push('right')
+          }
 
-            if (targetDimension.bottom + submenuHeight >= window.innerHeight) {
-              submenuPlacement.push('bottom')
-            } else {
-              submenuPlacement.push('top')
-            }
+          if (targetDimension.bottom + submenuHeight >= window.innerHeight) {
+            submenuPlacement.push('bottom')
+          } else {
+            submenuPlacement.push('top')
+          }
 
-            this.submenuPlacement = submenuPlacement
-          })
+          this.submenuPlacement = submenuPlacement
         })
-
-        this.hover = true
       },
       handleMouseleave () {
         this.hover = false

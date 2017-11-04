@@ -14,15 +14,14 @@
     "rightclick"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --content-base examples/ --open --hot --host 0.0.0.0",
     "build": "npm run build:package & build:example",
-    "build:package": "node ./build/index.js",
-    "build:example": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build:package": "node build/index.js",
+    "build:example": "rm -fr examples/dist && cross-env NODE_ENV=production webpack --progress --hide-modules",
     "pb": "npm run build:package && npm publish"
   },
   "dependencies": {
-    "vue": "^2.4.4",
-    "vue-click-outside": "^1.0.7"
+    "vue": "^2.4.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -34,6 +33,7 @@
     "fs-extra": "^4.0.2",
     "style-loader": "^0.19.0",
     "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
