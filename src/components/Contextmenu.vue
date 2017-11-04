@@ -2,7 +2,6 @@
   <ul
     ref="contextmenu"
     class="v-contextmenu"
-    v-click-outside="hide"
     v-show="visible"
     :style="style">
     <slot></slot>
@@ -10,21 +9,14 @@
 </template>
 
 <script>
-  import ClickOutside from 'vue-click-outside'
-
   export default {
     name: 'VContextmenu',
-
-    directives: {
-      ClickOutside
-    },
 
     props: {
       eventType: {
         type: String,
         default: 'contextmenu',
       },
-      reference: {},
     },
 
     data () {
@@ -36,16 +28,30 @@
         },
       }
     },
+    computed: {
+      clickOutsideHandler () {
+        return this.visible ? this.hide : () => {}
+      },
+      isClick () {
+        return this.eventType === 'click'
+      },
+    },
 
     mounted () {
+      // console.log(this.$el)
+      // const wrapper = document.createElement('div')
+      // wrapper.replaceChild(this.$el)
+      // document.body.appendChild(wrapper)
       const reference = this.$refs.reference
 
-      reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
+      reference && reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
+      reference && document.body.addEventListener('click', this.handleBodyClick)
     },
     destroyed () {
       const reference = this.$refs.reference
 
-      reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+      reference && reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+      reference && document.body.removeEventListener('click', this.handleBodyClick)
     },
 
     methods: {
@@ -54,6 +60,8 @@
 
         const eventX = event.clientX
         const eventY = event.clientY
+
+        this.show()
 
         this.$nextTick(() => {
           const contextmenuWidth = this.$refs.contextmenu.clientWidth
@@ -76,14 +84,30 @@
             left: `${contextmenuPosition.left}px`,
           }
         })
-
-        this.show()
       },
-      show () {
+      handleBodyClick (event) {
+        const notOutside = this.$el.contains(event.target) || (
+          this.isClick && this.$refs.reference.contains(event.target)
+        )
+
+        if (!notOutside) {
+          this.visible = false
+        }
+      },
+      show (position) {
+        if (position) {
+          this.style = {
+            top: `${position.top}px`,
+            left: `${position.left}px`,
+          }
+        }
+
         this.visible = true
+        this.$emit('show', this)
       },
       hide () {
         this.visible = false
+        this.$emit('hide', this)
       },
     },
   }

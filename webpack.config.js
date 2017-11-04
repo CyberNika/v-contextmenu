@@ -5,7 +5,7 @@ module.exports = {
   entry: './examples/main.js',
   output: {
     path: path.resolve(__dirname, './examples/dist'),
-    publicPath: '/examples/dist/',
+    publicPath: '/dist/',
     filename: 'build.js'
   },
   module: {
@@ -27,6 +27,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader',
         exclude: /node_modules/
       },
       {
