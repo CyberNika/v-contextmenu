@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "Context Menu based on Vue",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "author": "XBT1 <xbtop1@gmail.com>",
   "main": "dist/index.js",
   "files": [
@@ -15,9 +15,10 @@
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --content-base examples/ --open --hot --host 0.0.0.0",
-    "build": "npm run build:package & build:example",
+    "build": "npm run build:package & npm run build:example",
     "build:package": "node build/index.js",
-    "build:example": "rm -fr examples/dist && cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
+    "ghpages": "node build/gh-pages.js",
     "pb": "npm run build:package && npm publish"
   },
   "dependencies": {
@@ -31,6 +32,7 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "fs-extra": "^4.0.2",
+    "gh-pages": "^1.0.0",
     "style-loader": "^0.19.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",

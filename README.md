@@ -1,18 +1,36 @@
 # v-contextmenu
 
-> Context Menu based on Vue
+适用于 Vue 2.0 的 ContextMenu 组件。
 
-## Build Setup
+## 安装
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+```bash
+$ yarn add v-contextmenu # npm i -S v-contextmenu
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 在线示例
+
+https://xbt1.github.io/v-contextmenu
+
+## 使用
+
+一个简单的例子
+
+```javascript
+import 'v-contextmenu'
+import 'v-contextmenu/dist/assets/styles/index.css'
+```
+
+```html
+<template>
+  <v-contextmenu ref="contextmenu">
+    <v-contextmenu-item>菜单1</v-contextmenu-item>
+    <v-contextmenu-item>菜单2</v-contextmenu-item>
+    <v-contextmenu-item>菜单3</v-contextmenu-item>
+  </v-contextmenu>
+
+  <div v-contextmenu:contextmenu>右键点击此区域</div>
+</template>
+```
+
+详细使用方法见 [文档]('./docs/usage') & [例子](./examples)

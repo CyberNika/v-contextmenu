@@ -4,8 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: './examples/main.js',
   output: {
-    path: path.resolve(__dirname, './examples/dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, 'sites'),
+    publicPath: '/',
     filename: 'build.js'
   },
   module: {
@@ -35,17 +35,19 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]?[hash]'
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: 'images/[name].[hash:7].[ext]'
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
-        options: {
-          name: 'fonts/[name].[ext]?[hash]'
+        query: {
+          limit: 10000,
+          name: 'fonts/[name].[hash:7].[ext]'
         }
       }
     ]

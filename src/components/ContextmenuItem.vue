@@ -14,6 +14,7 @@
 
     props: {
       divider: Boolean,
+      disabled: Boolean,
     },
 
     data () {
@@ -26,6 +27,7 @@
         return {
           'v-contextmenu-item': !this.divider,
           'v-contextmenu-item--hover': this.hover,
+          'v-contextmenu-item--disabled': this.disabled,
           'v-contextmenu-divider': this.divider,
         }
       },
@@ -33,13 +35,19 @@
 
     methods: {
       handleMouseenter (event) {
+        if (this.disabled) return
+
         this.hover = true
       },
       handleMouseleave (event) {
+        if (this.disabled) return
+
         this.hover = false
       },
 
       handleClick (event) {
+        if (this.disabled) return
+
         this.$emit('click', event, this)
       },
     },
