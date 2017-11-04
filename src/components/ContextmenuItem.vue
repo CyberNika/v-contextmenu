@@ -32,10 +32,10 @@
     },
 
     methods: {
-      handleMouseenter () {
+      handleMouseenter (event) {
         this.hover = true
       },
-      handleMouseleave () {
+      handleMouseleave (event) {
         this.hover = false
       },
 
