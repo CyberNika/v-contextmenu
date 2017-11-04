@@ -3,8 +3,22 @@
     <header>
       <h1>v-contextmenu</h1>
 
-      <p>适用于 Vue 2.0 的 ContextMenu 组件。</p>
+      <p>
+        <span class="description">适用于 Vue 2.0 的 ContextMenu 组件。</span>
+        <iframe
+          class="gh-star"
+          scrolling="0"
+          width="170px"
+          height="20px"
+          src="https://ghbtns.com/github-btn.html?user=XBT1&repo=v-contextmenu&type=star&count=true" frameborder="0" >
+        </iframe>
+      </p>
     </header>
+
+    <div class="usage">
+      <h3>用法</h3>
+      <a class="usage-link" href="https://github.com/XBT1/v-contextmenu/blob/master/README.md">安装 &amp; 使用 <i class="v-contextmenu-iconfont usage-icon"></i></a>
+    </div>
 
     <nav>
       <h3>示例</h3>
@@ -88,11 +102,29 @@
 </script>
 
 <style scoped>
-  .box {
-    width: 100%;
-    height: 200px;
-    background-color: #f2f2f2;
-    border: 1px solid #eee;
+  #app {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .usage-link {
+    color: #666;
+    border-bottom: 1px solid #999;
+    text-decoration: none;
+  }
+
+  .usage-icon::before {
+    content: "\e622"
+  }
+
+  .description {
+    line-height: 20px;
+    vertical-align: middle;
+  }
+
+  .gh-star {
+    margin-left: 8px;
+    vertical-align: middle;
   }
 
   .nav-list {
@@ -135,6 +167,13 @@
     overflow: hidden;
   }
 
+  .box {
+    width: 100%;
+    height: 200px;
+    background-color: #f2f2f2;
+    border: 1px solid #eee;
+  }
+
   .example-title {
     height: 36px;
     border-bottom: 1px solid #e2e2e2;
@@ -147,7 +186,7 @@
 <style>
   body {
     color: #333;
-    font-weight: lighter;
+    /*font-weight: lighter;*/
     font-size: 16px;
     line-height: 1.5;
   }

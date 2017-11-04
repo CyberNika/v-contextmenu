@@ -23,9 +23,10 @@
 
     methods: {
       handleShow () {
+        const targetDimensions = this.$refs.box.getBoundingClientRect()
         const postition = {
-          top: Math.random() * this.$refs.box.clientHeight,
-          left: Math.random() * this.$refs.box.clientWidth,
+          top: Math.random() * targetDimensions.height + targetDimensions.top,
+          left: Math.random() * targetDimensions.width + targetDimensions.left,
         }
         this.$refs.contextmenu.show(postition)
       },

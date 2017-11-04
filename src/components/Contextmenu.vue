@@ -38,18 +38,16 @@
     },
 
     mounted () {
-      // console.log(this.$el)
-      // const wrapper = document.createElement('div')
-      // wrapper.replaceChild(this.$el)
-      // document.body.appendChild(wrapper)
       const reference = this.$refs.reference
 
+      document.body.appendChild(this.$el)
       reference && reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
       reference && document.body.addEventListener('click', this.handleBodyClick)
     },
     destroyed () {
       const reference = this.$refs.reference
 
+      document.body.removeChild(this.$el)
       reference && reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
       reference && document.body.removeEventListener('click', this.handleBodyClick)
     },
