@@ -17,12 +17,15 @@
 
     <div class="usage">
       <h3>用法</h3>
-      <a class="usage-link" href="https://github.com/XBT1/v-contextmenu/blob/master/README.md">安装 &amp; 使用 <i class="v-contextmenu-iconfont usage-icon"></i></a>
+      <a :class="['usage-link', theme]" href="https://github.com/XBT1/v-contextmenu/blob/master/README.md">安装 &amp 使用 <i class="v-contextmenu-iconfont usage-icon"></i></a>
     </div>
 
     <nav>
-      <h3>示例</h3>
-      <ul class="nav-list">
+      <h3>
+        <span>示例</span>
+        <button type="button" @click="changeTheme">切换主题</button>
+      </h3>
+      <ul :class="['nav-list', theme]">
         <li
           :key="item.id"
           :class="{
@@ -37,10 +40,10 @@
     </nav>
 
     <main class="showground">
-      <div class="example-title">
+      <div :class="['example-title', theme]">
         「{{ exampleTitle }}」示例
       </div>
-      <component :is="currentExample"></component>
+      <component :is="currentExample" :theme="theme"></component>
     </main>
   </div>
 </template>
@@ -74,6 +77,7 @@
     data () {
       return {
         currentExample: window.location.hash.slice(1) || 'simple',
+        theme: 'default',
 
         examples: [{
           id: 'simple',
@@ -102,119 +106,123 @@
         this.currentExample = value
         window.location.hash = value
       },
+      changeTheme () {
+        this.theme = this.theme === 'default' ? 'bright' : 'default'
+      },
     },
   }
 </script>
 
-<style scoped>
-  #app {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+<style scoped lang="stylus">
+  main-color = #46a0fc
+  main-color-bright = #ef5350
 
-  .usage-link {
-    color: #ef5350;
-    border-bottom: 1px solid #ef5350;
-    text-decoration: none;
-  }
+  #app
+    max-width: 1000px
+    margin: 0 auto
 
-  .usage-link:hover {
-    opacity: 0.8;
-  }
+  .usage-link
+    color: main-color
+    border-bottom: 1px solid main-color
+    text-decoration: none
 
-  .usage-icon::before {
+    &.bright
+      color: main-color-bright
+      border-bottom: 1px solid main-color-bright
+
+    &:hover
+      opacity: 0.8
+
+  .usage-icon::before
     content: "\e622"
-  }
 
-  .description {
-    line-height: 20px;
-    vertical-align: middle;
-  }
+  .description
+    line-height: 20px
+    vertical-align: middle
 
-  .gh-star {
-    margin-left: 8px;
-    vertical-align: middle;
-  }
+  .gh-star
+    margin-left: 8px
+    vertical-align: middle
 
-  .nav-list {
-    padding: 0 8px;
-    margin: 0;
-    border-radius: 2px;
-    background-color: #ef5350;
-    white-space: nowrap;
-    overflow-x: auto;
-    list-style: none;
-  }
+  .nav-list
+    padding: 0 8px
+    margin: 0
+    border-radius: 2px
+    background-color: main-color
+    white-space: nowrap
+    overflow-x: auto
+    list-style: none
 
-  .nav-item {
-    position: relative;
-    display: inline-block;
-    padding: 8px;
-    color: rgba(255, 255, 255, 0.55);
-    cursor: pointer;
-  }
+    &.bright
+      background-color: main-color-bright
+
+  .nav-item
+    position: relative
+    display: inline-block
+    padding: 8px
+    color: rgba(255, 255, 255, 0.55)
+    cursor: pointer
 
   .nav-item:hover,
-  .nav-item.active {
-    font-weight: normal;
-    color: #fff;
-  }
+  .nav-item.active
+    font-weight: normal
+    color: #fff
 
-  .nav-item + .nav-item::before {
-    content: "";
-    position: absolute;
-    top: 12px;
-    left: 0;
-    width: 0;
-    height: 18px;
-    border-left: 1px solid rgba(222, 222, 222, 0.5);
-  }
+  .nav-item + .nav-item::before
+    content: ""
+    position: absolute
+    top: 12px
+    left: 0
+    width: 0
+    height: 18px
+    border-left: 1px solid rgba(222, 222, 222, 0.5)
 
-  .showground {
-    margin-top: 20px;
-    border-radius: 2px;
-    overflow: hidden;
-  }
+  .showground
+    margin-top: 20px
+    border-radius: 2px
+    overflow: hidden
 
-  .example-title {
-    height: 36px;
-    /*border-bottom: 1px solid #eee;*/
-    background-color: #ef5350;
-    line-height: 36px;
-    text-align: center;
-    color: #fff;
-  }
+  .example-title
+    height: 36px
+    background-color: main-color
+    line-height: 36px
+    text-align: center
+    color: #fff
+
+    &.bright
+      background-color: main-color-bright
 </style>
 
-<style>
-  html {
-    height: 100%;
-  }
+<style lang="stylus">
+  main-color = #46a0fc
+  main-color-bright = #ef5350
 
-  body {
-    height: 100%;
-    color: #333;
-    /*font-weight: lighter;*/
-    font-size: 16px;
-    line-height: 1.5;
-  }
+  html
+    height: 100%
 
-  ::selection {
-    color: #fff;
-    background-color: #ef5350;
-  }
+  body
+    height: 100%
+    color: #333
+    /*font-weight: lighter*/
+    font-size: 16px
+    line-height: 1.5
 
-  .box {
-    height: 80px;
-    border: 1px solid #ef5350;
-    background-color: #fff;
-    line-height: 80px;
-    color: #666;
-    text-align: center;
-    box-sizing: border-box;
-  }
+  ::selection
+    color: #fff
+    background-color: main-color
 
-  .box + .box {
-    border-top: none;
-  }
+  .box
+    height: 80px
+    border: 1px solid main-color
+    background-color: #fff
+    line-height: 80px
+    color: #666
+    text-align: center
+    box-sizing: border-box
+
+    &.bright
+      border-color: main-color-bright
+
+    & + .box
+      border-top: none
 </style>

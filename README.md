@@ -12,7 +12,7 @@ $ yarn add v-contextmenu # npm i -S v-contextmenu
 
 https://xbt1.github.io/v-contextmenu
 
-![演示](./docs/example.gif)
+![演示](./docs/images/example.gif)
 
 ## 使用
 
@@ -20,7 +20,7 @@ https://xbt1.github.io/v-contextmenu
 
 ```javascript
 import 'v-contextmenu'
-import 'v-contextmenu/dist/assets/styles/index.css'
+import 'v-contextmenu/dist/index.css'
 ```
 
 ```html
@@ -37,11 +37,23 @@ import 'v-contextmenu/dist/assets/styles/index.css'
 
 详细使用方法见 [文档](./docs/usage.md) & [例子](./examples)
 
+## 主题
+
+提供两种主题，使用方法见 [VContextmenu](./docs/usage.md#VContextmenu)
+
+**默认**
+
+![default](./docs/images/default.jpg)
+
+**亮色**
+
+![bright](./docs/images/bright.jpg)
+
 ## 开发
 
 ```bash
 $ yarn install
-$ yanr dev
+$ yarn dev
 ```
 
 ## 构建
@@ -51,3 +63,13 @@ $ yarn build:package # 构建 npm 包
 $ yarn build:example # 构建示例站点
 $ yarn build # build:package & build:example
 ```
+
+## 更新日志
+
+- 2017-11-06
+  - `feat`: 添加蓝色主题
+  - `fix`: 修复菜单位置显示不正确的问题
+  - `refactor`: 优化 `styles` 打包结构
+  - `doc`: 修复一处 typo（THX @iPixelOldC）
+- 2017-11-05
+  - `feat`: `Submenu` 添加 `disabled`
