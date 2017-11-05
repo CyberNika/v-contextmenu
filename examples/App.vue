@@ -49,6 +49,7 @@
   import Simple from './Simple.vue'
   import Submenu from './Submenu.vue'
   import Divider from './Divider.vue'
+  import Disabled from './Disabled.vue'
   import CustomerShow from './CustomerShow.vue'
   import CustomerEvent from './CustomerEvent.vue'
 
@@ -59,6 +60,7 @@
       Simple,
       Submenu,
       Divider,
+      Disabled,
       CustomerShow,
       CustomerEvent,
     },
@@ -82,6 +84,9 @@
         }, {
           id: 'submenu',
           label: '子菜单',
+        }, {
+          id: 'disabled',
+          label: '禁用',
         }, {
           id: 'customerEvent',
           label: '自定义事件',
@@ -108,9 +113,13 @@
   }
 
   .usage-link {
-    color: #666;
-    border-bottom: 1px solid #999;
+    color: #ef5350;
+    border-bottom: 1px solid #ef5350;
     text-decoration: none;
+  }
+
+  .usage-link:hover {
+    opacity: 0.8;
   }
 
   .usage-icon::before {
@@ -141,7 +150,7 @@
     position: relative;
     display: inline-block;
     padding: 8px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.55);
     cursor: pointer;
   }
 
@@ -167,24 +176,23 @@
     overflow: hidden;
   }
 
-  .box {
-    width: 100%;
-    height: 200px;
-    background-color: #f2f2f2;
-    border: 1px solid #eee;
-  }
-
   .example-title {
     height: 36px;
-    border-bottom: 1px solid #e2e2e2;
+    /*border-bottom: 1px solid #eee;*/
+    background-color: #ef5350;
     line-height: 36px;
     text-align: center;
-    background-color: #e8e8e8;
+    color: #fff;
   }
 </style>
 
 <style>
+  html {
+    height: 100%;
+  }
+
   body {
+    height: 100%;
     color: #333;
     /*font-weight: lighter;*/
     font-size: 16px;
@@ -197,14 +205,16 @@
   }
 
   .box {
-    background-color: #f2f2f2;
-    /*border-radius: 2px;*/
     height: 80px;
+    border: 1px solid #ef5350;
+    background-color: #fff;
     line-height: 80px;
+    color: #666;
     text-align: center;
+    box-sizing: border-box;
   }
 
   .box + .box {
-    border-top: 1px solid #e2e2e2;
+    border-top: none;
   }
 </style>
