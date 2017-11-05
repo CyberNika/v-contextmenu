@@ -37,6 +37,7 @@
 | 参数        | 说明              | 类型    | 可选值 | 默认值      |
 | ---------- | ----------------- | ------ | ----- | ---------- |
 | eventType  | 触发其显示的事件类型 | String | 事件名 | contextmenu |
+| theme      | 主题              | String | default / bright | default |
 
 **Methods**
 
@@ -88,13 +89,25 @@
 
 ## 主题
 
-可根据 `classname` 进行样式覆盖
+提供两种主题
+
+**默认**
+
+![default](./images/default.jpg)
+
+**亮色**
+
+![bright](./images/bright.jpg)
+
+另外可自行根据 `classname` 进行样式覆盖
 
 - `v-contextmenu`: 根元素
+- `v-contextmenu--default`: 根元素-默认主题
+- `v-contextmenu--bright`: 根元素-亮色主题
 - `v-contextmenu-item`: 单个菜单
 - `v-contextmenu-item--hover`: 单个菜单激活状态
 - `v-contextmenu-item--disabled`: 单个菜单禁用状态
 - `v-contextmenu-divider`: 分割线
 - `v-contextmenu-submenu`: 子菜单容器
 - `v-contextmenu-submenu__title`: 子菜单标题
-- `.v-contextmenu-submenu__icon`: 子菜单标题 icon
+- `v-contextmenu-submenu__icon`: 子菜单标题 icon

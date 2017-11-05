@@ -1,7 +1,7 @@
 <template>
   <ul
     ref="contextmenu"
-    class="v-contextmenu"
+    :class="contextmenuCls"
     v-show="visible"
     :style="style">
     <slot></slot>
@@ -16,6 +16,10 @@
       eventType: {
         type: String,
         default: 'contextmenu',
+      },
+      theme: {
+        type: String,
+        default: 'default',
       },
     },
 
@@ -34,6 +38,12 @@
       },
       isClick () {
         return this.eventType === 'click'
+      },
+      contextmenuCls () {
+        return [
+          'v-contextmenu',
+          `v-contextmenu--${this.theme}`,
+        ]
       },
     },
 
@@ -56,8 +66,8 @@
       handleReferenceContextmenu (event) {
         event.preventDefault()
 
-        const eventX = event.clientX
-        const eventY = event.clientY
+        const eventX = event.pageX
+        const eventY = event.pageY
 
         this.show()
 
