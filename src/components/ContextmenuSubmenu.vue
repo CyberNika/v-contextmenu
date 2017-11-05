@@ -24,6 +24,7 @@
 
     props: {
       title: String,
+      disabled: Boolean,
     },
 
     data () {
@@ -38,6 +39,7 @@
           'v-contextmenu-item': true,
           'v-contextmenu-submenu': true,
           'v-contextmenu-item--hover': this.hover,
+          'v-contextmenu-item--disabled': this.disabled,
         }
       },
       submenuCls () {
@@ -50,10 +52,12 @@
 
     methods: {
       handleMouseenter (event) {
+        if (this.disabled) return
+
         const target = event.target
         const targetDimension = target.getBoundingClientRect()
 
-      this.hover = true
+        this.hover = true
 
         this.$nextTick(() => {
           const submenuWidth = this.$refs.submenu.clientWidth
@@ -76,6 +80,8 @@
         })
       },
       handleMouseleave () {
+        if (this.disabled) return
+
         this.hover = false
       },
     },
