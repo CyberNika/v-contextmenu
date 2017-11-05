@@ -1,12 +1,12 @@
 <template>
   <div class="example">
-    <v-contextmenu ref="contextmenu">
+    <v-contextmenu ref="contextmenu" :theme="theme">
       <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
     </v-contextmenu>
 
-    <div class="box" v-contextmenu:contextmenu>
+    <div :class="['box', theme]" v-contextmenu:contextmenu>
       右键点击此区域
     </div>
   </div>
@@ -15,6 +15,10 @@
 <script>
   export default {
     name: 'Simple',
+
+    props: {
+      theme: String,
+    },
 
     methods: {
       handleClick (event, vm) {

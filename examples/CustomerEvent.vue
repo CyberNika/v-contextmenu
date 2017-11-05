@@ -1,13 +1,13 @@
 <template>
   <div class="example">
-    <v-contextmenu ref="contextmenu" event-type="click">
+    <v-contextmenu ref="contextmenu" event-type="click" :theme="theme">
       <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
 
       <v-contextmenu-item divider></v-contextmenu-item>
 
       <v-contextmenu-submenu title="子菜单">
-        <v-contextmenu-item @click="handleClick">菜单4</v-contextmenu-item>
+        <v-contextmenu-item disabled @click="handleClick">菜单4</v-contextmenu-item>
         <v-contextmenu-item @click="handleClick">菜单5</v-contextmenu-item>
 
         <v-contextmenu-submenu title="子菜单的子菜单">
@@ -19,7 +19,7 @@
       <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
     </v-contextmenu>
 
-    <v-contextmenu ref="dbContextmenu" event-type="dblclick">
+    <v-contextmenu ref="dbContextmenu" event-type="dblclick" :theme="theme">
       <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
       <v-contextmenu-item divider></v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
@@ -32,15 +32,15 @@
       <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
     </v-contextmenu> -->
 
-    <div class="box" v-contextmenu:contextmenu>
+    <div :class="['box', theme]" v-contextmenu:contextmenu>
       左键点击此区域
     </div>
 
-    <div class="box" v-contextmenu:dbContextmenu>
+    <div :class="['box', theme]" v-contextmenu:dbContextmenu>
       左键双击此区域
     </div>
 
-    <!-- <div class="box" v-contextmenu:touchContextmenu>
+    <!-- <div :class="['box', theme]" v-contextmenu:touchContextmenu>
       触摸此区域
     </div> -->
   </div>
@@ -49,6 +49,10 @@
 <script>
   export default {
     name: 'CustomerEvent',
+
+    props: {
+      theme: String,
+    },
 
     methods: {
       handleClick (event, vm) {

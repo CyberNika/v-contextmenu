@@ -1,6 +1,6 @@
 <template>
   <div class="example">
-    <v-contextmenu ref="contextmenu">
+    <v-contextmenu ref="contextmenu" :theme="theme">
       <v-contextmenu-item @click="handleClick">菜单1-1</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单1-2</v-contextmenu-item>
 
@@ -14,7 +14,7 @@
       <v-contextmenu-item @click="handleClick">菜单3-1</v-contextmenu-item>
     </v-contextmenu>
 
-    <div class="box" v-contextmenu:contextmenu>
+    <div :class="['box', theme]" v-contextmenu:contextmenu>
       右键点击此区域
     </div>
   </div>
@@ -23,6 +23,10 @@
 <script>
   export default {
     name: 'Divider',
+
+    props: {
+      theme: String,
+    },
 
     methods: {
       handleClick (event, vm) {
