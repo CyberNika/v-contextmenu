@@ -6,5 +6,5 @@ const resolve = dir => path.resolve(__dirname, '..', dir)
 
 fs.emptyDirSync(resolve('dist'))
 fs.copySync(resolve('src'), resolve('dist'))
-fs.emptyDirSync(resolve('dist/assets/styles'))
-execSync('./node_modules/stylus/bin/stylus src/assets/styles --out dist/assets/styles')
+fs.removeSync(resolve('dist/styles'))
+execSync('./node_modules/stylus/bin/stylus src/styles/index.styl --out dist/')

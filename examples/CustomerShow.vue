@@ -4,10 +4,10 @@
       <button type="button" @click="handleShow">显示</button>
       <button type="button" @click="handleHide">隐藏</button>
     </div>
-    <div class="box" ref="box">
+    <div :class="['box', theme]" ref="box">
       展示区域
 
-      <v-contextmenu ref="contextmenu">
+      <v-contextmenu ref="contextmenu" :theme="theme">
         <v-contextmenu-item>菜单1</v-contextmenu-item>
         <v-contextmenu-item divider></v-contextmenu-item>
         <v-contextmenu-item>菜单2</v-contextmenu-item>
@@ -20,6 +20,10 @@
 <script>
   export default {
     name: 'CustomerShow',
+
+    props: {
+      theme: String,
+    },
 
     methods: {
       handleShow () {

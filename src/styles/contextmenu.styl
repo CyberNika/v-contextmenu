@@ -1,8 +1,3 @@
-active-color = #ef5350
-border-color = #e8e8e8
-shadow-color = rgba(150, 150, 150, 0.2)
-padding-vertical = 5px
-
 .v-contextmenu
   position: absolute
   padding: padding-vertical 0
@@ -24,7 +19,6 @@ padding-vertical = 5px
     color: #333
 
     &.v-contextmenu-item--hover
-      background-color: active-color
       color: #fff
 
     &.v-contextmenu-item--disabled
@@ -65,3 +59,11 @@ padding-vertical = 5px
 
       &::before
         content: "\e622"
+
+.v-contextmenu--default
+  .v-contextmenu-item--hover
+    background-color: active-color
+
+.v-contextmenu--bright
+  .v-contextmenu-item--hover
+    background-color: active-color-bright
