@@ -12,6 +12,8 @@ $ yarn add v-contextmenu # npm i -S v-contextmenu
 
 https://xbt1.github.io/v-contextmenu
 
+![演示](./docs/example.gif)
+
 ## 使用
 
 一个简单的例子
@@ -33,4 +35,19 @@ import 'v-contextmenu/dist/assets/styles/index.css'
 </template>
 ```
 
-详细使用方法见 [文档]('./docs/usage') & [例子](./examples)
+详细使用方法见 [文档](./docs/usage.md) & [例子](./examples)
+
+## 开发
+
+```bash
+$ yarn install
+$ yanr dev
+```
+
+## 构建
+
+```bash
+$ yarn build:package # 构建 npm 包
+$ yarn build:example # 构建示例站点
+$ yarn build # build:package & build:example
+```

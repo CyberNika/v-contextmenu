@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "Context Menu based on Vue",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "XBT1 <xbtop1@gmail.com>",
   "main": "dist/index.js",
   "files": [
@@ -9,8 +9,9 @@
   ],
   "keywords": [
     "vue",
-    "vue-component",
     "contextmenu",
+    "vue-contextmenu",
+    "vue-component",
     "rightclick"
   ],
   "scripts": {
@@ -18,7 +19,7 @@
     "build": "npm run build:package & npm run build:example",
     "build:package": "node build/index.js",
     "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
-    "ghpages": "node build/gh-pages.js",
+    "ghpages": "npm run build:example && node build/gh-pages.js",
     "pb": "npm run build:package && npm publish"
   },
   "dependencies": {

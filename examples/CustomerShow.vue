@@ -40,7 +40,9 @@
 <style scoped>
   .buttons {
     padding: 5px 10px;
-    background-color: #f2f2f2;
+    border-left: 1px solid #ef5350;
+    border-right: 1px solid #ef5350;
+    background-color: #fff;
   }
 
   .box {

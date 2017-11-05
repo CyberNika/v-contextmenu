@@ -3,6 +3,19 @@
     <v-contextmenu ref="contextmenu" event-type="click">
       <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
+
+      <v-contextmenu-item divider></v-contextmenu-item>
+
+      <v-contextmenu-submenu title="子菜单">
+        <v-contextmenu-item @click="handleClick">菜单4</v-contextmenu-item>
+        <v-contextmenu-item @click="handleClick">菜单5</v-contextmenu-item>
+
+        <v-contextmenu-submenu title="子菜单的子菜单">
+          <v-contextmenu-item @click="handleClick">菜单6</v-contextmenu-item>
+          <v-contextmenu-item @click="handleClick">菜单7</v-contextmenu-item>
+        </v-contextmenu-submenu>
+      </v-contextmenu-submenu>
+
       <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
     </v-contextmenu>
 
