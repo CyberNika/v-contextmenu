@@ -8,25 +8,25 @@
 
 [![NPM][image-npm]][url-npm]
 
-适用于 Vue 2.0 的 ContextMenu 组件。
+ContextMenu component for Vue 2.0.
 
-**中文 | [English](./README_en.md)**
+**English | [中文](./README.md)**
 
-## 安装
+## Installation
 
 ```bash
 $ yarn add v-contextmenu # npm i -S v-contextmenu
 ```
 
-## 在线示例
+## Live Examples
 
 https://xbt1.github.io/v-contextmenu
 
-![演示](./docs/images/example.gif)
+![Live Examples](./docs/images/example.gif)
 
-## 使用
+## Usage
 
-一个简单的例子
+A simple example
 
 ```javascript
 import 'v-contextmenu'
@@ -36,47 +36,47 @@ import 'v-contextmenu/dist/index.css'
 ```html
 <template>
   <v-contextmenu ref="contextmenu">
-    <v-contextmenu-item>菜单1</v-contextmenu-item>
-    <v-contextmenu-item>菜单2</v-contextmenu-item>
-    <v-contextmenu-item>菜单3</v-contextmenu-item>
+    <v-contextmenu-item>Menu Item 1</v-contextmenu-item>
+    <v-contextmenu-item>Menu Item 2</v-contextmenu-item>
+    <v-contextmenu-item>Menu Item 3</v-contextmenu-item>
   </v-contextmenu>
 
-  <div v-contextmenu:contextmenu>右键点击此区域</div>
+  <div v-contextmenu:contextmenu>Right click here</div>
 </template>
 ```
 
-详细使用方法见 [文档](./docs/usage.md) & [例子](./examples)
+See [usage](./docs/usage.md) & [examples](./examples) for more details.
 
-## 主题
+## Theme
 
-提供两种主题，使用方法见 [VContextmenu](./docs/usage.md#vcontextmenu)
+There are two themes，see [VContextmenu](./docs/usage.md#vcontextmenu) for more details.
 
-**默认**
+**Default**
 
 ![default](./docs/images/default.jpg)
 
-**亮色**
+**Bright**
 
 ![bright](./docs/images/bright.jpg)
 
-## 开发
+## Develop
 
 ```bash
 $ yarn install
 $ yarn dev
 ```
 
-## 构建
+## Build
 
 ```bash
-$ yarn build:package # 构建 npm 包
-$ yarn build:example # 构建示例站点
+$ yarn build:package # Build for npm
+$ yarn build:example # Build for site
 $ yarn build # build:package & build:example
 ```
 
-## 更新日志
+## Changelog
 
-详见 [releases][url-releases]
+See [releases][url-releases]
 
 
 [badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg
