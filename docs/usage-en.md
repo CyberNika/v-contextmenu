@@ -26,88 +26,88 @@ and a directive：
 <div v-contextmenu:contextmenu></div>
 ```
 
-## 组件
+## Components
 
 #### `VContextmenu`
 
-根组件
+Base Contextmenu Component
 
 **Attributes**
 
-| 参数        | 说明              | 类型    | 可选值 | 默认值      |
-| ---------- | ----------------- | ------ | ----- | ---------- |
-| eventType  | 触发其显示的事件类型 | String | 事件名 | contextmenu |
-| theme      | 主题              | String | default / bright | default |
+| Attribute  | Description   | Type   | Options    | Default       |
+| ---------- | ------------- | ------ | ---------- | ------------- |
+| eventType  | event to bind | String | any events | contextmenu   |
+| theme      | theme         | String | default / bright | default |
 
 **Methods**
 
-| 方法名称  | 说明             | 参数     |
-| -------- | --------------- | ----------- |
-| show     | 显示菜单 | `{ top: number, left: number }`，`top` 和 `left` 均为菜单相对浏览器窗口的值 |
-| hide     | 隐藏菜单 | -- |
+| Method Name | Description   | Arguments     |
+| ----------- | ------------- | ------------- |
+| show        | show the Menu | `{ top: number, left: number }`，both `top` & `left` are the relative value to browser |
+| hide        | hide the Menu | -- |
 
 **Events**
 
-| 事件名称  | 说明               | 回调参数     |
-| -------- | ----------------- | ----------- |
-| show     | 菜单显示时触发的事件 | 菜单组件的 `vm` |
-| hide     | 菜单隐藏时触发的事件 | 菜单组件的 `vm` |
+| Event Name  | Description                  | Parameters       |
+| ----------- | ---------------------------- | ---------------- |
+| show        | triggers when the Menu shows | `vm` of the Menu |
+| hide        | triggers when the Menu hides | `vm` of the Menu |
 
 #### `VContextmenuItem`
 
-单个菜单，只能在 `VContextmenu` 和 `VContextmenuSubmenu` 下使用
+Component for menu items，only used within `VContextmenu` or `VContextmenuSubmenu`
 
 **Attributes**
 
-| 参数      | 说明        | 类型    | 可选值        | 默认值 |
-| ---------| ---------- | ------- | ------------ | ----- |
-| divider  | 是否为分隔符 | Boolean | true / false | false |
-| disabled | 是否禁用    | Boolean | true / false | false |
+| Attribute  | Description            | Type    | Options      | Default |
+| ---------- | ---------------------- | ------- | ------------ | ------- |
+| divider    | whether a divider menu | Boolean | true / false | false   |
+| disabled   | whether disabled       | Boolean | true / false | false   |
 
 **Events**
 
-| 事件名称  | 说明                | 回调参数     |
-| -------- | ------------------ | ----------- |
-| click    | 菜单被点击时触发的事件 | 第一个参数是 `event`, 第二个参数是该菜单的 `vm` |
+| Event Name | Description        | Parameters     |
+| ---------- | ------------------ | -------------- |
+| click      | triggers when the Menuitem clicked  | the first parameter is `event`, the second is `vm` |
 
 #### `VContextmenuSubmenu`
 
-子菜单，可嵌套使用
+Component for submenus，able to be nested
 
 **Attributes**
 
-| 参数      | 说明     | 类型    | 可选值   | 默认值 |
-| -------- | -------- | ------ | ------- | ----- |
-| title    | 菜单名    | String | --      | --    |
-| disabled | 是否禁用  | Boolean | true / false | false |
+| Attribute | Description      | Type    | Options | Default |
+| --------- | ---------------- | ------- | ------- | ------- |
+| title     | submenu's title  | String  | --      | --      |
+| disabled  | whether disabled | Boolean | true / false | false |
 
 **Slots**
 
-| Slot 名  | 说明                |
-| -------- | ------------------ |
-| title    | 菜单名，和 `title` 属性二选一 |
+| Slot Name | Description                                |
+| --------- | ------------------------------------------ |
+| title     | submenu's title，same as `title` attribute |
 
-## 主题
+## Themes
 
-提供两种主题
+There are two themes as follows:
 
-**默认**
+**Default**
 
 ![default](./images/default.jpg)
 
-**亮色**
+**Bright**
 
 ![bright](./images/bright.jpg)
 
-另外可自行根据 `classname` 进行样式覆盖
+Furthermore, you can cover the default styles using following `classnames`
 
-- `v-contextmenu`: 根元素
-- `v-contextmenu--default`: 根元素-默认主题
-- `v-contextmenu--bright`: 根元素-亮色主题
-- `v-contextmenu-item`: 单个菜单
-- `v-contextmenu-item--hover`: 单个菜单激活状态
-- `v-contextmenu-item--disabled`: 单个菜单禁用状态
-- `v-contextmenu-divider`: 分割线
-- `v-contextmenu-submenu`: 子菜单容器
-- `v-contextmenu-submenu__title`: 子菜单标题
-- `v-contextmenu-submenu__icon`: 子菜单标题 icon
+- `v-contextmenu`: Root element
+- `v-contextmenu--default`: Root element - default theme
+- `v-contextmenu--bright`: Root element - bright theme
+- `v-contextmenu-item`: Menu item
+- `v-contextmenu-item--hover`: Menu item when hover
+- `v-contextmenu-item--disabled`: Menu item when disabled
+- `v-contextmenu-divider`: Menu item with the `divider` attribute
+- `v-contextmenu-submenu`: Submenu's wrapper
+- `v-contextmenu-submenu__title`: Title of submenu
+- `v-contextmenu-submenu__icon`: Icon of submenu
