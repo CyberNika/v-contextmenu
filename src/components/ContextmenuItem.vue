@@ -1,5 +1,8 @@
 <template>
+  <li class="v-contextmenu-divider" v-if="divider"></li>
+
   <li
+    v-else
     :class="classname"
     @click="handleClick"
     @mouseenter="handleMouseenter"
@@ -28,7 +31,6 @@
           'v-contextmenu-item': !this.divider,
           'v-contextmenu-item--hover': this.hover,
           'v-contextmenu-item--disabled': this.disabled,
-          'v-contextmenu-divider': this.divider,
         }
       },
     },

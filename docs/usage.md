@@ -99,7 +99,7 @@
 
 ![bright](./images/bright.jpg)
 
-另外可自行根据 `classname` 进行样式覆盖
+另外可自行根据 `classnames` 进行样式覆盖
 
 - `v-contextmenu`: 根元素
 - `v-contextmenu--default`: 根元素-默认主题
