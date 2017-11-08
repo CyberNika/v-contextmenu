@@ -47,19 +47,23 @@
       },
     },
 
+    watch: {
+      visible (value) {
+        if (value) {
+          document.body.addEventListener('click', this.handleBodyClick)
+        } else {
+          document.body.removeEventListener('click', this.handleBodyClick)
+        }
+      },
+    },
     mounted () {
-      const reference = this.$refs.reference
-
       document.body.appendChild(this.$el)
-      reference && reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
-      reference && document.body.addEventListener('click', this.handleBodyClick)
+      this.$refs.reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
     },
     destroyed () {
-      const reference = this.$refs.reference
-
       document.body.removeChild(this.$el)
-      reference && reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
-      reference && document.body.removeEventListener('click', this.handleBodyClick)
+      this.$refs.reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+      document.body.removeEventListener('click', this.handleBodyClick)
     },
 
     methods: {
