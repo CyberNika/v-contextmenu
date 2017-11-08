@@ -45,11 +45,11 @@ import 'v-contextmenu/dist/index.css'
 </template>
 ```
 
-See [usage](./docs/usage.md) & [examples](./examples) for more details.
+See [usage](./docs/usage-en.md) & [examples](./examples) for more details.
 
 ## Theme
 
-There are two themes，see [VContextmenu](./docs/usage.md#vcontextmenu) for more details.
+There are two themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for more details.
 
 **Default**
 
