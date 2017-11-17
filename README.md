@@ -29,8 +29,10 @@ https://xbt1.github.io/v-contextmenu
 一个简单的例子
 
 ```javascript
-import 'v-contextmenu'
+import contentmenu from 'v-contextmenu'
 import 'v-contextmenu/dist/index.css'
+
+Vue.use(contentmenu)
 ```
 
 ```html

@@ -6,10 +6,16 @@ import Contextmenu from './components/Contextmenu.vue'
 import ContextmenuItem from './components/ContextmenuItem.vue'
 import ContextmenuSubmenu from './components/ContextmenuSubmenu.vue'
 
-Vue.directive('contextmenu', directive)
+export { Contextmenu }
+export { ContextmenuItem }
+export { ContextmenuSubmenu }
 
-Vue.component(Contextmenu.name, Contextmenu)
-Vue.component(ContextmenuItem.name, ContextmenuItem)
-Vue.component(ContextmenuSubmenu.name, ContextmenuSubmenu)
+export default {
+  install (Vue) {
+    Vue.directive('contextmenu', directive)
 
-export default Contextmenu
+    Vue.component(Contextmenu.name, Contextmenu)
+    Vue.component(ContextmenuItem.name, ContextmenuItem)
+    Vue.component(ContextmenuSubmenu.name, ContextmenuSubmenu)
+  },
+}
