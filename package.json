@@ -1,10 +1,11 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "XBT1 <xbtop1@gmail.com>",
-  "main": "dist/index.js",
+  "main": "dist/index.common.js",
   "files": [
+    "src",
     "dist"
   ],
   "keywords": [
@@ -17,7 +18,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --content-base examples/ --open --hot",
     "build": "npm run build:package & npm run build:example",
-    "build:package": "node build/index.js",
+    "build:package": "rm -fr dist && rollup -c && stylus src/styles/index.styl --out dist",
     "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
     "ghpages": "npm run build:example && node build/gh-pages.js",
     "pb": "npm run build:package && npm publish"
@@ -34,6 +35,9 @@
     "file-loader": "^1.1.4",
     "fs-extra": "^4.0.2",
     "gh-pages": "^1.0.0",
+    "rollup": "^0.51.7",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-vue": "^2.5.2",
     "style-loader": "^0.19.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",

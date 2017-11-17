@@ -11,5 +11,3 @@ Vue.directive('contextmenu', directive)
 Vue.component(Contextmenu.name, Contextmenu)
 Vue.component(ContextmenuItem.name, ContextmenuItem)
 Vue.component(ContextmenuSubmenu.name, ContextmenuSubmenu)
-
-export default Contextmenu
