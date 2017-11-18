@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 import directive from './directive'
 
 import Contextmenu from './components/Contextmenu.vue'

@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import contentmenu from '../src'
+import contextmenu from '../src'
 import '../src/styles/index.styl'
 
-Vue.use(contentmenu)
+// import contextmenu from 'v-contextmenu'
+// import 'v-contextmenu/dist/index.css'
+
+Vue.use(contextmenu)
 
 new Vue({
   el: '#app',
