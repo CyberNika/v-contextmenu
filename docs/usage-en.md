@@ -68,7 +68,9 @@ Component for menu items，only used within `VContextmenu` or `VContextmenuSubme
 
 | Event Name | Description        | Parameters     |
 | ---------- | ------------------ | -------------- |
-| click      | triggers when the Menuitem clicked  | the first parameter is `event`, the second is `vm` |
+| click      | triggers when the Menuitem clicked  | the first parameter is `vm`, the second is `event` |
+| mouseenter | triggers when mouse enter the Menuitem | the first parameter is `vm`, the second is `event` |
+| mouseleave | triggers when mouse leave the Menuitem | the first parameter is `vm`, the second is `event` |
 
 #### `VContextmenuSubmenu`
 
@@ -80,6 +82,13 @@ Component for submenus，able to be nested
 | --------- | ---------------- | ------- | ------- | ------- |
 | title     | submenu's title  | String  | --      | --      |
 | disabled  | whether disabled | Boolean | true / false | false |
+
+**Events**
+
+| Event Name | Description        | Parameters     |
+| ---------- | ------------------ | -------------- |
+| mouseenter | triggers when mouse enter the Menuitem | the first parameter is `vm`, the second is `event` |
+| mouseleave | triggers when mouse leave the Menuitem | the first parameter is `vm`, the second is `event` |
 
 **Slots**
 

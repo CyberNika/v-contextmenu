@@ -40,17 +40,21 @@
         if (this.disabled) return
 
         this.hover = true
+
+        this.$emit('mouseenter', this, event)
       },
       handleMouseleave (event) {
         if (this.disabled) return
 
         this.hover = false
+
+        this.$emit('mouseleave', this, event)
       },
 
       handleClick (event) {
         if (this.disabled) return
 
-        this.$emit('click', event, this)
+        this.$emit('click', this, event)
       },
     },
   }

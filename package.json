@@ -21,7 +21,8 @@
     "build:package": "rm -fr dist && rollup -c && stylus src/styles/index.styl --out dist",
     "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
     "ghpages": "npm run build:example && node build/gh-pages.js",
-    "pb": "npm run build:package && npm publish"
+    "pb": "npm run build:package && npm publish",
+    "pb:next": "npm run build:package && npm publish --tag=next"
   },
   "dependencies": {
     "vue": "^2.4.4"

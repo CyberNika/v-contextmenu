@@ -6,7 +6,7 @@
 
       <v-contextmenu-item divider></v-contextmenu-item>
 
-      <v-contextmenu-submenu title="子菜单">
+      <v-contextmenu-submenu @submenu-show="handleSubmenuShow" title="子菜单">
         <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
 
         <v-contextmenu-item divider></v-contextmenu-item>
@@ -34,8 +34,11 @@
     },
 
     methods: {
-      handleClick (event, vm) {
-        console.log(event, vm)
+      handleClick (vm, event) {
+        console.log(vm, event)
+      },
+      handleSubmenuShow (vm, placement) {
+        console.log(vm, placement)
       },
     },
   }
