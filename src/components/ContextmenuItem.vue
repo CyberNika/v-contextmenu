@@ -15,9 +15,15 @@
   export default {
     name: 'VContextmenuItem',
 
+    inject: ['$$contextmenu'],
+
     props: {
       divider: Boolean,
       disabled: Boolean,
+      autoHide: {
+        type: Boolean,
+        default: true,
+      },
     },
 
     data () {
@@ -40,17 +46,23 @@
         if (this.disabled) return
 
         this.hover = true
+
+        this.$emit('mouseenter', this, event)
       },
       handleMouseleave (event) {
         if (this.disabled) return
 
         this.hover = false
+
+        this.$emit('mouseleave', this, event)
       },
 
       handleClick (event) {
         if (this.disabled) return
 
-        this.$emit('click', event, this)
+        this.$emit('click', this, event)
+
+        this.autoHide && this.$$contextmenu.hide()
       },
     },
   }

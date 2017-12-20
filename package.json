@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "author": "XBT1 <xbtop1@gmail.com>",
   "main": "dist/index.common.js",
   "files": [
@@ -21,10 +21,11 @@
     "build:package": "rm -fr dist && rollup -c && stylus src/styles/index.styl --out dist",
     "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
     "ghpages": "npm run build:example && node build/gh-pages.js",
-    "pb": "npm run build:package && npm publish"
+    "pb": "npm run build:package && npm publish",
+    "pb:next": "npm run build:package && npm publish --tag=next"
   },
   "dependencies": {
-    "vue": "^2.4.4"
+    "vue": "^2.5.13"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -32,20 +33,20 @@
     "babel-preset-env": "^1.6.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
-    "file-loader": "^1.1.4",
-    "fs-extra": "^4.0.2",
-    "gh-pages": "^1.0.0",
-    "rollup": "^0.51.7",
+    "file-loader": "^1.1.6",
+    "fs-extra": "^5.0.0",
+    "gh-pages": "^1.1.0",
+    "rollup": "^0.52.3",
     "rollup-plugin-copy": "^0.2.3",
-    "rollup-plugin-vue": "^2.5.2",
-    "style-loader": "^0.19.0",
+    "rollup-plugin-vue": "^3.0.0",
+    "style-loader": "^0.19.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "url-loader": "^0.6.2",
-    "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "vue-loader": "^13.6.0",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   },
   "license": "MIT",
   "repository": {
