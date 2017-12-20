@@ -7,6 +7,7 @@ All components as follows：
 - `VContextmenu`
 - `VContextmenuItem`
 - `VContextmenuSubmenu`
+- `VContextmenuGroup`
 
 and a directive：
 
@@ -55,7 +56,7 @@ Base Contextmenu Component
 
 #### `VContextmenuItem`
 
-Component for menu items，only used within `VContextmenu` or `VContextmenuSubmenu`
+Component for menu items，only used within `VContextmenu`, `VContextmenuGroup` or `VContextmenuSubmenu`
 
 **Attributes**
 
@@ -63,6 +64,7 @@ Component for menu items，only used within `VContextmenu` or `VContextmenuSubme
 | ---------- | ---------------------- | ------- | ------------ | ------- |
 | divider    | whether a divider menu | Boolean | true / false | false   |
 | disabled   | whether disabled       | Boolean | true / false | false   |
+| autoHide   | whether hide menu when clicked   | Boolean | true / false | true   |
 
 **Events**
 
@@ -96,6 +98,16 @@ Component for submenus，able to be nested
 | --------- | ------------------------------------------ |
 | title     | submenu's title，same as `title` attribute |
 
+#### `VContextmenuGroup`
+
+Component for menu group, `VContextmenuItem` can be nested
+
+**Attributes**
+
+| Attribute | Description | Type            | Options | Default |
+| --------- | ----------- | --------------- | ------- | ----- |
+| maxWidth  | max width   | Number / String | --      | --    |
+
 ## Themes
 
 There are two themes as follows:
@@ -117,6 +129,8 @@ Furthermore, you can cover the default styles using following `classnames`
 - `v-contextmenu-item--hover`: Menu item when hover
 - `v-contextmenu-item--disabled`: Menu item when disabled
 - `v-contextmenu-divider`: Menu item with the `divider` attribute
+- `v-contextmenu-group`: MenuGroup's root element
+- `v-contextmenu-group__menus`: Menus' wrapper of MenuGroup
 - `v-contextmenu-submenu`: Submenu's wrapper
 - `v-contextmenu-submenu__title`: Title of submenu
 - `v-contextmenu-submenu__icon`: Icon of submenu

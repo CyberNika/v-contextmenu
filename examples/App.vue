@@ -52,6 +52,7 @@
   import Simple from './Simple.vue'
   import Submenu from './Submenu.vue'
   import Divider from './Divider.vue'
+  import Group from './Group.vue'
   import Disabled from './Disabled.vue'
   import CustomerShow from './CustomerShow.vue'
   import CustomerEvent from './CustomerEvent.vue'
@@ -62,6 +63,7 @@
     components: {
       Simple,
       Submenu,
+      Group,
       Divider,
       Disabled,
       CustomerShow,
@@ -85,6 +87,9 @@
         }, {
           id: 'divider',
           label: '分割线',
+        }, {
+          id: 'group',
+          label: '按钮组',
         }, {
           id: 'submenu',
           label: '子菜单',
@@ -197,6 +202,14 @@
   main-color = #46a0fc
   main-color-bright = #ef5350
 
+  @font-face
+    font-family: "feather"
+    src: url("https://at-ui.github.io/at-ui/static/fonts/feather.eot")
+    src: url("https://at-ui.github.io/at-ui/static/fonts/feather.eot#iefix") format("embedded-opentype"),
+        url("https://at-ui.github.io/at-ui/static/fonts/feather.ttf") format("truetype"),
+        url("https://at-ui.github.io/at-ui/static/fonts/feather.woff") format("woff"),
+        url("https://at-ui.github.io/at-ui/static/fonts/feather.svg#feather") format("svg")
+
   html
     height: 100%
 
@@ -225,4 +238,19 @@
 
     & + .box
       border-top: none
+
+  .iconfont
+    display: inline-block
+    font-family: "feather" !important
+    font-size: inherit
+    font-weight: normal
+    text-rendering: auto
+
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+  .icon-github:before { content: "\e87b" }
+  .icon-thumbs-up:before { content: "\e8d6" }
+  .icon-search:before { content: "\e8bd" }
+  .icon-star:before { content: "\e8cd" }
 </style>

@@ -15,9 +15,15 @@
   export default {
     name: 'VContextmenuItem',
 
+    inject: ['$$contextmenu'],
+
     props: {
       divider: Boolean,
       disabled: Boolean,
+      autoHide: {
+        type: Boolean,
+        default: true,
+      },
     },
 
     data () {
@@ -55,6 +61,8 @@
         if (this.disabled) return
 
         this.$emit('click', this, event)
+
+        this.autoHide && this.$$contextmenu.hide()
       },
     },
   }
