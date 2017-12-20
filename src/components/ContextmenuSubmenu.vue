@@ -59,6 +59,8 @@
 
         this.hover = true
 
+        this.$emit('mouseenter', this, event)
+
         this.$nextTick(() => {
           const submenuWidth = this.$refs.submenu.clientWidth
           const submenuHeight = this.$refs.submenu.clientHeight
@@ -79,10 +81,12 @@
           this.submenuPlacement = submenuPlacement
         })
       },
-      handleMouseleave () {
+      handleMouseleave (event) {
         if (this.disabled) return
 
         this.hover = false
+
+        this.$emit('mouseleave', this, event)
       },
     },
   }

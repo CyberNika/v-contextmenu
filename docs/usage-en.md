@@ -4,13 +4,14 @@
 
 All components as follows：
 
-- `VContextmenu`
-- `VContextmenuItem`
-- `VContextmenuSubmenu`
+- [`VContextmenu`](#vcontextmenu)
+- [`VContextmenuItem`](#vcontextmenuitem)
+- [`VContextmenuSubmenu`](#vcontextmenusubmenu)
+- [`VContextmenuGroup`](#vcontextmenugroup)
 
 and a directive：
 
-- `v-contextmenu`
+- [`v-contextmenu`](#v-contextmenuref)
 
 ## Directive：
 
@@ -55,7 +56,7 @@ Base Contextmenu Component
 
 #### `VContextmenuItem`
 
-Component for menu items，only used within `VContextmenu` or `VContextmenuSubmenu`
+Component for menu items，only used within `VContextmenu`, `VContextmenuGroup` or `VContextmenuSubmenu`
 
 **Attributes**
 
@@ -63,12 +64,15 @@ Component for menu items，only used within `VContextmenu` or `VContextmenuSubme
 | ---------- | ---------------------- | ------- | ------------ | ------- |
 | divider    | whether a divider menu | Boolean | true / false | false   |
 | disabled   | whether disabled       | Boolean | true / false | false   |
+| autoHide   | whether hide menu when clicked   | Boolean | true / false | true   |
 
 **Events**
 
 | Event Name | Description        | Parameters     |
 | ---------- | ------------------ | -------------- |
-| click      | triggers when the Menuitem clicked  | the first parameter is `event`, the second is `vm` |
+| click      | triggers when the Menuitem clicked  | the first parameter is `vm`, the second is `event` |
+| mouseenter | triggers when mouse enter the Menuitem | the first parameter is `vm`, the second is `event` |
+| mouseleave | triggers when mouse leave the Menuitem | the first parameter is `vm`, the second is `event` |
 
 #### `VContextmenuSubmenu`
 
@@ -81,11 +85,28 @@ Component for submenus，able to be nested
 | title     | submenu's title  | String  | --      | --      |
 | disabled  | whether disabled | Boolean | true / false | false |
 
+**Events**
+
+| Event Name | Description        | Parameters     |
+| ---------- | ------------------ | -------------- |
+| mouseenter | triggers when mouse enter the Menuitem | the first parameter is `vm`, the second is `event` |
+| mouseleave | triggers when mouse leave the Menuitem | the first parameter is `vm`, the second is `event` |
+
 **Slots**
 
 | Slot Name | Description                                |
 | --------- | ------------------------------------------ |
 | title     | submenu's title，same as `title` attribute |
+
+#### `VContextmenuGroup`
+
+Component for menu group, `VContextmenuItem` can be nested
+
+**Attributes**
+
+| Attribute | Description | Type            | Options | Default |
+| --------- | ----------- | --------------- | ------- | ----- |
+| maxWidth  | max width   | Number / String | --      | --    |
 
 ## Themes
 
@@ -108,6 +129,8 @@ Furthermore, you can cover the default styles using following `classnames`
 - `v-contextmenu-item--hover`: Menu item when hover
 - `v-contextmenu-item--disabled`: Menu item when disabled
 - `v-contextmenu-divider`: Menu item with the `divider` attribute
+- `v-contextmenu-group`: MenuGroup's root element
+- `v-contextmenu-group__menus`: Menus' wrapper of MenuGroup
 - `v-contextmenu-submenu`: Submenu's wrapper
 - `v-contextmenu-submenu__title`: Title of submenu
 - `v-contextmenu-submenu__icon`: Icon of submenu

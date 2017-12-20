@@ -34,8 +34,8 @@
     },
 
     methods: {
-      handleClick (event, vm) {
-        console.log(event, vm)
+      handleClick (vm, event) {
+        console.log(vm, event)
       },
     },
   }
