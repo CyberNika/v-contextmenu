@@ -12,6 +12,12 @@
   export default {
     name: 'VContextmenu',
 
+    provide() {
+      return {
+        $$contextmenu: this,
+      }
+    },
+
     props: {
       eventType: {
         type: String,
@@ -58,11 +64,18 @@
     },
     mounted () {
       document.body.appendChild(this.$el)
-      this.$refs.reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
+
+      if (this.$refs.reference) {
+        this.$refs.reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
+      }
     },
     destroyed () {
       document.body.removeChild(this.$el)
-      this.$refs.reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+
+      if (this.$refs.reference) {
+        this.$refs.reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+      }
+
       document.body.removeEventListener('click', this.handleBodyClick)
     },
 
@@ -123,4 +136,4 @@
       },
     },
   }
-</script>
+</script>]

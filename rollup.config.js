@@ -6,8 +6,8 @@ export default {
   output: {
     file: 'dist/index.common.js',
     format: 'cjs',
+    exports: 'named',
   },
-  external: [ 'vue' ],
   plugins: [
     vue(),
     copy({

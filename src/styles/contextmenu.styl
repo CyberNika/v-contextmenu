@@ -14,7 +14,7 @@
   -webkit-tap-highlight-color: transparent
 
   .v-contextmenu-item
-    padding: padding-vertical 14px
+    padding: padding-vertical contextmenu-item-padding-horizonal
     line-height: 1
     color: #333
 
@@ -29,6 +29,15 @@
     height: 0
     margin: padding-vertical 0
     border-bottom: 1px solid border-color
+
+  .v-contextmenu-group__menus
+    padding: 0 5px
+    margin: 0
+    list-style: none
+
+    .v-contextmenu-item
+      display: inline-block
+      padding: padding-vertical (contextmenu-item-padding-horizonal - 5)
 
   .v-contextmenu-submenu
     position: relative
