@@ -18,11 +18,11 @@
 $ yarn add v-contextmenu # npm i -S v-contextmenu
 ```
 
-## 在线示例
+## 概览
 
-https://xbt1.github.io/v-contextmenu
+![概览](./docs/images/gallery.jpg)
 
-![演示](./docs/images/example.gif)
+[访问在线示例](https://xbt1.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
 
 ## 使用
 

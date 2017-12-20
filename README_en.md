@@ -18,11 +18,11 @@ ContextMenu component for Vue 2.0.
 $ yarn add v-contextmenu # npm i -S v-contextmenu
 ```
 
-## Live Examples
+## Gallery
 
-https://xbt1.github.io/v-contextmenu
+![gallery](./docs/images/gallery.jpg)
 
-![Live Examples](./docs/images/example.gif)
+[Go online examples](https://xbt1.github.io/v-contextmenu) or [see online examples' GIF](./docs/images/example.gif)
 
 ## Usage
 

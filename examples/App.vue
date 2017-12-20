@@ -216,7 +216,6 @@
   body
     height: 100%
     color: #333
-    /*font-weight: lighter*/
     font-size: 16px
     line-height: 1.5
 
