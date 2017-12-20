@@ -21,7 +21,7 @@
     },
 
     methods: {
-      handleClick (event, vm) {
+      handleClick (vm, event) {
         alert(`「${vm.$slots.default[0].text}」被点击啦！`)
       },
     },
