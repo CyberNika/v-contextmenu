@@ -1,6 +1,6 @@
 <template>
   <div class="example">
-    <div class="buttons">
+    <div :class="['buttons', theme]">
       <button type="button" @click="handleShow">显示</button>
       <button type="button" @click="handleHide">隐藏</button>
     </div>
@@ -41,18 +41,22 @@
   }
 </script>
 
-<style scoped>
-  .buttons {
-    padding: 5px 10px;
-    border-left: 1px solid #ef5350;
-    border-right: 1px solid #ef5350;
-    background-color: #fff;
-  }
+<style lang="stylus" scoped>
+  main-color = #46a0fc
+  main-color-bright = #ef5350
 
-  .box {
-    position: relative;
-    width: 100%;
-    height: 120px;
-    line-height: 120px;
-  }
+  .buttons
+    padding: 5px 10px
+    border-left: 1px solid main-color
+    border-right: 1px solid main-color
+    background-color: #fff
+
+    &.bright
+      border-color: main-color-bright
+
+  .box
+    position: relative
+    width: 100%
+    height: 120px
+    line-height: 120px
 </style>
