@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    name: 'CustomerShow',
+    name: 'CustomShow',
 
     props: {
       theme: String,
