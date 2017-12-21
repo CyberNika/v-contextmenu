@@ -43,7 +43,10 @@
       <div :class="['example-title', theme]">
         「{{ exampleTitle }}」示例
       </div>
+
       <component :is="currentExample" :theme="theme"></component>
+
+      <p>查看源码：<a :href="currentExampleSourceUrl" target="_blank">{{ currentExampleFileName }}</a></p>
     </main>
   </div>
 </template>
@@ -54,8 +57,38 @@
   import Divider from './Divider.vue'
   import Group from './Group.vue'
   import Disabled from './Disabled.vue'
-  import CustomerShow from './CustomerShow.vue'
-  import CustomerEvent from './CustomerEvent.vue'
+  import CustomShow from './CustomShow.vue'
+  import CustomTrigger from './CustomTrigger.vue'
+
+  const EXAMPLE_LIST = [{
+    id: 'Simple',
+    label: '基础菜单',
+    source: '',
+  }, {
+    id: 'Divider',
+    label: '分割线',
+    source: '',
+  }, {
+    id: 'Group',
+    label: '按钮组',
+    source: '',
+  }, {
+    id: 'Submenu',
+    label: '子菜单',
+    source: '',
+  }, {
+    id: 'Disabled',
+    label: '禁用',
+    source: '',
+  }, {
+    id: 'CustomTrigger',
+    label: '自定义事件',
+    source: '',
+  }, {
+    id: 'CustomShow',
+    label: '手动显示',
+    source: '',
+  }]
 
   export default {
     name: 'app',
@@ -66,44 +99,31 @@
       Group,
       Divider,
       Disabled,
-      CustomerShow,
-      CustomerEvent,
-    },
-
-    computed: {
-      exampleTitle () {
-        return this.examples.find(item => item.id === this.currentExample).label
-      },
+      CustomShow,
+      CustomTrigger,
     },
 
     data () {
       return {
-        currentExample: window.location.hash.slice(1) || 'simple',
+        currentExample: window.location.hash.slice(1) || EXAMPLE_LIST[0].id,
         theme: 'default',
 
-        examples: [{
-          id: 'simple',
-          label: '基础菜单',
-        }, {
-          id: 'divider',
-          label: '分割线',
-        }, {
-          id: 'group',
-          label: '按钮组',
-        }, {
-          id: 'submenu',
-          label: '子菜单',
-        }, {
-          id: 'disabled',
-          label: '禁用',
-        }, {
-          id: 'customerEvent',
-          label: '自定义事件',
-        }, {
-          id: 'customerShow',
-          label: '手动显示',
-        }],
+        examples: EXAMPLE_LIST,
       }
+    },
+    computed: {
+      exampleTitle () {
+        return this.examples.find(item => item.id === this.currentExample).label
+      },
+      currentExampleFileName () {
+        return `${this.currentExample}.vue`
+      },
+      currentExampleSourceUrl () {
+        const baseUrl = 'https://github.com/XBT1/v-contextmenu/blob/master/examples'
+        const fileName = this.currentExampleFileName
+
+        return `${baseUrl}/${fileName}`
+      },
     },
 
     methods: {
