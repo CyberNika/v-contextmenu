@@ -48,7 +48,7 @@
 
 <script>
   export default {
-    name: 'CustomerEvent',
+    name: 'CustomTrigger',
 
     props: {
       theme: String,
