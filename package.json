@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "XBT1 <xbtop1@gmail.com>",
   "main": "dist/index.common.js",
   "files": [
@@ -26,7 +26,7 @@
     "ghpages": "npm run build:example && node build/gh-pages.js"
   },
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
