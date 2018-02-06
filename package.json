@@ -16,23 +16,29 @@
     "rightclick"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --content-base examples/ --open --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --content-base examples/ --hot",
     "build": "npm run build:package & npm run build:example",
     "build:package": "rm -fr dist && rollup -c && stylus src/styles/index.styl --out dist",
     "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
-    "ghpages": "npm run build:example && node build/gh-pages.js",
-    "pb": "npm run build:package && npm publish",
-    "pb:next": "npm run build:package && npm publish --tag=next"
+    "prepublishOnly": "npm run lint && npm run build:package",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --ext .js,.vue src --fix",
+    "ghpages": "npm run build:example && node build/gh-pages.js"
   },
   "dependencies": {
     "vue": "^2.5.13"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.8.0",
     "file-loader": "^1.1.6",
     "fs-extra": "^5.0.0",
     "gh-pages": "^1.1.0",
