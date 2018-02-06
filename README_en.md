@@ -49,6 +49,8 @@ Vue.use(contentmenu)
 
 See [usage](./docs/usage-en.md) & [examples](./examples) for more details.
 
+> See [Stoneless](./examples/Stoneless.vue) to manually import.
+
 ## Theme
 
 There are two themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for more details.
