@@ -59,6 +59,7 @@
   import Disabled from './Disabled.vue'
   import CustomShow from './CustomShow.vue'
   import CustomTrigger from './CustomTrigger.vue'
+  import Stoneless from './Stoneless.vue'
 
   const EXAMPLE_LIST = [{
     id: 'Simple',
@@ -88,6 +89,10 @@
     id: 'CustomShow',
     label: '手动显示',
     source: '',
+  }, {
+    id: 'Stoneless',
+    label: '单独引入',
+    source: '',
   }]
 
   export default {
@@ -101,6 +106,7 @@
       Disabled,
       CustomShow,
       CustomTrigger,
+      Stoneless,
     },
 
     data () {
