@@ -25,25 +25,31 @@
 <script>
   import {
     directive,
+
     Contextmenu,
     ContextmenuItem,
     ContextmenuSubmenu,
     ContextmenuGroup,
   } from '../src'
+
   export default {
     name: 'Stoneless',
+
     directives: {
       contextmenu: directive,
     },
+
     components: {
       Contextmenu,
       ContextmenuItem,
       ContextmenuSubmenu,
       ContextmenuGroup,
     },
+
     props: {
       theme: String,
     },
+
     methods: {},
   }
 </script>
