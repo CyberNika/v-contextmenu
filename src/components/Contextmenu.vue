@@ -12,7 +12,7 @@
   export default {
     name: 'VContextmenu',
 
-    provide() {
+    provide () {
       return {
         $$contextmenu: this,
       }
