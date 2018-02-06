@@ -49,6 +49,8 @@ Vue.use(contentmenu)
 
 详细使用方法见 [文档](./docs/usage.md) & [例子](./examples)
 
+> 如果你需要单独引入组件使用，请查看[单独引用](./examples/Stoneless.vue)
+
 ## 主题
 
 提供两种主题，使用方法见 [VContextmenu](./docs/usage.md#vcontextmenu)
