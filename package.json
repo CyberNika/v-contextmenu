@@ -19,7 +19,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config examples/webpack.config.js --content-base examples/ --hot",
     "build": "npm run build:package & npm run build:example",
     "build:package": "rm -fr dist && rollup -c && stylus src/styles/index.styl --out dist",
-    "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --progress --hide-modules && cp examples/index.html sites",
+    "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --config examples/webpack.config.js --progress --hide-modules && cp examples/index.html sites",
     "prepublishOnly": "npm run lint && npm run build:package",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix",
