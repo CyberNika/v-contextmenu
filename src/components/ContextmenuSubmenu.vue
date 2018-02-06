@@ -54,7 +54,7 @@
       handleMouseenter (event) {
         if (this.disabled) return
 
-        const target = event.target
+        const { target } = event
         const targetDimension = target.getBoundingClientRect()
 
         this.hover = true
