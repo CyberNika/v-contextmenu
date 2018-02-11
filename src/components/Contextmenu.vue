@@ -65,12 +65,20 @@
     mounted () {
       document.body.appendChild(this.$el)
 
+      if (window.$$VContextmenu) {
+        window.$$VContextmenu[this.$contextmenuId] = this
+      } else {
+        window.$$VContextmenu = { [this.$contextmenuId]: this }
+      }
+
       if (this.$refs.reference) {
         this.$refs.reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
       }
     },
     destroyed () {
       document.body.removeChild(this.$el)
+
+      delete window.$$VContextmenu[this.$contextmenuId]
 
       if (this.$refs.reference) {
         this.$refs.reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
@@ -120,6 +128,12 @@
         }
       },
       show (position) {
+        Object.keys(window.$$VContextmenu).forEach(key => {
+          if (key !== this.$contextmenuId) {
+            window.$$VContextmenu[key].hide()
+          }
+        })
+
         if (position) {
           this.style = {
             top: `${position.top}px`,
