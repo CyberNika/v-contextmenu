@@ -57,6 +57,7 @@
   import Divider from './Divider.vue'
   import Group from './Group.vue'
   import Disabled from './Disabled.vue'
+  import Multiple from './Multiple.vue'
   import CustomShow from './CustomShow.vue'
   import CustomTrigger from './CustomTrigger.vue'
   import Stoneless from './Stoneless.vue'
@@ -82,6 +83,10 @@
     label: '禁用',
     source: '',
   }, {
+    id: 'Multiple',
+    label: '多个',
+    source: '',
+  }, {
     id: 'CustomTrigger',
     label: '自定义事件',
     source: '',
@@ -104,6 +109,7 @@
       Group,
       Divider,
       Disabled,
+      Multiple,
       CustomShow,
       CustomTrigger,
       Stoneless,
