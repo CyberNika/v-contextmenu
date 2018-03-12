@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": "XBT1 <xbtop1@gmail.com>",
   "main": "dist/index.common.js",
   "files": [

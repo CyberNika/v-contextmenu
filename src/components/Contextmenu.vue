@@ -71,18 +71,18 @@
         window.$$VContextmenu = { [this.$contextmenuId]: this }
       }
 
-      if (this.$refs.reference) {
-        this.$refs.reference.addEventListener(this.eventType, this.handleReferenceContextmenu)
-      }
+      this.$refs.reference && this.$refs.reference.forEach((ref) => {
+        ref.addEventListener(this.eventType, this.handleReferenceContextmenu)
+      })
     },
-    destroyed () {
+    beforeDestroy () {
       document.body.removeChild(this.$el)
 
       delete window.$$VContextmenu[this.$contextmenuId]
 
-      if (this.$refs.reference) {
-        this.$refs.reference.removeEventListener(this.eventType, this.handleReferenceContextmenu)
-      }
+      this.$refs.reference && this.$refs.reference.forEach((ref) => {
+        ref.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+      })
 
       document.body.removeEventListener('click', this.handleBodyClick)
     },
@@ -120,7 +120,7 @@
       },
       handleBodyClick (event) {
         const notOutside = this.$el.contains(event.target) || (
-          this.isClick && this.$refs.reference.contains(event.target)
+          this.isClick && this.$refs.reference.some(ref => ref.contains(event.target))
         )
 
         if (!notOutside) {
@@ -128,11 +128,12 @@
         }
       },
       show (position) {
-        Object.keys(window.$$VContextmenu).forEach(key => {
-          if (key !== this.$contextmenuId) {
-            window.$$VContextmenu[key].hide()
-          }
-        })
+        Object.keys(window.$$VContextmenu)
+          .forEach((key) => {
+            if (key !== this.$contextmenuId) {
+              window.$$VContextmenu[key].hide()
+            }
+          })
 
         if (position) {
           this.style = {
@@ -147,6 +148,12 @@
       hide () {
         this.visible = false
         this.$emit('hide', this)
+      },
+      hideAll () {
+        Object.keys(window.$$VContextmenu)
+          .forEach((key) => {
+            window.$$VContextmenu[key].hide()
+          })
       },
     },
   }
