@@ -57,6 +57,7 @@
   import Divider from './Divider.vue'
   import Group from './Group.vue'
   import Disabled from './Disabled.vue'
+  import Dynamic from './Dynamic.vue'
   import Multiple from './Multiple.vue'
   import CustomShow from './CustomShow.vue'
   import CustomTrigger from './CustomTrigger.vue'
@@ -81,6 +82,10 @@
   }, {
     id: 'Disabled',
     label: '禁用',
+    source: '',
+  }, {
+    id: 'Dynamic',
+    label: '动态菜单',
     source: '',
   }, {
     id: 'Multiple',
@@ -109,6 +114,7 @@
       Group,
       Divider,
       Disabled,
+      Dynamic,
       Multiple,
       CustomShow,
       CustomTrigger,
