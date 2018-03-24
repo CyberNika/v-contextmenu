@@ -9,7 +9,8 @@ import '../src/styles/index.styl'
 
 Vue.use(contextmenu)
 
+// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
 })

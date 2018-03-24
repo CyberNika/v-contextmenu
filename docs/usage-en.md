@@ -39,13 +39,15 @@ Base Contextmenu Component
 | ---------- | ------------- | ------ | ---------- | ------------- |
 | eventType  | event to bind | String | any events | contextmenu   |
 | theme      | theme         | String | default / bright | default |
+| autoPlacement  | whether change placement automatically when the Menu is outside of Window | Boolean | true / false | true |
 
 **Methods**
 
-| Method Name | Description   | Arguments     |
-| ----------- | ------------- | ------------- |
-| show        | show the Menu | `{ top: number, left: number }`，both `top` & `left` are the relative value to browser |
-| hide        | hide the Menu | -- |
+| Method Name | Description    | Arguments     |
+| ----------- | -------------- | ------------- |
+| show        | show the Menu  | `{ top: number, left: number }`，both `top` & `left` are the relative value to browser |
+| hide        | hide the Menu  | -- |
+| hideAll     | hide all Menus | -- |
 
 **Events**
 

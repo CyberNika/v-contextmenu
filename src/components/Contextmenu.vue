@@ -27,6 +27,10 @@
         type: String,
         default: 'default',
       },
+      autoPlacement: {
+        type: Boolean,
+        default: true,
+      },
     },
 
     data () {
@@ -97,19 +101,22 @@
         this.show()
 
         this.$nextTick(() => {
-          const contextmenuWidth = this.$refs.contextmenu.clientWidth
-          const contextmenuHeight = this.$refs.contextmenu.clientHeight
           const contextmenuPosition = {
             top: eventY,
             left: eventX,
           }
 
-          if (contextmenuHeight + eventY >= window.innerHeight) {
-            contextmenuPosition.top -= contextmenuHeight
-          }
+          if (this.autoPlacement) {
+            const contextmenuWidth = this.$refs.contextmenu.clientWidth
+            const contextmenuHeight = this.$refs.contextmenu.clientHeight
 
-          if (contextmenuWidth + eventX >= window.innerWidth) {
-            contextmenuPosition.left -= contextmenuWidth
+            if (contextmenuHeight + eventY >= window.innerHeight) {
+              contextmenuPosition.top -= contextmenuHeight
+            }
+
+            if (contextmenuWidth + eventX >= window.innerWidth) {
+              contextmenuPosition.left -= contextmenuWidth
+            }
           }
 
           this.style = {
