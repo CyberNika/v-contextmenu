@@ -39,6 +39,7 @@
 | ---------- | ----------------- | ------ | ----- | ---------- |
 | eventType  | 触发其显示的事件类型 | String | 事件名 | contextmenu |
 | theme      | 主题              | String | default / bright | default |
+| autoPlacement  | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 | Boolean | true / false | true |
 
 **Methods**
 
