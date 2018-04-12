@@ -55,6 +55,7 @@ Base Contextmenu Component
 | ----------- | ---------------------------- | ---------------- |
 | show        | triggers when the Menu shows | `vm` of the Menu |
 | hide        | triggers when the Menu hides | `vm` of the Menu |
+| contextmenu | triggers when `contextmenu` event triggered | `vnode` of the element that triggers `contextmenu` event |
 
 #### `VContextmenuItem`
 
