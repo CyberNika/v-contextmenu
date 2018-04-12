@@ -14,8 +14,23 @@
 
 ## 安装
 
+<!-- ### CDN 引入
+
+可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。 -->
+
+<!-- ``` html -->
+<!-- 引入样式 -->
+<!-- <link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css"> -->
+<!-- 引入组件库 -->
+<!-- <script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
+``` -->
+
+<!-- > 建议使用 NPM 安装 -->
+
+### NPM 安装
+
 ```bash
-$ yarn add v-contextmenu # npm i -S v-contextmenu
+$ npm i -S v-contextmenu # yarn add v-contextmenu
 ```
 
 ## 概览
@@ -66,16 +81,16 @@ Vue.use(contentmenu)
 ## 开发
 
 ```bash
-$ yarn install
-$ yarn dev
+$ npm install
+$ npm run dev
 ```
 
 ## 构建
 
 ```bash
-$ yarn build:package # 构建 npm 包
-$ yarn build:example # 构建示例站点
-$ yarn build # build:package & build:example
+$ npm run build:package # 构建 npm 包
+$ npm run build:example # 构建示例站点
+$ npm run build # build:package & build:example
 ```
 
 ## 更新日志

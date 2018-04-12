@@ -60,8 +60,12 @@
     watch: {
       visible (value) {
         if (value) {
+          this.$emit('show', this)
+
           document.body.addEventListener('click', this.handleBodyClick)
         } else {
+          this.$emit('hide', this)
+
           document.body.removeEventListener('click', this.handleBodyClick)
         }
       },
@@ -75,8 +79,8 @@
         window.$$VContextmenu = { [this.$contextmenuId]: this }
       }
 
-      this.$refs.reference && this.$refs.reference.forEach((ref) => {
-        ref.addEventListener(this.eventType, this.handleReferenceContextmenu)
+      this.$refs.references && this.$refs.references.forEach((ref) => {
+        ref.el.addEventListener(this.eventType, this.handleReferenceContextmenu)
       })
     },
     beforeDestroy () {
@@ -84,8 +88,8 @@
 
       delete window.$$VContextmenu[this.$contextmenuId]
 
-      this.$refs.reference && this.$refs.reference.forEach((ref) => {
-        ref.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+      this.$refs.references && this.$refs.references.forEach((ref) => {
+        ref.el.removeEventListener(this.eventType, this.handleReferenceContextmenu)
       })
 
       document.body.removeEventListener('click', this.handleBodyClick)
@@ -94,6 +98,10 @@
     methods: {
       handleReferenceContextmenu (event) {
         event.preventDefault()
+
+        const reference = this.$refs.references.find(ref => ref.el.contains(event.target))
+
+        this.$emit('contextmenu', reference ? reference.vnode : null)
 
         const eventX = event.pageX
         const eventY = event.pageY
@@ -127,7 +135,7 @@
       },
       handleBodyClick (event) {
         const notOutside = this.$el.contains(event.target) || (
-          this.isClick && this.$refs.reference.some(ref => ref.contains(event.target))
+          this.isClick && this.$refs.references.some(ref => ref.el.contains(event.target))
         )
 
         if (!notOutside) {
@@ -150,11 +158,9 @@
         }
 
         this.visible = true
-        this.$emit('show', this)
       },
       hide () {
         this.visible = false
-        this.$emit('hide', this)
       },
       hideAll () {
         Object.keys(window.$$VContextmenu)
