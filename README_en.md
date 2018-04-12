@@ -13,9 +13,24 @@ ContextMenu component for Vue 2.0.
 **English | [中文](./README.md)**
 
 ## Installation
+<!--
+### CDN
+
+Get the latest version from [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/), and then import JavaScript and CSS file in your page. -->
+
+<!-- ``` html -->
+<!-- import CSS -->
+<!-- <link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css"> -->
+<!-- import JavaScript -->
+<!-- <script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
+``` -->
+
+<!-- > NPM is recommended.  -->
+
+### NPM
 
 ```bash
-$ yarn add v-contextmenu # npm i -S v-contextmenu
+$ npm i -S v-contextmenu # yarn add v-contextmenu
 ```
 
 ## Gallery
@@ -66,16 +81,16 @@ There are two themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for m
 ## Develop
 
 ```bash
-$ yarn install
-$ yarn dev
+$ npm install
+$ npm run dev
 ```
 
 ## Build
 
 ```bash
-$ yarn build:package # Build for npm
-$ yarn build:example # Build for site
-$ yarn build # build:package & build:example
+$ npm run build:package # Build for npm
+$ npm run build:example # Build for site
+$ npm run build # build:package & build:example
 ```
 
 ## Changelog

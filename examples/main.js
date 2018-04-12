@@ -4,8 +4,8 @@ import App from './App.vue'
 import contextmenu from '../src'
 import '../src/styles/index.styl'
 
-// import contextmenu from 'v-contextmenu'
-// import 'v-contextmenu/dist/index.css'
+// import contextmenu from '../'
+// import '../dist/index.css'
 
 Vue.use(contextmenu)
 
