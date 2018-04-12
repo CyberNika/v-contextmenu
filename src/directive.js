@@ -3,10 +3,10 @@ export default {
   bind (el, binding, vnode) {
     const contextmenu = vnode.context.$refs[binding.arg]
 
-    if (Array.isArray(contextmenu.$refs.reference)) {
-      contextmenu.$refs.reference.push(el)
+    if (Array.isArray(contextmenu.$refs.references)) {
+      contextmenu.$refs.references.push({ el, vnode })
     } else {
-      contextmenu.$refs.reference = [el]
+      contextmenu.$refs.references = [{ el, vnode }]
     }
 
     contextmenu.$contextmenuId = el.id || contextmenu._uid // eslint-disable-line no-underscore-dangle
