@@ -46,7 +46,7 @@
 
     methods: {
       handleClick (vm, event) {
-        window.open('https://github.com/XBT1/v-contextmenu/')
+        window.open('https://github.com/snokier/v-contextmenu/')
       },
     },
   }
