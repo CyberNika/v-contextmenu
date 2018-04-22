@@ -1,6 +1,7 @@
 import vue from 'rollup-plugin-vue'
 import copy from 'rollup-plugin-copy'
 import uglify from 'rollup-plugin-uglify'
+import babel from 'rollup-plugin-babel'
 
 export default {
   input: 'src/index.js',
@@ -14,6 +15,7 @@ export default {
   },
   plugins: [
     vue(),
+    babel(),
     uglify(),
     copy({
       'src/styles/fonts': 'dist/fonts',
