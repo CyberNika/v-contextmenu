@@ -37,7 +37,7 @@ $ npm i -S v-contextmenu # yarn add v-contextmenu
 
 ![概览](./docs/images/gallery.jpg)
 
-[访问在线示例](https://xbt1.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
+[访问在线示例](https://snokier.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
 
 ## 使用
 
@@ -101,11 +101,11 @@ $ npm run build # build:package & build:example
 [badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg
 [badge-node-version]: https://img.shields.io/node/v/v-contextmenu.svg
 [badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu.svg
-[badge-license]: https://img.shields.io/github/license/xbt1/v-contextmenu.svg
-[badge-dependencies]: https://img.shields.io/david/dev/xbt1/v-contextmenu.svg
+[badge-license]: https://img.shields.io/github/license/snokier/v-contextmenu.svg
+[badge-dependencies]: https://img.shields.io/david/dev/snokier/v-contextmenu.svg
 
 [url-npm]: https://npmjs.org/package/v-contextmenu
 [url-dependencies]: https://david-dm.org/vkbansal/v-contextmenu
-[url-releases]: https://github.com/XBT1/v-contextmenu/releases
+[url-releases]: https://github.com/snokier/v-contextmenu/releases
 
 [image-npm]: https://nodei.co/npm/v-contextmenu.png

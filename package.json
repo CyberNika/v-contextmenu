@@ -1,8 +1,8 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.5.0",
-  "author": "XBT1 <xbtop1@gmail.com>",
+  "version": "2.5.1",
+  "author": "snokier <me@snokier.com>",
   "main": "dist/index.common.js",
   "files": [
     "src",
@@ -33,6 +33,7 @@
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "eslint": "^4.17.0",
@@ -43,6 +44,7 @@
     "fs-extra": "^5.0.0",
     "gh-pages": "^1.1.0",
     "rollup": "^0.52.3",
+    "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-copy": "^0.2.3",
     "rollup-plugin-uglify": "^3.0.0",
     "rollup-plugin-vue": "^3.0.0",
@@ -58,12 +60,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/XBT1/v-contextmenu.git"
+    "url": "https://github.com/snokier/v-contextmenu.git"
   },
   "bugs": {
-    "url": "https://github.com/XBT1/v-contextmenu/issues"
+    "url": "https://github.com/snokier/v-contextmenu/issues"
   },
-  "homepage": "https://github.com/XBT1/v-contextmenu",
+  "homepage": "https://github.com/snokier/v-contextmenu",
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
