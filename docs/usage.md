@@ -57,6 +57,8 @@
 | hide        | 菜单隐藏时触发的事件       | 菜单组件的 `vm` |
 | contextmenu | `contextmenu` 事件被触发  | 触发 `contextmenu` 事件区域的 `vnode` |
 
+> 查看[vnode 文档](https://cn.vuejs.org/v2/api/#VNode-%E6%8E%A5%E5%8F%A3)
+
 ### `VContextmenuItem`
 
 单个菜单，只能在 `VContextmenu`, `VContextmenuSubmenu` 和 `VContextmenuGroup` 下使用
