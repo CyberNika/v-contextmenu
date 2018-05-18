@@ -1,8 +1,10 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: './examples/main.js',
+  mode: process.env.NODE_ENV,
   output: {
     path: path.resolve(__dirname, '../sites'),
     publicPath: '',
@@ -20,18 +22,23 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+        test: /\.js?$/,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
       },
       {
-        test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader',
-        exclude: /node_modules/
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -59,8 +66,15 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    contentBase: 'examples',
+    hot: true,
+    inline: true,
+    port: 4869,
   },
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
   performance: {
     hints: false
   },
@@ -85,5 +99,9 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
+  ])
+} else {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.HotModuleReplacementPlugin(),
   ])
 }

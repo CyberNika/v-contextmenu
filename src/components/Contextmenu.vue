@@ -36,6 +36,7 @@
     data () {
       return {
         visible: false,
+        references: [],
         style: {
           top: 0,
           left: 0,
@@ -78,17 +79,13 @@
       } else {
         window.$$VContextmenu = { [this.$contextmenuId]: this }
       }
-
-      this.$refs.references && this.$refs.references.forEach((ref) => {
-        ref.el.addEventListener(this.eventType, this.handleReferenceContextmenu)
-      })
     },
     beforeDestroy () {
       document.body.removeChild(this.$el)
 
       delete window.$$VContextmenu[this.$contextmenuId]
 
-      this.$refs.references && this.$refs.references.forEach((ref) => {
+      this.references.forEach((ref) => {
         ref.el.removeEventListener(this.eventType, this.handleReferenceContextmenu)
       })
 
@@ -96,10 +93,16 @@
     },
 
     methods: {
+      addRef (ref) {
+        // FIXME: 如何处理 removeRef？
+        this.references.push(ref)
+
+        ref.el.addEventListener(this.eventType, this.handleReferenceContextmenu)
+      },
       handleReferenceContextmenu (event) {
         event.preventDefault()
 
-        const reference = this.$refs.references.find(ref => ref.el.contains(event.target))
+        const reference = this.references.find(ref => ref.el.contains(event.target))
 
         this.$emit('contextmenu', reference ? reference.vnode : null)
 
@@ -135,7 +138,7 @@
       },
       handleBodyClick (event) {
         const notOutside = this.$el.contains(event.target) || (
-          this.isClick && this.$refs.references.some(ref => ref.el.contains(event.target))
+          this.isClick && this.references.some(ref => ref.el.contains(event.target))
         )
 
         if (!notOutside) {
