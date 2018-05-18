@@ -14,18 +14,22 @@
 
 ## 安装
 
-<!-- ### CDN 引入
+### CDN 引入
 
-可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。 -->
+可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
 
-<!-- ``` html -->
-<!-- 引入样式 -->
-<!-- <link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css"> -->
-<!-- 引入组件库 -->
-<!-- <script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
-``` -->
+``` html
+<!-- 引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-<!-- > 建议使用 NPM 安装 -->
+<!-- 引入 VContextmenu 组件 -->
+<script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
+
+<!-- 引入 VContextmenu 组件样式 -->
+<link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css">
+```
+
+> 建议使用 NPM 安装
 
 ### NPM 安装
 

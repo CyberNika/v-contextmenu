@@ -1,12 +1,12 @@
 <template>
   <div class="example">
-    <v-contextmenu ref="contextmenu1" :theme="theme">
+    <v-contextmenu ref="contextmenu1" :theme="theme" @contextmenu="handleContextmenu">
       <v-contextmenu-item>菜单1</v-contextmenu-item>
       <v-contextmenu-item>菜单2</v-contextmenu-item>
       <v-contextmenu-item>菜单3</v-contextmenu-item>
     </v-contextmenu>
 
-    <v-contextmenu ref="contextmenu2" :theme="theme">
+    <v-contextmenu ref="contextmenu2" :theme="theme" @contextmenu="handleContextmenu">
       <v-contextmenu-item>菜单2-1</v-contextmenu-item>
       <v-contextmenu-item>菜单2-2</v-contextmenu-item>
       <v-contextmenu-item>菜单2-3</v-contextmenu-item>
@@ -35,7 +35,11 @@
       theme: String,
     },
 
-    methods: {},
+    methods: {
+      handleContextmenu (vnode) {
+        console.log('被点击区域的 vnode:', vnode)
+      },
+    },
   }
 </script>
 
