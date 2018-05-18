@@ -57,6 +57,8 @@ Base Contextmenu Component
 | hide        | triggers when the Menu hides | `vm` of the Menu |
 | contextmenu | triggers when `contextmenu` event triggered | `vnode` of the element that triggers `contextmenu` event |
 
+> see more about [vnode](https://vuejs.org/v2/api/#VNode-Interface)
+
 #### `VContextmenuItem`
 
 Component for menu items，only used within `VContextmenu`, `VContextmenuGroup` or `VContextmenuSubmenu`

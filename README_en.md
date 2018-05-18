@@ -13,19 +13,23 @@ ContextMenu component for Vue 2.0.
 **English | [中文](./README.md)**
 
 ## Installation
-<!--
+
 ### CDN
 
-Get the latest version from [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/), and then import JavaScript and CSS file in your page. -->
+Get the latest version from [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/), and then import JavaScript and CSS file in your page.
 
-<!-- ``` html -->
-<!-- import CSS -->
-<!-- <link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css"> -->
+``` html
+<!-- import Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
 <!-- import JavaScript -->
-<!-- <script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
-``` -->
+<script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
 
-<!-- > NPM is recommended.  -->
+<!-- import CSS -->
+<link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css">
+```
+
+> NPM is recommended.
 
 ### NPM
 

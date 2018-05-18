@@ -5,6 +5,15 @@ import ContextmenuItem from './components/ContextmenuItem.vue'
 import ContextmenuSubmenu from './components/ContextmenuSubmenu.vue'
 import ContextmenuGroup from './components/ContextmenuGroup.vue'
 
+const install = (Vue) => {
+  Vue.directive('contextmenu', directive)
+
+  Vue.component(Contextmenu.name, Contextmenu)
+  Vue.component(ContextmenuItem.name, ContextmenuItem)
+  Vue.component(ContextmenuSubmenu.name, ContextmenuSubmenu)
+  Vue.component(ContextmenuGroup.name, ContextmenuGroup)
+}
+
 export {
   directive,
 
@@ -14,13 +23,10 @@ export {
   ContextmenuGroup,
 }
 
-export default {
-  install (Vue) {
-    Vue.directive('contextmenu', directive)
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
 
-    Vue.component(Contextmenu.name, Contextmenu)
-    Vue.component(ContextmenuItem.name, ContextmenuItem)
-    Vue.component(ContextmenuSubmenu.name, ContextmenuSubmenu)
-    Vue.component(ContextmenuGroup.name, ContextmenuGroup)
-  },
+export default {
+  install,
 }
