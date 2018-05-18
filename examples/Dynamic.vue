@@ -9,7 +9,7 @@
       </v-contextmenu-item>
     </v-contextmenu>
 
-    <div :class="['box', theme]" v-contextmenu:contextmenu>
+    <div :class="['box', theme]" v-for="item of list" :key="item.id" v-contextmenu:contextmenu>
       右键点击此区域（点击菜单动态改变）
     </div>
   </div>
