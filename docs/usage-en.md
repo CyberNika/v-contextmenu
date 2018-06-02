@@ -39,6 +39,7 @@ Base Contextmenu Component
 | ---------- | ------------- | ------ | ---------- | ------------- |
 | eventType  | event to bind | String | any events | contextmenu   |
 | theme      | theme         | String | default / bright | default |
+| disabled   | disable the Menu (will not appear)  | Boolean | true / false | false |
 | autoPlacement  | whether change placement automatically when the Menu is outside of Window | Boolean | true / false | true |
 
 **Methods**

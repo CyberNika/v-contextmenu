@@ -31,6 +31,7 @@
         type: Boolean,
         default: true,
       },
+      disabled: Boolean,
     },
 
     data () {
@@ -101,6 +102,8 @@
       },
       handleReferenceContextmenu (event) {
         event.preventDefault()
+
+        if (this.disabled) return
 
         const reference = this.references.find(ref => ref.el.contains(event.target))
 
