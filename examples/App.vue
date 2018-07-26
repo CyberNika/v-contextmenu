@@ -23,7 +23,14 @@
     <nav>
       <h3>
         <span>示例</span>
-        <button type="button" @click="changeTheme">切换主题</button>
+        <div class="theme-select">
+          <input v-model="theme" type="radio" value="default" name="theme" id="theme-default" />
+          <label for="theme-default">默认</label>
+          <input v-model="theme" type="radio" value="bright" name="theme" id="theme-bright" />
+          <label for="theme-bright">亮色</label>
+          <input v-model="theme" type="radio" value="dark" name="theme" id="theme-dark" />
+          <label for="theme-dark">暗色</label>
+        </div>
       </h3>
       <ul :class="['nav-list', theme]">
         <li
@@ -106,7 +113,7 @@
   }]
 
   export default {
-    name: 'app',
+    name: 'App',
 
     components: {
       Simple,
@@ -149,9 +156,6 @@
         this.currentExample = value
         window.location.hash = value
       },
-      changeTheme () {
-        this.theme = this.theme === 'default' ? 'bright' : 'default'
-      },
     },
   }
 </script>
@@ -159,10 +163,24 @@
 <style scoped lang="stylus">
   main-color = #46a0fc
   main-color-bright = #ef5350
+  main-color-dark = #2d3035
 
   #app
     max-width: 1000px
     margin: 0 auto
+
+  .theme-select
+    display inline-block
+    font-size 14px
+    font-weight normal
+    cursor pointer
+
+    input,
+    label
+      cursor pointer
+
+    input
+      margin-left 10px
 
   .usage-link
     color: main-color
@@ -172,6 +190,10 @@
     &.bright
       color: main-color-bright
       border-bottom: 1px solid main-color-bright
+
+    &.dark
+      color: main-color-dark
+      border-bottom: 1px solid main-color-dark
 
     &:hover
       opacity: 0.8
@@ -198,6 +220,9 @@
 
     &.bright
       background-color: main-color-bright
+
+    &.dark
+      background-color: main-color-dark
 
   .nav-item
     position: relative
@@ -234,11 +259,15 @@
 
     &.bright
       background-color: main-color-bright
+
+    &.dark
+      background-color: main-color-dark
 </style>
 
 <style lang="stylus">
   main-color = #46a0fc
   main-color-bright = #ef5350
+  main-color-dark = #2d3035
 
   @font-face
     font-family: "feather"
@@ -272,6 +301,9 @@
 
     &.bright
       border-color: main-color-bright
+
+    &.dark
+      border-color: main-color-dark
 
     & + .box
       border-top: none
