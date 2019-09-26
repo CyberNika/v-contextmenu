@@ -72,7 +72,7 @@ Vue.use(contentmenu)
 
 ## 主题
 
-提供两种主题，使用方法见 [VContextmenu](./docs/usage.md#vcontextmenu)
+提供三种主题，使用方法见 [VContextmenu](./docs/usage.md#vcontextmenu)
 
 **默认**
 
@@ -81,6 +81,10 @@ Vue.use(contentmenu)
 **亮色**
 
 ![bright](./docs/images/bright.jpg)
+
+**暗色**
+
+![dark](./docs/images/dark.jpg)
 
 ## 开发
 

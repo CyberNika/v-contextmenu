@@ -38,7 +38,7 @@ Base Contextmenu Component
 | Attribute  | Description   | Type   | Options    | Default       |
 | ---------- | ------------- | ------ | ---------- | ------------- |
 | eventType  | event to bind | String | any events | contextmenu   |
-| theme      | theme         | String | default / bright | default |
+| theme      | theme         | String | default / bright / dark | default |
 | disabled   | disable the Menu (will not appear)  | Boolean | true / false | false |
 | autoPlacement  | whether change placement automatically when the Menu is outside of Window | Boolean | true / false | true |
 
@@ -116,7 +116,7 @@ Component for menu group, `VContextmenuItem` can be nested
 
 ## Themes
 
-There are two themes as follows:
+There are three themes as follows:
 
 **Default**
 
@@ -126,11 +126,16 @@ There are two themes as follows:
 
 ![bright](./images/bright.jpg)
 
+**Dark**
+
+![dark](./images/dark.jpg)
+
 Furthermore, you can cover the default styles using following `classnames`
 
 - `v-contextmenu`: Root element
 - `v-contextmenu--default`: Root element - default theme
 - `v-contextmenu--bright`: Root element - bright theme
+- `v-contextmenu--dark`: Root element - dark theme
 - `v-contextmenu-item`: Menu item
 - `v-contextmenu-item--hover`: Menu item when hover
 - `v-contextmenu-item--disabled`: Menu item when disabled
