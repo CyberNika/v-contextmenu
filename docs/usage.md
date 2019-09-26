@@ -38,7 +38,7 @@
 | 参数        | 说明              | 类型    | 可选值 | 默认值      |
 | ---------- | ----------------- | ------ | ----- | ---------- |
 | eventType  | 触发其显示的事件类型 | String | 事件名 | contextmenu |
-| theme      | 主题              | String | default / bright | default |
+| theme      | 主题              | String | default / bright / dark | default |
 | disabled   | 是否禁用菜单（菜单不会出现）  | Boolean | true / false | false |
 | autoPlacement  | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 | Boolean | true / false | true |
 
@@ -116,7 +116,7 @@
 
 ## 主题
 
-提供两种主题
+提供三种主题
 
 **默认**
 
@@ -126,11 +126,16 @@
 
 ![bright](./images/bright.jpg)
 
+**暗色**
+
+![dark](./images/dark.jpg)
+
 另外可自行根据 `classnames` 进行样式覆盖
 
 - `v-contextmenu`: 根元素
 - `v-contextmenu--default`: 根元素-默认主题
 - `v-contextmenu--bright`: 根元素-亮色主题
+- `v-contextmenu--dark`: 根元素-暗色主题
 - `v-contextmenu-item`: 单个菜单
 - `v-contextmenu-item--hover`: 单个菜单激活状态
 - `v-contextmenu-item--disabled`: 单个菜单禁用状态
