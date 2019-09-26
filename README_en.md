@@ -72,7 +72,7 @@ See [usage](./docs/usage-en.md) & [examples](./examples) for more details.
 
 ## Theme
 
-There are two themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for more details.
+There are three themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for more details.
 
 **Default**
 
@@ -81,6 +81,10 @@ There are two themes，see [VContextmenu](./docs/usage-en.md#vcontextmenu) for m
 **Bright**
 
 ![bright](./docs/images/bright.jpg)
+
+**Dark**
+
+![dark](./docs/images/dark.jpg)
 
 ## Develop
 

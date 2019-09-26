@@ -1,8 +1,12 @@
 <template>
   <div class="example">
     <v-contextmenu ref="contextmenu" event-type="click" :theme="theme">
-      <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
-      <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
+      <v-contextmenu-item @click="handleClick">
+        <span class="iconfont icon-star"></span> 菜单1
+      </v-contextmenu-item>
+      <v-contextmenu-item @click="handleClick">
+        <span class="iconfont icon-github"></span> 菜单2
+      </v-contextmenu-item>
 
       <v-contextmenu-item divider></v-contextmenu-item>
 
