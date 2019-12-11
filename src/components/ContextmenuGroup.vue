@@ -1,7 +1,10 @@
 <template>
   <li class="v-contextmenu-group">
-    <ul :style="menusStyle" class="v-contextmenu-group__menus">
-      <slot></slot>
+    <ul
+      :style="menusStyle"
+      class="v-contextmenu-group__menus"
+    >
+      <slot />
     </ul>
   </li>
 </template>

@@ -1,9 +1,10 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.8.2",
+  "version": "2.9.0",
   "author": "heynext <heynext.xyz@gmail.com>",
   "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
   "files": [
     "src",
     "dist"
@@ -17,48 +18,39 @@
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config examples/webpack.config.js",
-    "build": "npm run build:package & npm run build:umd & npm run build:example",
+    "build": "npm run build:package & npm run build:example",
     "build:package": "rm -fr dist && rollup -c && stylus -c src/styles/index.styl --out dist",
-    "build:umd": "FORMAT=umd rollup -c",
     "build:example": "rm -fr sites && cross-env NODE_ENV=production webpack --config examples/webpack.config.js --progress --hide-modules && cp examples/index.html sites",
     "prepublishOnly": "npm run lint && npm run build:package && npm run build:umd",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix",
-    "ghpages": "npm run build:example && node build/gh-pages.js"
+    "ghpages": "npm run build:example && gh-pages -d sites"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "cross-env": "^5.1.5",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-html": "^4.0.3",
-    "eslint-plugin-import": "^2.12.0",
-    "file-loader": "^1.1.6",
-    "fs-extra": "^6.0.0",
-    "gh-pages": "^1.1.0",
-    "rollup": "^0.59.0",
-    "rollup-plugin-babel": "^3.0.4",
-    "rollup-plugin-copy": "^0.2.3",
-    "rollup-plugin-uglify": "^3.0.0",
-    "rollup-plugin-vue": "^4.1.4",
-    "style-loader": "^0.21.0",
+    "cross-env": "^6.0.0",
+    "css-loader": "^3.3.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.0.1",
+    "file-loader": "^5.0.0",
+    "gh-pages": "^2.1.0",
+    "rollup": "^1.27.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-terser": "^5.1.3",
+    "rollup-plugin-vue": "^5.1.0",
+    "style-loader": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "url-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.3",
+    "url-loader": "^3.0.0",
     "vue": "^2.5.0",
     "vue-loader": "^15.0.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.3",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.1.4"
   },
   "license": "MIT",
@@ -78,5 +70,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "dependencies": {}
 }

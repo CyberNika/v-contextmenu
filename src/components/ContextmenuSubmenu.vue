@@ -2,18 +2,20 @@
   <li
     :class="classname"
     @mouseenter="handleMouseenter"
-    @mouseleave="handleMouseleave">
+    @mouseleave="handleMouseleave"
+  >
     <span class="v-contextmenu-submenu__title">
       <slot name="title">{{ title }}</slot>
 
-      <span class="v-contextmenu-iconfont v-contextmenu-submenu__icon"></span>
+      <span class="v-contextmenu-iconfont v-contextmenu-submenu__icon" />
     </span>
 
     <ul
-      ref="submenu"
       v-show="hover"
-      :class="submenuCls">
-      <slot></slot>
+      ref="submenu"
+      :class="submenuCls"
+    >
+      <slot />
     </ul>
   </li>
 </template>
