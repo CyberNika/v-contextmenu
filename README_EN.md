@@ -41,7 +41,7 @@ $ npm i -S v-contextmenu # yarn add v-contextmenu
 
 ![gallery](./docs/images/gallery.jpg)
 
-[Go online examples](https://snokier.github.io/v-contextmenu) or [see online examples' GIF](./docs/images/example.gif)
+[Go online examples](https://heynext.github.io/v-contextmenu) or [see online examples' GIF](./docs/images/example.gif)
 
 ## Usage
 
@@ -109,11 +109,11 @@ See [releases][url-releases]
 [badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg
 [badge-node-version]: https://img.shields.io/node/v/v-contextmenu.svg
 [badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu.svg
-[badge-license]: https://img.shields.io/github/license/snokier/v-contextmenu.svg
-[badge-dependencies]: https://img.shields.io/david/dev/snokier/v-contextmenu.svg
+[badge-license]: https://img.shields.io/github/license/heynext/v-contextmenu.svg
+[badge-dependencies]: https://img.shields.io/david/dev/heynext/v-contextmenu.svg
 
 [url-npm]: https://npmjs.org/package/v-contextmenu
 [url-dependencies]: https://david-dm.org/vkbansal/v-contextmenu
-[url-releases]: https://github.com/snokier/v-contextmenu/releases
+[url-releases]: https://github.com/heynext/v-contextmenu/releases
 
 [image-npm]: https://nodei.co/npm/v-contextmenu.png
