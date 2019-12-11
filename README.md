@@ -10,7 +10,7 @@
 
 适用于 Vue 2.0 的 ContextMenu 组件。
 
-**中文 | [English](./README_en.md)**
+**中文 | [English](./README_EN.md)**
 
 ## 安装
 
@@ -41,7 +41,7 @@ $ npm i -S v-contextmenu # yarn add v-contextmenu
 
 ![概览](./docs/images/gallery.jpg)
 
-[访问在线示例](https://snokier.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
+[访问在线示例](https://heynext.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
 
 ## 使用
 
@@ -109,11 +109,11 @@ $ npm run build # build:package & build:example
 [badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg
 [badge-node-version]: https://img.shields.io/node/v/v-contextmenu.svg
 [badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu.svg
-[badge-license]: https://img.shields.io/github/license/snokier/v-contextmenu.svg
-[badge-dependencies]: https://img.shields.io/david/dev/snokier/v-contextmenu.svg
+[badge-license]: https://img.shields.io/github/license/heynext/v-contextmenu.svg
+[badge-dependencies]: https://img.shields.io/david/dev/heynext/v-contextmenu.svg
 
 [url-npm]: https://npmjs.org/package/v-contextmenu
 [url-dependencies]: https://david-dm.org/vkbansal/v-contextmenu
-[url-releases]: https://github.com/snokier/v-contextmenu/releases
+[url-releases]: https://github.com/heynext/v-contextmenu/releases
 
 [image-npm]: https://nodei.co/npm/v-contextmenu.png

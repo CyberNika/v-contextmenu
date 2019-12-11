@@ -10,14 +10,14 @@
           scrolling="0"
           width="170px"
           height="20px"
-          src="https://ghbtns.com/github-btn.html?user=snokier&repo=v-contextmenu&type=star&count=true" frameborder="0" >
+          src="https://ghbtns.com/github-btn.html?user=heynext&repo=v-contextmenu&type=star&count=true" frameborder="0" >
         </iframe>
       </p>
     </header>
 
     <div class="usage">
       <h3>用法</h3>
-      <a :class="['usage-link', theme]" href="https://github.com/snokier/v-contextmenu/blob/master/README.md">安装 &amp 使用 <i class="v-contextmenu-iconfont usage-icon"></i></a>
+      <a :class="['usage-link', theme]" href="https://github.com/heynext/v-contextmenu/blob/master/README.md">安装 &amp 使用 <i class="v-contextmenu-iconfont usage-icon"></i></a>
     </div>
 
     <nav>
@@ -144,7 +144,7 @@
         return `${this.currentExample}.vue`
       },
       currentExampleSourceUrl () {
-        const baseUrl = 'https://github.com/snokier/v-contextmenu/blob/master/examples'
+        const baseUrl = 'https://github.com/heynext/v-contextmenu/blob/master/examples'
         const fileName = this.currentExampleFileName
 
         return `${baseUrl}/${fileName}`
