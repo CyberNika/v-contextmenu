@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: './examples/main.js',
@@ -21,10 +21,6 @@ module.exports = {
           }
           // other vue-loader options go here
         }
-      },
-      {
-        test: /\.js?$/,
-        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -85,17 +81,9 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   module.exports.optimization = {
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          compress: false,
-          ecma: 6,
-          mangle: true
-        },
-        sourceMap: true
-      })
+      new TerserPlugin()
     ]
   }
   module.exports.plugins = (module.exports.plugins || []).concat([
