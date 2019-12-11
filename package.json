@@ -1,8 +1,8 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.8.1",
-  "author": "snokier <me@snokier.com>",
+  "version": "2.8.2",
+  "author": "heynext <heynext.xyz@gmail.com>",
   "main": "dist/index.common.js",
   "files": [
     "src",
@@ -26,8 +26,8 @@
     "lint:fix": "eslint --ext .js,.vue src --fix",
     "ghpages": "npm run build:example && node build/gh-pages.js"
   },
-  "dependencies": {
-    "vue": "^2.5.16"
+  "peerDependencies": {
+    "vue": "^2.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -54,6 +54,7 @@
     "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.0",
+    "vue": "^2.5.0",
     "vue-loader": "^15.0.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.8.3",
@@ -63,12 +64,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snokier/v-contextmenu.git"
+    "url": "https://github.com/heynext/v-contextmenu.git"
   },
   "bugs": {
-    "url": "https://github.com/snokier/v-contextmenu/issues"
+    "url": "https://github.com/heynext/v-contextmenu/issues"
   },
-  "homepage": "https://github.com/snokier/v-contextmenu",
+  "homepage": "https://github.com/heynext/v-contextmenu",
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
