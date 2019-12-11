@@ -1,13 +1,17 @@
 <template>
-  <li class="v-contextmenu-divider" v-if="divider"></li>
+  <li
+    v-if="divider"
+    class="v-contextmenu-divider"
+  />
 
   <li
     v-else
     :class="classname"
     @click="handleClick"
     @mouseenter="handleMouseenter"
-    @mouseleave="handleMouseleave">
-    <slot></slot>
+    @mouseleave="handleMouseleave"
+  >
+    <slot />
   </li>
 </template>
 
