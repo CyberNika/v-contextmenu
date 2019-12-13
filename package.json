@@ -71,5 +71,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "vue-runtime-helpers": "^1.1.2"
+  }
 }
