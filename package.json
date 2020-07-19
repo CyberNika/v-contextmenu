@@ -1,59 +1,19 @@
 {
-  "name": "app",
-  "description": "ContextMenu based on Vue 2.0",
+  "name": "v-contextmenu",
   "version": "3.0.0-alpha",
   "author": "heynext <heynext.xyz@gmail.com>",
-  "main": "lib/index.common.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test",
-    "postinstall": "npm i vue"
+    "start": "vitepress",
+    "build": "vite build",
+    "build:site": "vitepress build"
   },
-  "keywords": [
-    "contextmenu",
-    "vue",
-    "vue-contextmenu",
-    "vue-component",
-    "rightclick"
-  ],
-  "peerDependencies": {
-    "vue": "^2.5.0"
+  "dependencies": {
+    "vue": "^3.0.0-rc.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.0",
-    "@types/mocha": "^5.2.4",
-    "@vue/cli-plugin-typescript": "^3.5.0",
-    "@vue/cli-plugin-unit-mocha": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
-    "@vue/test-utils": "1.0.0-beta.29",
-    "chai": "^4.1.2",
-    "fibers": "^3.1.1",
-    "sass": "^1.17.2",
-    "sass-loader": "^7.1.0",
-    "typescript": "^3.2.1",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^7.0.0",
-    "vue-template-compiler": "^2.5.21"
+    "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "vite": "^1.0.0-rc.1",
+    "vitepress": "^0.4.1"
   },
-  "license": "MIT",
-  "unpkg": "lib/index.js",
-  "style": "lib/index.css",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heynext/v-contextmenu.git"
-  },
-  "bugs": {
-    "url": "https://github.com/heynext/v-contextmenu/issues"
-  },
-  "homepage": "https://github.com/heynext/v-contextmenu",
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "engines": {
-    "node": ">=8.0.0"
-  }
+  "license": "MIT"
 }
