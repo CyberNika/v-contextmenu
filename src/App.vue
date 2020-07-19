@@ -1,23 +1,15 @@
 <template>
-  <div id="app">
-    <Contextmenu>
-      <div>111111</div>
-    </Contextmenu>
-  </div>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Hello Vue 3.0 + Vite" />
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+<script>
+import HelloWorld from './components/HelloWorld.vue'
 
-import { Contextmenu } from "../package/index";
-
-@Component({
+export default {
+  name: 'App',
   components: {
-    Contextmenu,
-  },
-})
-export default class App extends Vue {}
+    HelloWorld
+  }
+}
 </script>
-
-<style lang="scss">
-</style>
