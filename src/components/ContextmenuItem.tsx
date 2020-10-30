@@ -1,6 +1,8 @@
 import { defineComponent } from 'vue'
 
 const ContextmenuItem = defineComponent({
+  name: 'VContextmenuItem',
+
   props: {},
 
   setup(props) {},
