@@ -1,6 +1,8 @@
 import { defineComponent } from 'vue'
 
 const ContextmenuGroup = defineComponent({
+  name: 'VContextmenuGroup',
+
   props: {},
 
   setup(props) {},

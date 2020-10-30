@@ -1,8 +1,14 @@
 import { defineComponent } from 'vue'
 
+import { Contextmenu } from "../src"
+
 const SimpleExample = defineComponent({
   render() {
-    return <div>SimpleExampleSimpleExample</div>
+    return (
+      <div>
+        <Contextmenu>xx</Contextmenu>
+      </div>
+    )
   }
 })
 

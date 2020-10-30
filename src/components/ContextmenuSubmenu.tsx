@@ -1,6 +1,8 @@
 import { defineComponent } from 'vue'
 
 const ContextmenuSubmenu = defineComponent({
+  name: 'VContextmenuSubmenu',
+
   props: {},
 
   setup(props) {},

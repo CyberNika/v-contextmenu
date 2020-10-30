@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 
 import { classnames } from '../src/utils'
 import { Simple, Divider } from '../examples'
@@ -20,14 +20,22 @@ const SiteApp = defineComponent({
   setup() {
     return {
       examples: ref(EXAMPLES),
-      currentExample: ref(0)
+      currentExample: ref(EXAMPLES[0].id)
     }
   },
 
   render() {
+    const currentExampleRef = computed(
+      () =>
+        EXAMPLES.find((item) => item.id === this.currentExample)?.component ||
+        EXAMPLES[0].component
+    )
+
+    console.log(currentExampleRef.value)
+
     return (
       <div>
-        <header>
+        {/* <header>
           <h1>v-contextmenu</h1>
 
           <p class="description">
@@ -49,15 +57,17 @@ const SiteApp = defineComponent({
           <a class="usage-link" href={USAGE_LINK}>
             安装 & 使用 <i class="v-contextmenu-iconfont usage-icon"></i>
           </a>
-        </section>
+        </section> */}
 
-        <nav>
-          <ul class="nav-list">
+        <section class="examples">
+          <h3>示例</h3>
+
+          <ul class="examples-list">
             {this.examples.map((item) => (
               <li
                 key="item.id"
                 class={classnames({
-                  'nav-item': true,
+                  'examples-item': true,
                   active: item.id === this.currentExample
                 })}
                 onClick={() => {
@@ -68,7 +78,11 @@ const SiteApp = defineComponent({
               </li>
             ))}
           </ul>
-        </nav>
+
+          <div class="example-container">
+            <currentExampleRef.value />
+          </div>
+        </section>
       </div>
     )
   }

@@ -1,3 +1,5 @@
+@primary: #46a0fc;
+
 html {
   height: 100%;
 }
@@ -21,6 +23,47 @@ body {
 
   .gh-star {
     margin-left: 8px;
+  }
+}
+
+.usage {
+  &-link {
+    text-decoration: underline;
+  }
+}
+
+.examples {
+  &-list {
+    display: flex;
+    padding: 8px 4px;
+    margin: 0;
+    border-radius: 4px;
+    list-style: none;
+    background-color: @primary;
+  }
+
+  &-item {
+    position: relative;
+    padding: 0;
+    margin: 0 8px;
+    color: rgba(#fff, 0.5);
+    line-height: 1;
+    cursor: pointer;
+
+    & + & {
+      &::before {
+        position: absolute;
+        left: -8px;
+        content: "";
+        height: 100%;
+        border-left: 1px solid rgba(#fff, 0.4);
+      }
+    }
+
+    &:hover,
+    &.active {
+      color: #fff;
+    }
   }
 }
 
