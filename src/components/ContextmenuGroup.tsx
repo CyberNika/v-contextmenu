@@ -1,15 +1,15 @@
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 const ContextmenuGroup = defineComponent({
-  name: 'VContextmenuGroup',
+  name: "VContextmenuGroup",
 
   props: {},
 
   setup(props) {},
 
   render() {
-    return <div>ContextmenuGroup</div>
-  }
-})
+    return <div>ContextmenuGroup</div>;
+  },
+});
 
-export default ContextmenuGroup
+export default ContextmenuGroup;

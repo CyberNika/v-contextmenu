@@ -7,5 +7,5 @@
     "jsx": "preserve",
     "moduleResolution": "node"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "examples/**/*", "site/**/*"]
 }

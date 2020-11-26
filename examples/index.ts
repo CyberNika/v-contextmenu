@@ -1,4 +1,4 @@
-import Simple from './Simple'
-import Divider from './Divider'
+import Simple from "./Simple";
+import Divider from "./Divider";
 
-export { Simple, Divider }
+export { Simple, Divider };

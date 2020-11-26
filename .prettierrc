@@ -1,6 +1,9 @@
 {
-  "semi": false,
-  "singleQuote": true,
+  "semi": true,
+  "singleQuote": false,
   "printWidth": 80,
-  "trailingComma": "none"
+  "trailingComma": "all",
+  "endOfLine": "lf",
+  "arrowParens": "always",
+  "proseWrap": "preserve"
 }
