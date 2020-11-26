@@ -1,15 +1,28 @@
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
-import { Contextmenu } from "../src"
+import { Contextmenu, ContextmenuItem, ContextmenuTrigger } from "../src";
 
 const SimpleExample = defineComponent({
+  setup() {
+    return {};
+  },
+
   render() {
     return (
       <div>
-        <Contextmenu>xx</Contextmenu>
-      </div>
-    )
-  }
-})
+        <Contextmenu ref="contextmenu">
+          <div>xx</div>
+          <ContextmenuItem>
+            <div>xxxxx</div>
+          </ContextmenuItem>
+        </Contextmenu>
 
-export default SimpleExample
+        <ContextmenuTrigger trigger="contextmenu" target="contextmenu">
+          <div>click me</div>
+        </ContextmenuTrigger>
+      </div>
+    );
+  },
+});
+
+export default SimpleExample;

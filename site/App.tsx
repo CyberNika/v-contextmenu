@@ -1,37 +1,35 @@
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from "vue";
 
-import { classnames } from '../src/utils'
-import { Simple, Divider } from '../examples'
+import { classnames } from "../src/utils";
+import { Simple, Divider } from "../examples";
 
 const GITHUB_STAR_LINK =
-  'https://ghbtns.com/github-btn.html?user=heynext&repo=v-contextmenu&type=star&count=true'
+  "https://ghbtns.com/github-btn.html?user=heynext&repo=v-contextmenu&type=star&count=true";
 
 const USAGE_LINK =
-  'https://github.com/heynext/v-contextmenu/blob/master/README.md'
+  "https://github.com/heynext/v-contextmenu/blob/master/README.md";
 
 const EXAMPLES = [
-  { id: 'Simple', label: '基础', component: Simple },
-  { id: 'Divider', label: '分割线', component: Divider }
-]
+  { id: "Simple", label: "基础", component: Simple },
+  { id: "Divider", label: "分割线", component: Divider },
+];
 
 const SiteApp = defineComponent({
-  name: 'SiteApp',
+  name: "SiteApp",
 
   setup() {
     return {
       examples: ref(EXAMPLES),
-      currentExample: ref(EXAMPLES[0].id)
-    }
+      currentExample: ref(EXAMPLES[0].id),
+    };
   },
 
   render() {
     const currentExampleRef = computed(
       () =>
         EXAMPLES.find((item) => item.id === this.currentExample)?.component ||
-        EXAMPLES[0].component
-    )
-
-    console.log(currentExampleRef.value)
+        EXAMPLES[0].component,
+    );
 
     return (
       <div>
@@ -60,32 +58,32 @@ const SiteApp = defineComponent({
         </section> */}
 
         <section class="examples">
-          <h3>示例</h3>
+          {/* <h3>示例</h3>
 
           <ul class="examples-list">
             {this.examples.map((item) => (
               <li
                 key="item.id"
                 class={classnames({
-                  'examples-item': true,
-                  active: item.id === this.currentExample
+                  "examples-item": true,
+                  active: item.id === this.currentExample,
                 })}
                 onClick={() => {
-                  this.currentExample = item.id
+                  this.currentExample = item.id;
                 }}
               >
                 {item.label}
               </li>
             ))}
-          </ul>
+          </ul> */}
 
           <div class="example-container">
             <currentExampleRef.value />
           </div>
         </section>
       </div>
-    )
-  }
-})
+    );
+  },
+});
 
-export default SiteApp
+export default SiteApp;

@@ -1,15 +1,29 @@
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from "vue";
 
 const ContextmenuItem = defineComponent({
-  name: 'VContextmenuItem',
+  name: "VContextmenuItem",
 
-  props: {},
+  props: {
+    divider: Boolean,
+    disabled: Boolean,
+    hideOnClick: {
+      type: Boolean,
+      default: true,
+    },
+  },
 
-  setup(props) {},
+  setup(props) {
+    const rootVisible = inject("visible");
+    const rootHide = inject("hide");
+  },
 
   render() {
-    return <div>ContextmenuItem</div>
-  }
-})
+    if (this.divider) {
+      return <div class="v-contextmenu-item v-contextmenu-item--divider" />;
+    }
 
-export default ContextmenuItem
+    return <div class="v-contextmenu-item">ContextmenuItem</div>;
+  },
+});
+
+export default ContextmenuItem;

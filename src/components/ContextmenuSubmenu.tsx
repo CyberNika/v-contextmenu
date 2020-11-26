@@ -1,15 +1,15 @@
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 const ContextmenuSubmenu = defineComponent({
-  name: 'VContextmenuSubmenu',
+  name: "VContextmenuSubmenu",
 
   props: {},
 
   setup(props) {},
 
   render() {
-    return <div>ContextmenuSubmenu</div>
-  }
-})
+    return <div>ContextmenuSubmenu</div>;
+  },
+});
 
-export default ContextmenuSubmenu
+export default ContextmenuSubmenu;

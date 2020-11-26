@@ -1,9 +1,9 @@
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 const DividerExample = defineComponent({
   render() {
-    return <div>DividerExampleDividerExample</div>
-  }
-})
+    return <div>DividerExampleDividerExample</div>;
+  },
+});
 
-export default DividerExample
+export default DividerExample;
