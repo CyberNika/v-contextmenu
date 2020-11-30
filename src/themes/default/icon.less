@@ -1,0 +1,22 @@
+@font-face {
+  font-family: @vc-prefix;
+  src: url("./fonts/iconfont.eot");
+  src: url("./fonts/iconfont.eot#iefix") format("embedded-opentype"),
+  url("./fonts/iconfont.woff") format("woff"),
+  url("./fonts/iconfont.ttf") format("truetype"),
+  url("./fonts/iconfont.svg") format("svg");
+}
+
+.@{vc-prefix}-icon {
+  font-family: @vc-prefix !important;
+  font-size: inherit;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.@{vc-prefix}-icon-right-arrow {
+  &::before {
+    content: "\e622";
+  }
+}

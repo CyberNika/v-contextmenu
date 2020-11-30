@@ -1,10 +1,11 @@
-import { defineComponent, inject } from "vue";
+import { computed, defineComponent, inject, ref } from "vue";
+
+import { CLASSES } from "../constants";
 
 const ContextmenuItem = defineComponent({
   name: "VContextmenuItem",
 
   props: {
-    divider: Boolean,
     disabled: Boolean,
     hideOnClick: {
       type: Boolean,
@@ -12,17 +13,62 @@ const ContextmenuItem = defineComponent({
     },
   },
 
-  setup(props) {
-    const rootVisible = inject("visible");
+  emits: ["click", "mouseenter", "mouseleave"],
+
+  setup(props, { emit }) {
     const rootHide = inject("hide");
+
+    const hover = ref(false);
+    const classes = computed(() => ({
+      [CLASSES.contextmenuItem]: true,
+      [CLASSES.contextmenuItemDisabled]: props.disabled,
+      [CLASSES.contextmenuItemHover]: hover.value,
+    }));
+
+    const handleClick = (evt: Event) => {
+      if (props.disabled) return;
+
+      emit("click", evt);
+
+      props.hideOnClick && rootHide?.();
+    };
+
+    const handleMouseenter = (evt: Event) => {
+      if (props.disabled) return;
+
+      hover.value = true;
+
+      emit("mouseenter", evt);
+    };
+
+    const handleMouseleave = (evt: Event) => {
+      if (props.disabled) return;
+
+      hover.value = false;
+
+      emit("mouseleave", evt);
+    };
+
+    return {
+      classes,
+
+      handleClick,
+      handleMouseenter,
+      handleMouseleave,
+    };
   },
 
   render() {
-    if (this.divider) {
-      return <div class="v-contextmenu-item v-contextmenu-item--divider" />;
-    }
-
-    return <div class="v-contextmenu-item">ContextmenuItem</div>;
+    return (
+      <li
+        class={this.classes}
+        onClick={this.handleClick}
+        onMouseenter={this.handleMouseenter}
+        onMouseleave={this.handleMouseleave}
+      >
+        {this.$slots.default?.()}
+      </li>
+    );
   },
 });
 
