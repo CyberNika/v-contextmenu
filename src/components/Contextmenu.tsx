@@ -11,6 +11,7 @@ import {
   PropType,
 } from "vue";
 
+import { CLASSES } from "../constants";
 import {
   TriggerEventType,
   TriggerEventTypeOption,
@@ -53,7 +54,7 @@ const Contextmenu = defineComponent({
     destroyTooltipOnHide: Boolean,
   },
 
-  emits: ["show", "hide", "update:visible"],
+  emits: ["show", "hide", "update:visible", "addReference"],
 
   setup(props, { emit }) {
     const contextmenuRef = ref<HTMLDivElement | null>(null);
@@ -195,16 +196,18 @@ const Contextmenu = defineComponent({
     renderContent() {
       return (
         <div
+          class={CLASSES.contextmenu}
           ref="contextmenuRef"
-          class="v-contextmenu"
           v-show="visible"
           style={this.style}
         >
-          {this.$slots.default?.({
-            triggerOptions: "currentReferenceOptions",
-            options: "currentOptions",
-          })}
-          <span>{this.style}</span>
+          <ul class={CLASSES.contextmenuInner}>
+            {this.$slots.default?.({
+              triggerOptions: "currentReferenceOptions",
+              options: "currentOptions",
+            })}
+            <span>{this.style}</span>
+          </ul>
         </div>
       );
     },
