@@ -1,4 +1,4 @@
 export default {
-  base: '/v-contextmenu',
-  outDir: 'site'
-}
+  base: "/v-contextmenu",
+  outDir: "site-dist",
+};
