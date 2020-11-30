@@ -16,7 +16,7 @@ const ContextmenuItem = defineComponent({
   emits: ["click", "mouseenter", "mouseleave"],
 
   setup(props, { emit }) {
-    const rootHide = inject("hide");
+    const rootHide = inject<() => void>("hide");
 
     const hover = ref(false);
     const classes = computed(() => ({

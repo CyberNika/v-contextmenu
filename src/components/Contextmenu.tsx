@@ -71,7 +71,7 @@ const Contextmenu = defineComponent({
     }));
 
     const currentOptions = ref(null);
-    const show = (evt: Event | ShowOptions, options?: ShowOptions) => {
+    const show = (evt: MouseEvent | ShowOptions, options?: ShowOptions) => {
       if (evt instanceof Event) {
         evt.preventDefault();
 
@@ -113,7 +113,7 @@ const Contextmenu = defineComponent({
 
       const handler = (evt: Event) => {
         currentReference.value = el;
-        show(evt, {});
+        show(evt as MouseEvent, {});
       };
 
       triggers.forEach((eventType) => {
