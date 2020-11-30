@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES5",
     "module": "ESNext",
     // 这样就可以对 `this` 上的数据属性进行更严格的推断`
@@ -7,5 +8,5 @@
     "jsx": "preserve",
     "moduleResolution": "node"
   },
-  "include": ["src/**/*", "examples/**/*", "site/**/*"]
+  "include": ["src/**/*", "examples/**/*", "site/**/*", "__tests__/**/*"]
 }
