@@ -2,6 +2,12 @@
 
 html {
   height: 100%;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
 
 body {
@@ -9,61 +15,67 @@ body {
   height: 100%;
   color: #333;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 #app {
-  max-width: 1000px;
   margin: 0 auto;
+  height: 100%;
 }
 
-.description {
-  display: flex;
-  align-items: center;
+button {
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
 
-  .gh-star {
-    margin-left: 8px;
+  &:focus {
+    outline: none;
   }
 }
 
-.usage {
-  &-link {
-    text-decoration: underline;
-  }
+.container {
+  min-width: 500px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.examples {
-  &-list {
-    display: flex;
-    padding: 8px 4px;
-    margin: 0;
-    border-radius: 4px;
-    list-style: none;
-    background-color: @primary;
-  }
-
-  &-item {
-    position: relative;
-    padding: 0;
-    margin: 0 8px;
-    color: rgba(#fff, 0.5);
-    line-height: 1;
-    cursor: pointer;
-
-    & + & {
-      &::before {
-        position: absolute;
-        left: -8px;
-        content: "";
-        height: 100%;
-        border-left: 1px solid rgba(#fff, 0.4);
-      }
-    }
-
-    &:hover,
-    &.active {
-      color: #fff;
-    }
-  }
+@font-face {
+  font-family: "feather";
+  src: url("https://at-ui.github.io/at-ui/static/fonts/feather.eot");
+  src: url("https://at-ui.github.io/at-ui/static/fonts/feather.eot#iefix")
+      format("embedded-opentype"),
+    url("https://at-ui.github.io/at-ui/static/fonts/feather.ttf")
+      format("truetype"),
+    url("https://at-ui.github.io/at-ui/static/fonts/feather.woff")
+      format("woff"),
+    url("https://at-ui.github.io/at-ui/static/fonts/feather.svg#feather")
+      format("svg");
 }
 
+.feather {
+  display: inline-block;
+  font-family: "feather" !important;
+  font-size: inherit;
+  font-weight: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github:before {
+  content: "\e87b";
+}
+.icon-gitlab:before {
+  content: "\e909";
+}
+.icon-thumbs-up:before {
+  content: "\e8d6";
+}
+.icon-search:before {
+  content: "\e8bd";
+}
+.icon-star:before {
+  content: "\e8cd";
+}
+.icon-codepen:before {
+  content: "\e852";
+}

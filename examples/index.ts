@@ -1,4 +1,4 @@
 import Simple from "./Simple.vue";
-import Divider from "./Divider";
+import Group from "./Group.vue";
 
-export { Simple, Divider };
+export { Simple, Group };
