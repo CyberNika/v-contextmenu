@@ -1,34 +1,82 @@
 <template>
-  <section class="examples">
-    <div class="example-container">
-      <component :is="currentExample" />
-    </div>
-  </section>
+  <site-banner />
+
+  <main class="main">
+    <example codepen-id="KEzEYd">
+      <template #title>基本使用</template>
+      <template #description>菜单、分割线、子菜单和禁用</template>
+
+      <example-simple />
+    </example>
+
+    <example mirror codepen-id="KEzEYd">
+      <template #title>按钮组</template>
+      <template #description>按钮组按钮组按钮组按钮组按钮组</template>
+
+      <example-group />
+    </example>
+
+    <example codepen-id="KEzEYd">
+      <template #title>动态菜单</template>
+      <template #description>
+        动态菜单动态菜单动态菜单动态菜单动态菜单动态菜单
+      </template>
+
+      <example-group />
+    </example>
+
+    <example mirror codepen-id="KEzEYd">
+      <template #title>多实例和触发区域</template>
+      <template #description> 多实例和触发区域多实例和触发区域 </template>
+
+      <example-group />
+    </example>
+
+    <example codepen-id="KEzEYd">
+      <template #title>自定义事件</template>
+      <template #description>自定义事件</template>
+
+      <example-group />
+    </example>
+
+    <example mirror codepen-id="KEzEYd">
+      <template #title>手动显示和隐藏</template>
+      <template #description>
+        手动显示和隐藏手动显示和隐藏手动显示和隐藏手动显示和隐藏
+      </template>
+
+      <example-group />
+    </example>
+  </main>
+
+  <site-footer />
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
-import Simple from "../examples/Simple.vue";
+import Banner from "./components/Banner.vue";
+import Footer from "./components/Footer.vue";
+import Example from "./components/Example.vue";
 
-const EXAMPLES = [
-  { id: "Simple", label: "基础" },
-  { id: "Divider", label: "分割线" },
-];
+import { Simple as ExampleSimple, Group as ExampleGroup } from "../examples";
 
 export default defineComponent({
-  name: "ExampleApp",
+  name: "Site",
 
   components: {
-    Simple,
-  },
-
-  setup() {
-    const currentExample = ref(EXAMPLES[0].id);
-
-    return {
-      currentExample,
-    };
+    SiteBanner: Banner,
+    SiteFooter: Footer,
+    Example,
+    ExampleSimple,
+    ExampleGroup,
   },
 });
 </script>
+
+<style lang="less" scoped>
+.main {
+  padding: 0 24px;
+  margin-top: 20px;
+}
+</style>

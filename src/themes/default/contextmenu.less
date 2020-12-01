@@ -28,7 +28,7 @@
     }
 
     &--disabled {
-      color:rgba(@vc-text-color, 0.4);
+      color: rgba(@vc-text-color, 0.4);
       cursor: not-allowed;
     }
   }
@@ -41,7 +41,8 @@
 
   &-group {
     &__title {
-      padding: @vc-padding-vertical @vc-item-padding-horizontal (@vc-padding-vertical / 2);
+      padding: @vc-padding-vertical @vc-item-padding-horizontal
+        (@vc-padding-vertical / 2);
       color: rgba(@vc-text-color, 0.55);
       font-size: 60%;
     }
@@ -60,6 +61,10 @@
 
   &-submenu {
     position: relative;
+
+    &__title {
+      padding-right: @vc-item-padding-horizontal * 1.6;
+    }
 
     &__menus {
       position: absolute;
