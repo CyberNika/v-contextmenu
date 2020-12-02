@@ -53,18 +53,18 @@ export default defineComponent({
 .example {
   position: relative;
   display: flex;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 60px;
+  padding-bottom: $padding-top;
 
   & + & {
     &::after {
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
-      width: 60%;
+      left: 24px;
+      width: calc(100% - 48px);
       height: 0;
-      border-top: 1px solid #5aa7a4;
+      border-bottom: 2px solid rgba(#5aa7a4, 0.5);
     }
   }
 }
@@ -75,7 +75,7 @@ export default defineComponent({
   border-radius: 8px;
 
   & + .content {
-    margin-left: 60px;
+    margin-left: 68px;
   }
 }
 
@@ -83,12 +83,13 @@ export default defineComponent({
   flex: 1;
 
   & + .demo {
-    margin-left: 60px;
+    margin-left: 68px;
   }
 }
 
 .title {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .description {

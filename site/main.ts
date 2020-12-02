@@ -8,6 +8,7 @@ import {
   WechatOutlined,
   GlobalOutlined,
   BugFilled,
+  RocketFilled,
 } from "@ant-design/icons-vue";
 
 import App from "./App.vue";
@@ -28,5 +29,6 @@ app.component(AlipayOutlined.name, AlipayOutlined);
 app.component(WechatOutlined.name, WechatOutlined);
 app.component(GlobalOutlined.name, GlobalOutlined);
 app.component(BugFilled.name, BugFilled);
+app.component(RocketFilled.name, RocketFilled);
 
 app.mount("#app");

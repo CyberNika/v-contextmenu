@@ -55,17 +55,30 @@
 
     <div class="setups">
       <div class="setup">
-        <button class="setup-button">>_ 文档</button>
+        <button class="setup-button">
+          文档
+          <span class="setup-button-doc-icon">
+            <rocket-filled />
+          </span>
+        </button>
       </div>
 
       <div class="setup">
-        <span class="setup-label">NPM</span>
-        <span class="setup-content">npm i v-contextmenu</span>
+        <code>
+          <span class="setup-label">NPM</span>
+          <span class="setup-content">
+            npm i v-contextmenu
+          </span>
+        </code>
       </div>
 
       <div class="setup">
-        <span class="setup-label">CDN</span>
-        <span class="setup-content">https://unpkg.com/v-contextmenu@next</span>
+        <code>
+          <span class="setup-label">CDN</span>
+          <span class="setup-content">
+            https://unpkg.com/v-contextmenu@next
+          </span>
+        </code>
       </div>
     </div>
   </header>
@@ -152,13 +165,14 @@ export default defineComponent({
 }
 
 .title {
-  font-size: 46px;
   margin: 40px 0 0;
+  font-family: 'Texturina', serif;
+  font-size: 56px;
 }
 
 .description {
   font-size: 18px;
-  margin: 36px 0 0;
+  margin: 50px 0 0;
 }
 
 .badge {
@@ -187,6 +201,7 @@ export default defineComponent({
   display: inline-block;
   vertical-align: middle;
   font-size: 14px;
+  font-weight: 600;
 
   @height: 30px;
 
@@ -207,9 +222,15 @@ export default defineComponent({
     border-radius: 4px;
     color: #fff;
     background-color: rgba(#4fa8b6, 0.8);
+    font-weight: 600;
 
     &:hover {
       background-color: #4fa8b6;
+    }
+
+    &-doc-icon {
+      display: inline-block;
+      transform: rotate(45deg);
     }
   }
 
