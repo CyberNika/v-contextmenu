@@ -11,11 +11,11 @@
 
   <v-contextmenu ref="contextmenu">
     <v-contextmenu-item>
-      <span class="feather icon-github" />
+      <github-outlined />
       GitHub
     </v-contextmenu-item>
     <v-contextmenu-item>
-      <span class="feather icon-gitlab" />
+      <gitlab-outlined />
       GitLab
     </v-contextmenu-item>
 

@@ -76,7 +76,6 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .main {
-  padding: 0 24px;
   margin-top: 20px;
 }
 </style>
