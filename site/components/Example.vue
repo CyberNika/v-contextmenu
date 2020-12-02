@@ -51,17 +51,27 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .example {
+  position: relative;
   display: flex;
-  padding: 32px 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
 
   & + & {
-    border-top: 1px solid red;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 0;
+      border-top: 1px solid #5aa7a4;
+    }
   }
 }
 
 .demo {
   flex: 1;
-  border: 3px dashed yellowgreen;
+  border: 3px dashed #5aa7a4;
   border-radius: 8px;
 
   & + .content {

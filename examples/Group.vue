@@ -14,16 +14,16 @@
 
     <v-contextmenu-group>
       <v-contextmenu-item>
-        <span class="feather icon-github" />
+        <github-outlined />
       </v-contextmenu-item>
       <v-contextmenu-item>
-        <span class="feather icon-thumbs-up" />
+        <codepen-outlined />
       </v-contextmenu-item>
       <v-contextmenu-item disabled>
-        <span class="feather icon-star" />
+        <alipay-outlined />
       </v-contextmenu-item>
       <v-contextmenu-item>
-        <span class="feather icon-codepen" />
+        <wechat-outlined />
       </v-contextmenu-item>
     </v-contextmenu-group>
 

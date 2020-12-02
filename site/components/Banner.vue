@@ -1,9 +1,40 @@
 <template>
   <header v-contextmenu:contextmenu class="header">
-    <nav class="nav">
-      <span class="nav-item">
-        <a href="https://github.com/heynext/v-contextmenu">GitHub</a>
-      </span>
+    <nav class="nav container">
+      <div class="nav-left">
+        <span class="logo">
+          <bug-filled />
+        </span>
+
+        <span class="nav-item">
+          <a href="https://github.com/heynext/v-contextmenu">文档</a>
+        </span>
+
+        <span class="nav-item">
+          <a href="https://github.com/heynext/v-contextmenu">API</a>
+        </span>
+
+        <span class="nav-item">
+          <a href="https://github.com/heynext/v-contextmenu">主题</a>
+        </span>
+
+        <span class="nav-item">
+          <a href="https://github.com/heynext/v-contextmenu">关于</a>
+        </span>
+      </div>
+
+      <div class="nav-right">
+        <span class="nav-item">
+          <a href="https://github.com/heynext/v-contextmenu">
+            <github-outlined />
+          </a>
+        </span>
+
+        <span class="nav-item">
+          <global-outlined />
+          简体中文
+        </span>
+      </div>
     </nav>
 
     <h1 class="title">VContextmenu</h1>
@@ -26,10 +57,12 @@
       <div class="setup">
         <button class="setup-button">>_ 文档</button>
       </div>
+
       <div class="setup">
         <span class="setup-label">NPM</span>
         <span class="setup-content">npm i v-contextmenu</span>
       </div>
+
       <div class="setup">
         <span class="setup-label">CDN</span>
         <span class="setup-content">https://unpkg.com/v-contextmenu@next</span>
@@ -78,28 +111,71 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .header {
-  background-color: #80419b;
+  background-color: #2b93d1;
+  background-image: linear-gradient(205deg, #2b93d1 0%, #519e96 100%);
   text-align: center;
   color: #fff;
 }
 
 .nav {
-  padding: 8px 0;
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  color: #fff;
+  line-height: $height;
+
+  .logo {
+    margin-right: 24px;
+    font-size: 24px;
+    vertical-align: middle;
+  }
+
+  &-item {
+    vertical-align: middle;
+
+    a {
+      opacity: 0.85;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:active {
+        opacity: 0.9;
+      }
+    }
+
+    & + & {
+      margin-left: 16px;
+    }
+  }
 }
 
 .title {
-  margin: 32px 0 0;
+  font-size: 46px;
+  margin: 40px 0 0;
 }
 
 .description {
-  margin: 20px 0 0;
+  font-size: 18px;
+  margin: 36px 0 0;
 }
 
 .badge {
   display: inline-block;
 
   &s {
-    margin-top: 12px;
+    margin-top: 30px;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+}
+
+.action {
+  &s {
+    margin-top: 26px;
   }
 
   & + & {
@@ -116,8 +192,8 @@ export default defineComponent({
 
   &s {
     padding: 12px 0;
-    margin-top: 24px;
-    background-color: #9db0c0;
+    margin-top: 30px;
+    background-color: rgba(#333, 0.1);
   }
 
   & + & {
@@ -125,38 +201,38 @@ export default defineComponent({
   }
 
   &-button {
-    padding: 0 8px;
+    padding: 0 12px;
     height: @height;
     line-height: $height;
     border-radius: 4px;
     color: #fff;
-    background-color: #2a7979;
+    background-color: rgba(#4fa8b6, 0.8);
 
     &:hover {
-      background-color: #478d8d;
+      background-color: #4fa8b6;
     }
   }
 
   &-label {
     display: inline-block;
-    padding: 0 8px;
+    padding: 0 10px;
     height: @height;
     line-height: $height;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     color: #fff;
-    background-color: #2a7979;
+    background-color: #4fa8b6;
   }
 
   &-content {
     display: inline-block;
-    padding: 0 8px;
+    padding: 0 12px;
     height: @height;
     line-height: $height;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    color: rgba(#c1e3e7, 0.8);
-    background-color: #478d8d;
+    color: rgba(#fff, 0.7);
+    background-color: rgba(#4fa8b6, 0.6);
   }
 }
 </style>
