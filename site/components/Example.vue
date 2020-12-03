@@ -20,7 +20,7 @@
           class="codepen-iframe"
           scrolling="no"
           :title="item"
-          :src="`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=js,result`"
+          :src="`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=html,result`"
           frameborder="no"
           loading="lazy"
           allowtransparency="true"
