@@ -1,6 +1,6 @@
 <template>
   <div class="example container">
-    <div v-if="!mirror" class="demo">
+    <div v-if="!hideDemo && !mirror" class="demo">
       <slot />
     </div>
 
@@ -13,12 +13,14 @@
         <slot name="description" />
       </div>
 
-      <div class="codepen">
+      <div class="codepens">
         <iframe
+          v-for="item of codepenIds"
+          :key="item"
           class="codepen-iframe"
           scrolling="no"
-          :title="codepenId"
-          :src="`https://codepen.io/heynext/embed/${codepenId}?height=265&theme-id=light&default-tab=css,result`"
+          :title="item"
+          :src="`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=css,result`"
           frameborder="no"
           loading="lazy"
           allowtransparency="true"
@@ -27,24 +29,35 @@
       </div>
     </div>
 
-    <div v-if="mirror" class="demo">
+    <div v-if="!hideDemo && mirror" class="demo">
       <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 
 export default defineComponent({
   name: "SiteExample",
 
   props: {
-    codepenId: {
-      type: String,
+    codepens: {
+      type: [String, Array],
       required: true,
     },
+    hideDemo: Boolean,
     mirror: Boolean,
+  },
+
+  setup(props) {
+    const codepenIds = computed(() =>
+      Array.isArray(props.codepens) ? props.codepens : [props.codepens],
+    );
+
+    return {
+      codepenIds,
+    };
   },
 });
 </script>
@@ -64,26 +77,27 @@ export default defineComponent({
       left: 24px;
       width: calc(100% - 48px);
       height: 0;
-      border-bottom: 2px solid rgba(#5aa7a4, 0.5);
+      border-bottom: 2px dotted rgba(#5aa7a4, 0.4);
     }
   }
 }
 
 .demo {
-  flex: 1;
-  border: 3px dashed #5aa7a4;
+  flex: 2;
+  border: 3px dashed rgba(#5aa7a4, 0.9);
   border-radius: 8px;
+  background-color: rgba(#5aa7a4, 0.2);
 
   & + .content {
-    margin-left: 68px;
+    margin-left: 74px;
   }
 }
 
 .content {
-  flex: 1;
+  flex: 3;
 
   & + .demo {
-    margin-left: 68px;
+    margin-left: 74px;
   }
 }
 
@@ -93,17 +107,24 @@ export default defineComponent({
 }
 
 .description {
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
 .codepen {
-  margin-top: 24px;
-  height: 360px;
-  background-color: #eee;
+  &s {
+    display: flex;
+    margin-top: 24px;
+    height: 360px;
+  }
 
   &-iframe {
     width: 100%;
     height: 100%;
+    background-color: #eee;
+
+    & + & {
+      margin-left: 24px;
+    }
   }
 }
 </style>

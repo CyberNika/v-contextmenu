@@ -19,7 +19,8 @@ export default {
   background-image: linear-gradient(205deg, #2b93d1 0%, #519e96 100%);
   color: #fff;
   text-align: center;
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
+  letter-spacing: 1px;
 }
 
 .link {

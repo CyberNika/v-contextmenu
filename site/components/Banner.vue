@@ -39,7 +39,13 @@
 
     <h1 class="title">VContextmenu</h1>
 
-    <p class="description">适用于 Vue 3.0 的 Contextmenu 组件。</p>
+    <p class="description">
+      适用于
+      <code>Vue 3.0</code>
+      的
+      <code>Contextmenu</code>
+      组件。
+    </p>
 
     <div class="badges">
       <a
@@ -66,9 +72,7 @@
       <div class="setup">
         <code>
           <span class="setup-label">NPM</span>
-          <span class="setup-content">
-            npm i v-contextmenu
-          </span>
+          <span class="setup-content"> npm i v-contextmenu@next </span>
         </code>
       </div>
 
@@ -166,8 +170,9 @@ export default defineComponent({
 
 .title {
   margin: 40px 0 0;
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
   font-size: 56px;
+  letter-spacing: 1px;
 }
 
 .description {

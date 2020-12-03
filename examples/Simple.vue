@@ -6,7 +6,9 @@
       height: '100%',
     }"
   >
-    rightclick me
+    <trigger-box>
+      <code>rightclick here</code>
+    </trigger-box>
   </div>
 
   <v-contextmenu ref="contextmenu">
@@ -43,8 +45,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import TriggerBox from "./TriggerBox.vue";
+
 const ExampleSimple = defineComponent({
   name: "ExampleSimple",
+
+  components: {
+    TriggerBox,
+  },
 });
 
 export default ExampleSimple;

@@ -3,7 +3,7 @@ import { createApp } from "vue";
 import {
   GithubOutlined,
   GitlabOutlined,
-  CodeOutlined,
+  CodepenOutlined,
   AlipayOutlined,
   WechatOutlined,
   GlobalOutlined,
@@ -23,7 +23,7 @@ const app = createApp(App);
 app.use(contextmenu);
 
 app.component(GithubOutlined.name, GithubOutlined);
-app.component(CodeOutlined.name, CodeOutlined);
+app.component(CodepenOutlined.name, CodepenOutlined);
 app.component(GitlabOutlined.name, GitlabOutlined);
 app.component(AlipayOutlined.name, AlipayOutlined);
 app.component(WechatOutlined.name, WechatOutlined);
