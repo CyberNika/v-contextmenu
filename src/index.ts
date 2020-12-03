@@ -8,6 +8,8 @@ import ContextmenuDivider from "./components/ContextmenuDivider";
 import ContextmenuSubmenu from "./components/ContextmenuSubmenu";
 import ContextmenuGroup from "./components/ContextmenuGroup";
 
+import { version } from "../package.json";
+
 const install = (app: App): void => {
   app.directive("contextmenu", directive);
 
@@ -25,16 +27,12 @@ export {
   ContextmenuDivider,
   ContextmenuSubmenu,
   ContextmenuGroup,
+  version,
 };
 
 const VContextmenu = {
   install,
+  version,
 };
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-if (typeof window !== "undefined" && (window as any).Vue) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (window as any).VContextmenu = VContextmenu;
-}
 
 export default VContextmenu;
