@@ -27,12 +27,14 @@ export {
   ContextmenuGroup,
 };
 
+const VContextmenu = {
+  install,
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if (typeof window !== "undefined" && (window as any).Vue) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  install((window as any).Vue);
+  (window as any).VContextmenu = VContextmenu;
 }
 
-export default {
-  install,
-};
+export default VContextmenu;
