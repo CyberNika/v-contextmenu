@@ -20,7 +20,7 @@
           class="codepen-iframe"
           scrolling="no"
           :title="item"
-          :src="`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=css,result`"
+          :src="`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=js,result`"
           frameborder="no"
           loading="lazy"
           allowtransparency="true"
@@ -83,7 +83,7 @@ export default defineComponent({
 }
 
 .demo {
-  flex: 2;
+  flex: 3;
   border: 3px dashed rgba(#5aa7a4, 0.9);
   border-radius: 8px;
   background-color: rgba(#5aa7a4, 0.2);
@@ -94,7 +94,7 @@ export default defineComponent({
 }
 
 .content {
-  flex: 3;
+  flex: 5;
 
   & + .demo {
     margin-left: 74px;
