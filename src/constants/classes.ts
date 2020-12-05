@@ -15,10 +15,10 @@ const CLASSES = {
   contextmenuSubmenu: "v-contextmenu-submenu", // 子菜单容器
   contextmenuSubmenuTitle: "v-contextmenu-submenu__title", // 子菜单标题
   contextmenuSubmenuMenus: "v-contextmenu-submenu__menus", // 子菜单
-  contextmenuSubmenuMenusLeft: "v-contextmenu-submenu__menus--left", // 子菜单 Left
-  contextmenuSubmenuMenusRight: "v-contextmenu-submenu__menus--right", // 子菜单 Right
   contextmenuSubmenuMenusTop: "v-contextmenu-submenu__menus--top", // 子菜单 Top
+  contextmenuSubmenuMenusRight: "v-contextmenu-submenu__menus--right", // 子菜单 Right
   contextmenuSubmenuMenusBottom: "v-contextmenu-submenu__menus--bottom", // 子菜 Bottom单
+  contextmenuSubmenuMenusLeft: "v-contextmenu-submenu__menus--left", // 子菜单 Left
   contextmenuSubmenuArrow: "v-contextmenu-submenu__arrow", // 子菜单标题 icon
 };
 

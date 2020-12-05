@@ -9,6 +9,7 @@ import {
   readonly,
   Teleport,
   PropType,
+  nextTick,
 } from "vue";
 
 import { CLASSES } from "../constants";
@@ -19,7 +20,9 @@ import {
 } from "../types";
 
 interface ShowOptions {
-  triggers?: TriggerEventTypeOption;
+  top?: number;
+  left?: number;
+  autoAjustPlacement?: boolean;
 }
 interface AddReferenceOptions {
   trigger?: TriggerEventTypeOption;
@@ -71,27 +74,54 @@ const Contextmenu = defineComponent({
     }));
 
     const currentOptions = ref(null);
-    const show = (evt: MouseEvent | ShowOptions, options?: ShowOptions) => {
+    const show = async (
+      evt: MouseEvent | ShowOptions,
+      options?: ShowOptions,
+    ) => {
+      const targetOptions = evt instanceof Event ? options : evt;
+      const autoAjustPlacement =
+        targetOptions?.autoAjustPlacement || props.autoAjustPlacement;
+      const targetPosition = {
+        top: targetOptions?.top || 0,
+        left: targetOptions?.left || 0,
+      };
+
       if (evt instanceof Event) {
         evt.preventDefault();
 
-        const eventX = evt.pageX;
-        const eventY = evt.pageY;
-
-        const top = eventY;
-        const left = eventX;
-
-        position.value = { top, left };
+        targetPosition.top = targetOptions?.top ?? evt.pageY;
+        targetPosition.left = targetOptions?.left ?? evt.pageX;
       }
 
-      // options = evt;
-
       toggle(true);
+
+      await nextTick();
+
+      if (autoAjustPlacement) {
+        const el = contextmenuRef.value!;
+        const width = el.clientWidth;
+        const height = el.clientHeight;
+
+        if (height + targetPosition.top >= window.innerHeight) {
+          targetPosition.top -= height;
+        }
+
+        if (width + targetPosition.left >= window.innerWidth) {
+          targetPosition.left -= width;
+        }
+      }
+
+      console.log("targetPosition", targetPosition);
+
+      position.value = targetPosition;
+
       emit("show", contextmenuRef.value);
     };
     const hide = () => {
       currentOptions.value = null;
+
       toggle(false);
+
       emit("hide", contextmenuRef.value);
     };
 
@@ -169,10 +199,11 @@ const Contextmenu = defineComponent({
       document.removeEventListener("click", onBodyClick);
     });
 
-    provide("visible", readonly(visible));
+    provide("visible", visible);
+    provide("autoAjustPlacement", props.autoAjustPlacement);
+
     provide("show", show);
     provide("hide", hide);
-    provide("toggle", toggle);
 
     return {
       visible,

@@ -1,16 +1,14 @@
-import { ref, computed, defineComponent, Transition } from "vue";
+import {
+  ref,
+  computed,
+  defineComponent,
+  Transition,
+  inject,
+  nextTick,
+} from "vue";
 
 import ContextmenuIcon from "./ContextmenuIcon";
 import { CLASSES } from "../constants";
-
-// type SubmenuMenusPlacement = "left" | "right" | "top" | "bottom";
-
-// const SUBMENU_MENUS_PLACEMENT_CLASSES = {
-//   left: CLASSES.contextmenuSubmenuMenusLeft,
-//   right: CLASSES.contextmenuSubmenuMenusRight,
-//   top: CLASSES.contextmenuSubmenuMenusTop,
-//   bottom: CLASSES.contextmenuSubmenuMenusBottom,
-// };
 
 const ContextmenuSubmenu = defineComponent({
   name: "VContextmenuSubmenu",
@@ -26,13 +24,42 @@ const ContextmenuSubmenu = defineComponent({
   emits: ["mouseenter", "mouseleave"],
 
   setup(props, { emit }) {
+    const submenuRef = ref<HTMLDivElement | null>(null);
+    const autoAjustPlacement = inject<boolean>("autoAjustPlacement");
+    const placements = ref(["top", "right"]);
     const hover = ref(false);
-    const handleMouseenter = (evt: Event) => {
+    const handleMouseenter = async (evt: Event) => {
       if (props.disabled) return;
 
       hover.value = true;
 
       emit("mouseenter", evt);
+
+      await nextTick();
+
+      const targetPlacements = [];
+
+      if (autoAjustPlacement) {
+        const { target } = evt;
+        const targetDimension = target.getBoundingClientRect();
+
+        const submenuWidth = submenuRef.value!.clientWidth;
+        const submenuHeight = submenuRef.value!.clientHeight;
+
+        if (targetDimension.right + submenuWidth >= window.innerWidth) {
+          targetPlacements.push("left");
+        } else {
+          targetPlacements.push("right");
+        }
+
+        if (targetDimension.bottom + submenuHeight >= window.innerHeight) {
+          targetPlacements.push("bottom");
+        } else {
+          targetPlacements.push("top");
+        }
+      }
+
+      placements.value = targetPlacements;
     };
 
     const handleMouseleave = (evt: Event) => {
@@ -54,11 +81,19 @@ const ContextmenuSubmenu = defineComponent({
     const menusClasses = computed(() => ({
       [CLASSES.contextmenu]: true,
       [CLASSES.contextmenuSubmenuMenus]: true,
-      // [SUBMENU_MENUS_PLACEMENT_CLASSES[menusPlacement.value]]: true,
+      [CLASSES.contextmenuSubmenuMenusTop]: placements.value.includes("top"),
+      [CLASSES.contextmenuSubmenuMenusRight]: placements.value.includes(
+        "right",
+      ),
+      [CLASSES.contextmenuSubmenuMenusBottom]: placements.value.includes(
+        "bottom",
+      ),
+      [CLASSES.contextmenuSubmenuMenusLeft]: placements.value.includes("left"),
     }));
 
     return {
       hover,
+      submenuRef,
       titleClasses,
       menusClasses,
 
@@ -84,7 +119,7 @@ const ContextmenuSubmenu = defineComponent({
 
         <Transition name={CLASSES.contextmenu}>
           {this.hover ? (
-            <div ref="submenu" class={this.menusClasses}>
+            <div ref="submenuRef" class={this.menusClasses}>
               <ul class={CLASSES.contextmenuInner}>
                 {this.$slots.default?.()}
               </ul>
