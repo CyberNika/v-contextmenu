@@ -29,7 +29,7 @@
       <template #title>多实例和触发区域</template>
       <template #description> 多实例和触发区域多实例和触发区域 </template>
 
-      <example-group />
+      <example-simple />
     </example>
 
     <example codepens="yLaeBeE">

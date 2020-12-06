@@ -6,7 +6,6 @@ import {
   reactive,
   onBeforeUnmount,
   provide,
-  readonly,
   Teleport,
   PropType,
   nextTick,
@@ -102,16 +101,17 @@ const Contextmenu = defineComponent({
         const width = el.clientWidth;
         const height = el.clientHeight;
 
-        if (height + targetPosition.top >= window.innerHeight) {
+        if (
+          height + targetPosition.top >=
+          window.innerHeight + window.scrollY
+        ) {
           targetPosition.top -= height;
         }
 
-        if (width + targetPosition.left >= window.innerWidth) {
+        if (width + targetPosition.left >= window.innerWidth + window.scrollX) {
           targetPosition.left -= width;
         }
       }
-
-      console.log("targetPosition", targetPosition);
 
       position.value = targetPosition;
 

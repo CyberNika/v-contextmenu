@@ -115,6 +115,7 @@ export default defineComponent({
     display: flex;
     margin-top: 24px;
     height: 360px;
+    overflow-x: auto;
   }
 
   &-iframe {

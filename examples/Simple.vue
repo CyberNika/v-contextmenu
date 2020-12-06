@@ -25,13 +25,13 @@
 
     <v-contextmenu-submenu title="蔬菜菜">
       <v-contextmenu-item>土豆</v-contextmenu-item>
+      <v-contextmenu-item>黄瓜</v-contextmenu-item>
 
       <v-contextmenu-submenu title="青菜">
         <v-contextmenu-item>小油菜</v-contextmenu-item>
         <v-contextmenu-item>空心菜</v-contextmenu-item>
+        <v-contextmenu-item>紫罗兰</v-contextmenu-item>
       </v-contextmenu-submenu>
-
-      <v-contextmenu-item>黄瓜</v-contextmenu-item>
     </v-contextmenu-submenu>
 
     <v-contextmenu-item disabled>菠萝蜜</v-contextmenu-item>
