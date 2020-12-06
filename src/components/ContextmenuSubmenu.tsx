@@ -2,7 +2,7 @@ import {
   ref,
   computed,
   defineComponent,
-  Transition,
+  // Transition,
   inject,
   nextTick,
 } from "vue";
@@ -41,7 +41,7 @@ const ContextmenuSubmenu = defineComponent({
 
       if (autoAjustPlacement) {
         const { target } = evt;
-        const targetDimension = target.getBoundingClientRect();
+        const targetDimension = (target as HTMLElement).getBoundingClientRect();
 
         const submenuWidth = submenuRef.value!.clientWidth;
         const submenuHeight = submenuRef.value!.clientHeight;
@@ -77,7 +77,6 @@ const ContextmenuSubmenu = defineComponent({
       [CLASSES.contextmenuItemDisabled]: props.disabled,
     }));
 
-    // const menusPlacement = ref<SubmenuMenusPlacement>(["right", "top"]);
     const menusClasses = computed(() => ({
       [CLASSES.contextmenu]: true,
       [CLASSES.contextmenuSubmenuMenus]: true,
@@ -117,15 +116,13 @@ const ContextmenuSubmenu = defineComponent({
           </span>
         </div>
 
-        <Transition name={CLASSES.contextmenu}>
-          {this.hover ? (
-            <div ref="submenuRef" class={this.menusClasses}>
-              <ul class={CLASSES.contextmenuInner}>
-                {this.$slots.default?.()}
-              </ul>
-            </div>
-          ) : null}
-        </Transition>
+        {/* <Transition name={CLASSES.contextmenu}> */}
+        {this.hover ? (
+          <div ref="submenuRef" class={this.menusClasses}>
+            <ul class={CLASSES.contextmenuInner}>{this.$slots.default?.()}</ul>
+          </div>
+        ) : null}
+        {/* </Transition> */}
       </li>
     );
   },
