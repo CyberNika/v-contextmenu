@@ -30,7 +30,7 @@
           </a>
         </span>
 
-        <span class="nav-item">
+        <span class="nav-item nav-item--disabled">
           <global-outlined />
           简体中文
         </span>
@@ -149,21 +149,22 @@ export default defineComponent({
 
   &-item {
     vertical-align: middle;
+    opacity: 0.85;
 
-    a {
-      opacity: 0.85;
+    &:not(&--disabled):hover {
+      opacity: 1;
+    }
 
-      &:hover {
-        opacity: 1;
-      }
-
-      &:active {
-        opacity: 0.9;
-      }
+    &:not(&--disabled):active {
+      opacity: 0.9;
     }
 
     & + & {
       margin-left: 16px;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
     }
   }
 }

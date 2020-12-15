@@ -1,17 +1,25 @@
 # v-contextmenu
 
-## 概览
+## 目录
 
-包含如下组件：
+- [v-contextmenu](#v-contextmenu)
+  - [目录](#目录)
+  - [类型](#类型)
+  - [指令](#指令)
+    - [`v-contextmenu:ref`](#v-contextmenuref)
+  - [组件](#组件)
+    - [`VContextmenu`](#vcontextmenu)
+    - [`VContextmenuItem`](#vcontextmenuitem)
+    - [`VContextmenuDivider`](#vcontextmenudivider)
+    - [`VContextmenuSubmenu`](#vcontextmenusubmenu)
+    - [`VContextmenuGroup`](#vcontextmenugroup)
+  - [主题](#主题)
 
-- [`VContextmenu`](#vcontextmenu)
-- [`VContextmenuItem`](#vcontextmenuitem)
-- [`VContextmenuSubmenu`](#vcontextmenusubmenu)
-- [`VContextmenuGroup`](#vcontextmenugroup)
+## 类型
 
-和如下指令：
-
-- [`v-contextmenu`](#v-contextmenuref)
+```typescript
+type TriggerEventType = "contextmenu" | "click";
+```
 
 ## 指令
 
@@ -27,6 +35,16 @@
 <div v-contextmenu:contextmenu></div>
 ```
 
+指令也支持传入参数，用法如下：
+
+```html
+<div v-contextmenu:contextmenu="{ trigger: ['contextmenu', 'click'] }"></div>
+```
+
+| 参数    | 类型                                                    | 可选 | 默认值 | 说明           |
+| ------- | ------------------------------------------------------- | ---- | ------ | -------------- |
+| trigger | <code>TriggerEventType &#124; TriggerEventType[]</code> | 可选 | -      | 触发的事件类型 |
+
 ## 组件
 
 ### `VContextmenu`
@@ -35,30 +53,27 @@
 
 **Attributes**
 
-| 参数        | 说明              | 类型    | 可选值 | 默认值      |
-| ---------- | ----------------- | ------ | ----- | ---------- |
-| eventType  | 触发其显示的事件类型 | String | 事件名 | contextmenu |
-| theme      | 主题              | String | default / bright / dark | default |
-| disabled   | 是否禁用菜单（菜单不会出现）  | Boolean | true / false | false |
-| autoPlacement  | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 | Boolean | true / false | true |
+| 参数                  | 类型                               | 可选 | 默认值   | 说明                                                                     |
+| --------------------- | ---------------------------------- | ---- | -------- | ------------------------------------------------------------------------ |
+| model-value / v-model | `boolean`                          | 可选 | `false`  | 是否显示                                                                 |
+| autoAjustPlacement    | `boolean`                          | 可选 | `true`   | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 |
+| disabled              | `boolean`                          | 可选 | `false`  | 是否禁用菜单（菜单不会出现）                                             |
+| teleport              | <code>string &#124; Element</code> | 可选 | `"body"` | 使用 Teleport                                                            |
+| destroyOnHide         | `boolean`                          | 可选 | `false`  | 关闭时是否销毁                                                           |
 
 **Methods**
 
-| 方法名称   | 说明         | 参数     |
-| --------- | ----------- | ----------- |
-| show      | 显示菜单     | `{ top: number, left: number }`，`top` 和 `left` 均为菜单相对浏览器窗口的值 |
-| hide      | 隐藏菜单     | -- |
-| hideAll   | 隐藏所有菜单  | -- |
+| 方法名称 | 说明     | 参数                                                                        |
+| -------- | -------- | --------------------------------------------------------------------------- |
+| show     | 显示菜单 | `{ top: number, left: number }`，`top` 和 `left` 均为菜单相对浏览器窗口的值 |
+| hide     | 隐藏菜单 | --                                                                          |
 
 **Events**
 
-| 事件名称     | 说明                     | 回调参数     |
-| ----------- | ----------------------- | ----------- |
-| show        | 菜单显示时触发的事件       | 菜单组件的 `vm` |
-| hide        | 菜单隐藏时触发的事件       | 菜单组件的 `vm` |
-| contextmenu | `contextmenu` 事件被触发  | 触发 `contextmenu` 事件区域的 `vnode` |
-
-> 查看[vnode 文档](https://cn.vuejs.org/v2/api/#VNode-%E6%8E%A5%E5%8F%A3)
+| 事件名称 | 说明                 | 回调参数        |
+| -------- | -------------------- | --------------- |
+| show     | 菜单显示时触发的事件 | 菜单组件的 `vm` |
+| hide     | 菜单隐藏时触发的事件 | 菜单组件的 `vm` |
 
 ### `VContextmenuItem`
 
@@ -66,19 +81,22 @@
 
 **Attributes**
 
-| 参数      | 说明        | 类型    | 可选值        | 默认值 |
-| ---------| ---------- | ------- | ------------ | ----- |
-| divider  | 是否为分隔符 | Boolean | true / false | false |
-| disabled | 是否禁用    | Boolean | true / false | false |
-| autoHide | 被点击后菜单是否自动隐藏 | Boolean | true / false | true |
+| 参数        | 类型      | 可选 | 默认值  | 说明                     |
+| ----------- | --------- | ---- | ------- | ------------------------ |
+| disabled    | `boolean` | 可选 | `false` | 是否禁用）               |
+| hideOnClick | `boolean` | 可选 | `true`  | 被点击后菜单是否自动隐藏 |
 
 **Events**
 
-| 事件名称    | 说明                     | 回调参数     |
-| ---------- | ----------------------- | ----------- |
-| click      | 菜单被点击时触发的事件      | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
+| 事件名称   | 说明                         | 回调参数                                        |
+| ---------- | ---------------------------- | ----------------------------------------------- |
+| click      | 菜单被点击时触发的事件       | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
 | mouseenter | 鼠标移动到菜单上时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
 | mouseleave | 鼠标从菜单上离开时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
+
+### `VContextmenuDivider`
+
+分割线
 
 ### `VContextmenuSubmenu`
 
@@ -86,23 +104,23 @@
 
 **Attributes**
 
-| 参数      | 说明     | 类型    | 可选值   | 默认值 |
-| -------- | -------- | ------ | ------- | ----- |
-| title    | 菜单名    | String | --      | --    |
-| disabled | 是否禁用  | Boolean | true / false | false |
+| 参数     | 说明     | 类型    | 可选值       | 默认值 |
+| -------- | -------- | ------- | ------------ | ------ |
+| title    | 菜单名   | String  | --           | --     |
+| disabled | 是否禁用 | Boolean | true / false | false  |
 
 **Events**
 
-| 事件名称    | 说明                     | 回调参数     |
-| ---------- | ----------------------- | ----------- |
+| 事件名称   | 说明                         | 回调参数                                        |
+| ---------- | ---------------------------- | ----------------------------------------------- |
 | mouseenter | 鼠标移动到菜单上时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
 | mouseleave | 鼠标从菜单上离开时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
 
 **Slots**
 
-| Slot 名  | 说明                |
-| -------- | ------------------ |
-| title    | 菜单名，和 `title` 属性二选一 |
+| Slot 名 | 说明                          |
+| ------- | ----------------------------- |
+| title   | 菜单名，和 `title` 属性二选一 |
 
 ### `VContextmenuGroup`
 
@@ -110,9 +128,16 @@
 
 **Attributes**
 
-| 参数      | 说明     | 类型             | 可选值   | 默认值 |
-| -------- | -------- | --------------- | ------- | ----- |
-| maxWidth | 最大宽度  | Number / String | --      | --    |
+| 参数     | 说明     | 类型            | 可选值 | 默认值 |
+| -------- | -------- | --------------- | ------ | ------ |
+| title    | 标题名   | String          | --     | --     |
+| maxWidth | 最大宽度 | Number / String | --     | --     |
+
+**Slots**
+
+| Slot 名 | 说明   |
+| ------- | ------ |
+| title   | 标题名 |
 
 ## 主题
 

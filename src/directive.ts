@@ -1,8 +1,8 @@
 import { Directive, DirectiveBinding } from "vue";
 
-type Trigger = "contextmenu" | "click";
+import { TriggerEventType } from "./types";
 interface ContextmenuDirectiveValue {
-  trigger?: Trigger | Trigger[];
+  trigger?: TriggerEventType | TriggerEventType[];
 }
 
 interface ContextmenuDirectiveEl extends Element {
