@@ -18,7 +18,10 @@ const ContextmenuSubmenu = defineComponent({
       type: String,
       required: true,
     },
-    disabled: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   emits: ["mouseenter", "mouseleave"],

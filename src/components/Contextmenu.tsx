@@ -50,20 +50,23 @@ const Contextmenu = defineComponent({
       default: false,
     },
     teleport: {
-      type: [String, Object] as PropType<"string" | Element>,
+      type: [String, Object] as PropType<string | Element>,
       default: () => "body",
     },
-    destroyTooltipOnHide: Boolean,
+    destroyOnHide: {
+      type: Boolean,
+      default: false,
+    },
   },
 
-  emits: ["show", "hide", "update:visible", "addReference"],
+  emits: ["show", "hide", "update:modelValue"],
 
   setup(props, { emit }) {
     const contextmenuRef = ref<HTMLDivElement | null>(null);
     const visible = ref(props.modelValue || false);
     const toggle = (value: boolean) => {
       visible.value = value;
-      emit("update:visible", value);
+      emit("update:modelValue", value);
     };
 
     const position = ref({ top: 0, left: 0 });

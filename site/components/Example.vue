@@ -121,7 +121,8 @@ export default defineComponent({
   &-iframe {
     width: 100%;
     height: 100%;
-    background-color: #eee;
+    border-radius: 8px;
+    background-color: rgba(90, 167, 164, 0.2);
 
     & + & {
       margin-left: 24px;

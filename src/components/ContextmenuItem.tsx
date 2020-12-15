@@ -6,7 +6,10 @@ const ContextmenuItem = defineComponent({
   name: "VContextmenuItem",
 
   props: {
-    disabled: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     hideOnClick: {
       type: Boolean,
       default: true,
