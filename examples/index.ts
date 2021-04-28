@@ -1,5 +1,5 @@
-import Simple from "./Simple.vue";
-import Group from "./Group.vue";
-import Dynamic from "./Dynamic.vue";
+import Simple from "./Simple";
+import Group from "./Group";
+import Dynamic from "./Dynamic";
 
 export { Simple, Group, Dynamic };

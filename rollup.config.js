@@ -1,4 +1,3 @@
-import jsx from "acorn-jsx";
 import { terser } from "rollup-plugin-terser";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
@@ -8,7 +7,6 @@ const extensions = [".ts", ".tsx"];
 
 const config = {
   input: "src/index.ts",
-  acornInjectPlugins: [jsx()],
   plugins: [
     json(),
     nodeResolve({ extensions }),
@@ -19,6 +17,7 @@ const config = {
         ["@babel/preset-env", { modules: false }],
       ],
       plugins: ["@vue/babel-plugin-jsx"],
+      // babelHelpers: "runtime",
     }),
   ],
   external: ["vue"],
@@ -49,7 +48,7 @@ export default [
   {
     ...config,
     output: {
-      file: "dist/index.umd.js",
+      file: "dist/index.js",
       format: "umd",
       name: "VContextmenu",
       exports: "named",
@@ -59,28 +58,13 @@ export default [
     },
   },
 
-  // iife
-  {
-    ...config,
-    plugins: [...config.plugins],
-    output: {
-      file: "dist/index.js",
-      format: "iife",
-      name: "VContextmenu",
-      exports: "named",
-      globals: {
-        vue: "Vue",
-      },
-    },
-  },
-
-  // iife mini
+  // UMD mini
   {
     ...config,
     plugins: [...config.plugins, terser()],
     output: {
       file: "dist/index.min.js",
-      format: "iife",
+      format: "umd",
       name: "VContextmenu",
       exports: "named",
       globals: {
