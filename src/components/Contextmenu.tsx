@@ -133,9 +133,9 @@ const Contextmenu = defineComponent({
     const currentReferenceOptions = computed(
       () => currentReference.value && references.get(currentReference.value),
     );
-    const addReference = (el: Element, options: AddReferenceOptions = {}) => {
+    const addReference = (el: Element, options?: AddReferenceOptions) => {
       const triggers = (() => {
-        if (options.trigger) {
+        if (options?.trigger) {
           return Array.isArray(options.trigger)
             ? options.trigger
             : [options.trigger];

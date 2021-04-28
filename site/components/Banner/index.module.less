@@ -1,0 +1,135 @@
+.header {
+  background-color: #2b93d1;
+  background-image: linear-gradient(205deg, #2b93d1 0%, #519e96 100%);
+  text-align: center;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  color: #fff;
+  line-height: $height;
+
+  .logo {
+    margin-right: 24px;
+    font-size: 24px;
+    vertical-align: middle;
+  }
+
+  &Item {
+    vertical-align: middle;
+    opacity: 0.85;
+
+    &:not(&Disabled):hover {
+      opacity: 1;
+    }
+
+    &:not(&Disabled):active {
+      opacity: 0.9;
+    }
+
+    & + & {
+      margin-left: 16px;
+    }
+
+    &Disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.title {
+  margin: 40px 0 0;
+  font-family: "Texturina", serif;
+  font-size: 56px;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 18px;
+  margin: 50px 0 0;
+}
+
+.badge {
+  display: inline-block;
+
+  &s {
+    margin-top: 30px;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+}
+
+.action {
+  &s {
+    margin-top: 26px;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+}
+
+.setup {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 600;
+
+  @height: 30px;
+
+  &s {
+    padding: 12px 0;
+    margin-top: 30px;
+    background-color: rgba(#333, 0.1);
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  &Button {
+    padding: 0 12px;
+    height: @height;
+    line-height: $height;
+    border-radius: 4px;
+    color: #fff;
+    background-color: rgba(#4fa8b6, 0.8);
+    font-weight: 600;
+
+    &:hover {
+      background-color: #4fa8b6;
+    }
+
+    &DocIcon {
+      display: inline-block;
+      transform: rotate(45deg);
+    }
+  }
+
+  &Label {
+    display: inline-block;
+    padding: 0 10px;
+    height: @height;
+    line-height: $height;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #fff;
+    background-color: #4fa8b6;
+  }
+
+  &Content {
+    display: inline-block;
+    padding: 0 12px;
+    height: @height;
+    line-height: $height;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: rgba(#fff, 0.7);
+    background-color: rgba(#4fa8b6, 0.6);
+  }
+}

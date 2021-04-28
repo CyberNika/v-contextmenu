@@ -17,13 +17,16 @@ const bind = (
   el: ContextmenuDirectiveEl,
   binding: ContextmenuDirectiveBinding,
 ): void => {
-  const contextmenuKey = binding.arg;
+  // TODO: https://github.com/vuejs/jsx-next/issues/404
+  const contextmenuKey = binding.arg || binding.value?.[1];
 
   if (!contextmenuKey) {
-    throw Error("参数有误");
+    console.error("参数有误");
+    return;
   }
 
-  const contextmenuOptions = binding.value;
+  // const contextmenuOptions = binding.value;
+  const contextmenuOptions = binding.value?.[0];
   const contextmenuRef: ContextmenuRef =
     binding.instance?.$refs[contextmenuKey];
 
