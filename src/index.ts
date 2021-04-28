@@ -22,12 +22,13 @@ const install = (app: App): void => {
 
 export {
   directive,
+  install,
+  version,
   Contextmenu,
   ContextmenuItem,
   ContextmenuDivider,
   ContextmenuSubmenu,
   ContextmenuGroup,
-  version,
 };
 
 const VContextmenu = {
