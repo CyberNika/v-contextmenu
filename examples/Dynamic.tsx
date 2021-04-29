@@ -25,7 +25,7 @@ const ExampleDynamic = defineComponent({
           }}
         >
           <TriggerBox>
-            <code>rightclick here</code>
+            <code>右键点击此区域</code>
           </TriggerBox>
         </div>
 
