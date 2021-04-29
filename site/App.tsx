@@ -2,7 +2,7 @@ import { defineComponent } from "vue";
 
 import { Banner, Footer, Example } from "./components";
 
-import { Simple, Group, Dynamic } from "../examples";
+import { Simple, Group, Dynamic, Multiple, CustomTrigger } from "../examples";
 
 const SiteApp = defineComponent({
   name: "SiteApp",
@@ -23,7 +23,7 @@ const SiteApp = defineComponent({
 
           <Example
             title="按钮组"
-            description="按钮组按钮组按钮组按钮组按钮组"
+            description="按钮可以成组展示"
             codepens="vYgwmmL"
             mirror
           >
@@ -32,7 +32,7 @@ const SiteApp = defineComponent({
 
           <Example
             title="动态菜单"
-            description="动态菜单动态菜单动态菜单动态菜单动态菜单动态菜单"
+            description="动态删减菜单"
             codepens="yLgWXre"
           >
             <Dynamic />
@@ -40,19 +40,19 @@ const SiteApp = defineComponent({
 
           <Example
             title="多实例和触发区域"
-            description="多实例和触发区域多实例和触发区域"
-            codepens="xxgejzQ"
+            description="多个 Contextmenu 实例和触发区域"
+            codepens="rNjgJRg"
             mirror
           >
-            <Simple />
+            <Multiple />
           </Example>
 
           <Example
             title="自定义事件"
-            description="自定义事件"
-            codepens="xxgejzQ"
+            description="自定义触发的事件"
+            codepens="OJWYvpE"
           >
-            <Group />
+            <CustomTrigger />
           </Example>
 
           <Example
