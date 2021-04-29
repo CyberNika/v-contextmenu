@@ -20,6 +20,8 @@ const bind = (
   // TODO: https://github.com/vuejs/jsx-next/issues/404
   const contextmenuKey = binding.arg || binding.value?.[1];
 
+  console.log("binding", binding);
+
   if (!contextmenuKey) {
     console.error("参数有误");
     return;
@@ -31,7 +33,15 @@ const bind = (
     binding.instance?.$refs[contextmenuKey];
 
   if (!contextmenuRef) {
-    throw Error(`没有找到 ${contextmenuKey} 对应的实例`);
+    console.error(`没有找到 ${contextmenuKey} 对应的实例`);
+    return;
+  }
+
+  console.log("contextmenuRef", contextmenuRef);
+
+  if (typeof contextmenuRef.addReference !== "function") {
+    console.error(`${contextmenuKey} 对应的实例不是 VContextmenu`);
+    return;
   }
 
   el.$contextmenuKey = contextmenuKey;
