@@ -31,38 +31,38 @@ const ContextmenuSubmenu = defineComponent({
     const autoAjustPlacement = inject<boolean>("autoAjustPlacement");
     const placements = ref(["top", "right"]);
     const hover = ref(false);
-    const handleMouseenter = async (evt: Event) => {
+    const handleMouseenter = (evt: Event) => {
       if (props.disabled) return;
 
       hover.value = true;
 
       emit("mouseenter", evt);
 
-      await nextTick();
+      nextTick(() => {
+        const targetPlacements = [];
 
-      const targetPlacements = [];
+        if (autoAjustPlacement) {
+          const { target } = evt;
+          const targetDimension = (target as HTMLElement).getBoundingClientRect();
 
-      if (autoAjustPlacement) {
-        const { target } = evt;
-        const targetDimension = (target as HTMLElement).getBoundingClientRect();
+          const submenuWidth = submenuRef.value!.clientWidth;
+          const submenuHeight = submenuRef.value!.clientHeight;
 
-        const submenuWidth = submenuRef.value!.clientWidth;
-        const submenuHeight = submenuRef.value!.clientHeight;
+          if (targetDimension.right + submenuWidth >= window.innerWidth) {
+            targetPlacements.push("left");
+          } else {
+            targetPlacements.push("right");
+          }
 
-        if (targetDimension.right + submenuWidth >= window.innerWidth) {
-          targetPlacements.push("left");
-        } else {
-          targetPlacements.push("right");
+          if (targetDimension.bottom + submenuHeight >= window.innerHeight) {
+            targetPlacements.push("bottom");
+          } else {
+            targetPlacements.push("top");
+          }
         }
 
-        if (targetDimension.bottom + submenuHeight >= window.innerHeight) {
-          targetPlacements.push("bottom");
-        } else {
-          targetPlacements.push("top");
-        }
-      }
-
-      placements.value = targetPlacements;
+        placements.value = targetPlacements;
+      });
     };
 
     const handleMouseleave = (evt: Event) => {

@@ -76,10 +76,7 @@ const Contextmenu = defineComponent({
     }));
 
     const currentOptions = ref(null);
-    const show = async (
-      evt: MouseEvent | ShowOptions,
-      options?: ShowOptions,
-    ) => {
+    const show = (evt: MouseEvent | ShowOptions, options?: ShowOptions) => {
       const targetOptions = evt instanceof Event ? options : evt;
       const autoAjustPlacement =
         targetOptions?.autoAjustPlacement || props.autoAjustPlacement;
@@ -97,28 +94,31 @@ const Contextmenu = defineComponent({
 
       toggle(true);
 
-      await nextTick();
+      nextTick(() => {
+        if (autoAjustPlacement) {
+          const el = contextmenuRef.value!;
+          const width = el.clientWidth;
+          const height = el.clientHeight;
 
-      if (autoAjustPlacement) {
-        const el = contextmenuRef.value!;
-        const width = el.clientWidth;
-        const height = el.clientHeight;
+          if (
+            height + targetPosition.top >=
+            window.innerHeight + window.scrollY
+          ) {
+            targetPosition.top -= height;
+          }
 
-        if (
-          height + targetPosition.top >=
-          window.innerHeight + window.scrollY
-        ) {
-          targetPosition.top -= height;
+          if (
+            width + targetPosition.left >=
+            window.innerWidth + window.scrollX
+          ) {
+            targetPosition.left -= width;
+          }
         }
 
-        if (width + targetPosition.left >= window.innerWidth + window.scrollX) {
-          targetPosition.left -= width;
-        }
-      }
+        position.value = targetPosition;
 
-      position.value = targetPosition;
-
-      emit("show", contextmenuRef.value);
+        emit("show", contextmenuRef.value);
+      });
     };
     const hide = () => {
       currentOptions.value = null;
