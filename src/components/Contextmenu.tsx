@@ -104,14 +104,22 @@ const Contextmenu = defineComponent({
             height + targetPosition.top >=
             window.innerHeight + window.scrollY
           ) {
-            targetPosition.top -= height;
+            const targetTop = targetPosition.top - height;
+
+            if (targetTop > window.scrollY) {
+              targetPosition.top = targetTop;
+            }
           }
 
           if (
             width + targetPosition.left >=
             window.innerWidth + window.scrollX
           ) {
-            targetPosition.left -= width;
+            const targetWidth = targetPosition.left - width;
+
+            if (targetWidth > window.scrollX) {
+              targetPosition.left = targetWidth;
+            }
           }
         }
 

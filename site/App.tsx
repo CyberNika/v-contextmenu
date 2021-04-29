@@ -24,7 +24,7 @@ const SiteApp = defineComponent({
           <Example
             title="按钮组"
             description="按钮组按钮组按钮组按钮组按钮组"
-            codepens="xxgejzQ"
+            codepens="vYgwmmL"
             mirror
           >
             <Group />
@@ -33,7 +33,7 @@ const SiteApp = defineComponent({
           <Example
             title="动态菜单"
             description="动态菜单动态菜单动态菜单动态菜单动态菜单动态菜单"
-            codepens="xxgejzQ"
+            codepens="yLgWXre"
           >
             <Dynamic />
           </Example>
