@@ -37,8 +37,6 @@ const bind = (
     return;
   }
 
-  console.log("contextmenuRef", contextmenuRef);
-
   if (typeof contextmenuRef.addReference !== "function") {
     console.error(`${contextmenuKey} 对应的实例不是 VContextmenu`);
     return;

@@ -7,7 +7,12 @@ import {
 } from "@ant-design/icons-vue";
 
 import TriggerBox from "./TriggerBox";
-import { Contextmenu, ContextmenuItem, ContextmenuGroup } from "../src";
+import {
+  Contextmenu,
+  ContextmenuItem,
+  ContextmenuDivider,
+  ContextmenuGroup,
+} from "../src";
 
 const ExampleGroup = defineComponent({
   name: "ExampleGroup",
@@ -45,7 +50,7 @@ const ExampleGroup = defineComponent({
             </ContextmenuItem>
           </ContextmenuGroup>
 
-          <Contextmenu-divider />
+          <ContextmenuDivider />
 
           <ContextmenuGroup title="按钮组">
             <ContextmenuItem>菜单1</ContextmenuItem>

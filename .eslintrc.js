@@ -18,7 +18,7 @@ module.exports = {
   rules: {
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
-    // '@typescript-eslint/no-unused-vars': ['error'],
+    "vue/require-default-prop": 0,
   },
   env: {
     browser: true,

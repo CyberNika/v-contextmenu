@@ -1,4 +1,4 @@
-import Simple from "./Simple.vue";
+import Simple from "./Simple";
 import Group from "./Group";
 import Dynamic from "./Dynamic";
 

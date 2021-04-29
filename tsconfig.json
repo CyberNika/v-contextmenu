@@ -7,6 +7,5 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "resolveJsonModule": true
-  },
-  "include": ["src", "examples", "site", "__tests__"]
+  }
 }
