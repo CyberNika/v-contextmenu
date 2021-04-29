@@ -43,7 +43,7 @@ const Example = defineComponent({
                 class={styles.codepenIframe}
                 scrolling="no"
                 title={item}
-                src={`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=html,result`}
+                src={`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=html,vue,result`}
                 frameborder="no"
               />
             ))}
