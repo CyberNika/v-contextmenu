@@ -14,14 +14,12 @@ const ExampleMultiple = defineComponent({
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "100%",
             height: "100%",
           }}
         >
           <div
             v-contextmenu={[{ trigger: "contextmenu" }, "contextmenu"]}
             style={{
-              width: "100%",
               height: "100%",
             }}
           >
@@ -34,7 +32,6 @@ const ExampleMultiple = defineComponent({
             v-contextmenu={[{ trigger: "contextmenu" }, "contextmenu"]}
             style={{
               marginTop: "12px",
-              width: "100%",
               height: "100%",
             }}
           >
@@ -47,7 +44,6 @@ const ExampleMultiple = defineComponent({
             v-contextmenu={[{ trigger: "contextmenu" }, "contextmenu1"]}
             style={{
               marginTop: "12px",
-              width: "100%",
               height: "100%",
             }}
           >

@@ -14,6 +14,10 @@ const Example = defineComponent({
     description: String,
     hideDemo: Boolean,
     mirror: Boolean,
+    codepenDefaultTab: {
+      type: Array as PropType<string[]>,
+      default: () => ["html", "vue", "result"],
+    },
   },
 
   setup(props, { slots }) {
@@ -43,7 +47,7 @@ const Example = defineComponent({
                 class={styles.codepenIframe}
                 scrolling="no"
                 title={item}
-                src={`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=html,vue,result`}
+                src={`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=${props.codepenDefaultTab.join(",")}`}
                 frameborder="no"
               />
             ))}

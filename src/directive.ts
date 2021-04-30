@@ -20,7 +20,7 @@ const bind = (
   // TODO: https://github.com/vuejs/jsx-next/issues/404
   const contextmenuKey = binding.arg || binding.value?.[1];
 
-  console.log("binding", binding);
+  // console.log("binding", binding);
 
   if (!contextmenuKey) {
     console.error("参数有误");

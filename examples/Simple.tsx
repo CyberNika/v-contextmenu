@@ -18,7 +18,6 @@ const ExampleSimple = defineComponent({
         <div
           v-contextmenu={[{ trigger: "contextmenu" }, "contextmenu"]}
           style={{
-            width: "100%",
             height: "100%",
           }}
         >
