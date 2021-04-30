@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 3.0",
-  "version": "3.0.0-alpha.9",
+  "version": "3.0.0-alpha.10",
   "author": "heynext <heynext.xyz@gmail.com>",
   "main": "dist/index.common.js",
   "module": "dist/index.esm.js",
@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "rm -fr dist && rollup -c && npm run build:style",
-    "build:style": "lessc --clean-css --autoprefix src/themes/default/index.less dist/themes/default.css",
+    "build": "rm -fr dist && rollup -c && npm run build:theme",
+    "build:theme": "for theme in default bright dark; do lessc --clean-css --autoprefix src/themes/$theme/index.less dist/themes/$theme.css; done;",
     "build:site": "vite build",
     "release": "standard-version",
     "lint": "eslint '{src,site,examples}/**/*.{ts,tsx}'",

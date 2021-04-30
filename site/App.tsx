@@ -22,10 +22,10 @@ const SiteApp = defineComponent({
           </Example>
 
           <Example
+            mirror
             title="按钮组"
             description="按钮可以成组展示"
             codepens="vYgwmmL"
-            mirror
           >
             <Group />
           </Example>
@@ -39,10 +39,10 @@ const SiteApp = defineComponent({
           </Example>
 
           <Example
+            mirror
             title="多实例和触发区域"
             description="多个 Contextmenu 实例和触发区域"
             codepens="rNjgJRg"
-            mirror
           >
             <Multiple />
           </Example>
@@ -56,21 +56,20 @@ const SiteApp = defineComponent({
           </Example>
 
           <Example
+            mirror
             title="手动显示和隐藏"
             description="手动显示和隐藏手动显示和隐藏手动显示和隐藏手动显示和隐藏"
             codepens="xxgejzQ"
-            mirror
           >
             <Group />
           </Example>
 
           <Example
+            hideDemo
             title="多主题"
             description="内置三种主题：默认、亮色和暗色，你也可以自定义你自己的样式"
             codepens={["xxgejzQ", "KEzEYd", "KEzEYd", "KEzEYd"]}
-          >
-            <Group />
-          </Example>
+          />
         </main>
 
         <Footer />
