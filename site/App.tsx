@@ -2,7 +2,14 @@ import { defineComponent } from "vue";
 
 import { Banner, Footer, Example } from "./components";
 
-import { Simple, Group, Dynamic, Multiple, CustomTrigger } from "../examples";
+import {
+  Simple,
+  Group,
+  Dynamic,
+  Multiple,
+  CustomTrigger,
+  CustomShow,
+} from "../examples";
 
 const SiteApp = defineComponent({
   name: "SiteApp",
@@ -58,17 +65,18 @@ const SiteApp = defineComponent({
           <Example
             mirror
             title="手动显示和隐藏"
-            description="手动显示和隐藏手动显示和隐藏手动显示和隐藏手动显示和隐藏"
-            codepens="xxgejzQ"
+            description="手动控制显示和隐藏"
+            codepens="eYgwmwy"
           >
-            <Group />
+            <CustomShow />
           </Example>
 
           <Example
             hideDemo
             title="多主题"
+            codepenDefaultTab={["result"]}
             description="内置三种主题：默认、亮色和暗色，你也可以自定义你自己的样式"
-            codepens={["xxgejzQ", "KEzEYd", "KEzEYd", "KEzEYd"]}
+            codepens={["BapeePd", "gOgJJqW", "XWpwwOw", "ExZBagv"]}
           />
         </main>
 

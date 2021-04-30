@@ -18,14 +18,12 @@ const ExampleCustomTrigger = defineComponent({
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "100%",
             height: "100%",
           }}
         >
           <div
             v-contextmenu={[{ trigger: "click" }, "contextmenu"]}
             style={{
-              width: "100%",
               height: "100%",
             }}
           >
@@ -41,7 +39,6 @@ const ExampleCustomTrigger = defineComponent({
             ]}
             style={{
               marginTop: "12px",
-              width: "100%",
               height: "100%",
             }}
           >
@@ -54,7 +51,6 @@ const ExampleCustomTrigger = defineComponent({
             v-contextmenu={[{ trigger: "dblclick" }, "contextmenu"]}
             style={{
               marginTop: "12px",
-              width: "100%",
               height: "100%",
             }}
           >
