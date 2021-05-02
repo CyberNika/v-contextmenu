@@ -42,6 +42,7 @@ const ExampleCustomShow = defineComponent({
     return () => (
       <>
         <div
+          v-contextmenu={[null, contextmenuRef]}
           style={{
             display: "flex",
             flexDirection: "column",
