@@ -45,8 +45,10 @@ const ContextmenuSubmenu = defineComponent({
           const { target } = evt;
           const targetDimension = (target as HTMLElement).getBoundingClientRect();
 
-          const submenuWidth = submenuRef.value!.clientWidth;
-          const submenuHeight = submenuRef.value!.clientHeight;
+          if (!submenuRef.value) return;
+
+          const submenuWidth = submenuRef.value.clientWidth;
+          const submenuHeight = submenuRef.value.clientHeight;
 
           if (targetDimension.right + submenuWidth >= window.innerWidth) {
             targetPlacements.push("left");

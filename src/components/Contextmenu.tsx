@@ -96,7 +96,10 @@ const Contextmenu = defineComponent({
 
       nextTick(() => {
         if (autoAjustPlacement) {
-          const el = contextmenuRef.value!;
+          const el = contextmenuRef.value;
+
+          if (!el) return;
+
           const width = el.clientWidth;
           const height = el.clientHeight;
 
@@ -248,7 +251,6 @@ const Contextmenu = defineComponent({
               triggerOptions: "currentReferenceOptions",
               options: "currentOptions",
             })}
-            <span>{this.style}</span>
           </ul>
         </div>
       );

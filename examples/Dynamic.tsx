@@ -18,7 +18,7 @@ const ExampleDynamic = defineComponent({
     return () => (
       <>
         <div
-          v-contextmenu={[{ trigger: "contextmenu" }, "contextmenu"]}
+          v-contextmenu={[null, "contextmenu"]}
           style={{
             height: "100%",
           }}
