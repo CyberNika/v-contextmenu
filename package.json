@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 3.0",
-  "version": "3.0.0-alpha.11",
+  "version": "3.0.0-alpha.12",
   "author": "heynext <heynext.xyz@gmail.com>",
   "main": "dist/index.common.js",
   "module": "dist/index.esm.js",
