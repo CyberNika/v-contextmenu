@@ -114,7 +114,7 @@ const ContextmenuSubmenu = defineComponent({
         onMouseleave={this.handleMouseleave}
       >
         <div class={this.titleClasses}>
-          {this.$slots.title ? this.$slots.title() : this.title}
+          {this.$slots.title?.() || this.title}
 
           <span class={CLASSES.contextmenuSubmenuArrow}>
             <ContextmenuIcon name="right-arrow" />

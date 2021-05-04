@@ -59,7 +59,6 @@ type TriggerEventType = "contextmenu" | "click";
 | autoAjustPlacement    | `boolean`                          | 可选 | `true`   | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 |
 | disabled              | `boolean`                          | 可选 | `false`  | 是否禁用菜单（菜单不会出现）                                             |
 | teleport              | <code>string &#124; Element</code> | 可选 | `"body"` | 使用 Teleport                                                            |
-| destroyOnHide         | `boolean`                          | 可选 | `false`  | 关闭时是否销毁                                                           |
 
 **Methods**
 
@@ -72,8 +71,8 @@ type TriggerEventType = "contextmenu" | "click";
 
 | 事件名称 | 说明                 | 回调参数        |
 | -------- | -------------------- | --------------- |
-| show     | 菜单显示时触发的事件 | 菜单组件的 `vm` |
-| hide     | 菜单隐藏时触发的事件 | 菜单组件的 `vm` |
+| show     | 菜单显示时触发的事件 | -- |
+| hide     | 菜单隐藏时触发的事件 | -- |
 
 ### `VContextmenuItem`
 
@@ -83,16 +82,16 @@ type TriggerEventType = "contextmenu" | "click";
 
 | 参数        | 类型      | 可选 | 默认值  | 说明                     |
 | ----------- | --------- | ---- | ------- | ------------------------ |
-| disabled    | `boolean` | 可选 | `false` | 是否禁用）               |
+| disabled    | `boolean` | 可选 | `false` | 是否禁用               |
 | hideOnClick | `boolean` | 可选 | `true`  | 被点击后菜单是否自动隐藏 |
 
 **Events**
 
 | 事件名称   | 说明                         | 回调参数                                        |
 | ---------- | ---------------------------- | ----------------------------------------------- |
-| click      | 菜单被点击时触发的事件       | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
-| mouseenter | 鼠标移动到菜单上时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
-| mouseleave | 鼠标从菜单上离开时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
+| click      | 菜单被点击时触发的事件       | 事件 `event` |
+| mouseenter | 鼠标移动到菜单上时触发的事件 | 事件 `event` |
+| mouseleave | 鼠标从菜单上离开时触发的事件 | 事件 `event` |
 
 ### `VContextmenuDivider`
 
@@ -113,8 +112,8 @@ type TriggerEventType = "contextmenu" | "click";
 
 | 事件名称   | 说明                         | 回调参数                                        |
 | ---------- | ---------------------------- | ----------------------------------------------- |
-| mouseenter | 鼠标移动到菜单上时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
-| mouseleave | 鼠标从菜单上离开时触发的事件 | 第一个参数是 `vm`, 第二个参数是该菜单的 `event` |
+| mouseenter | 鼠标移动到菜单上时触发的事件 | 事件 `event` |
+| mouseleave | 鼠标从菜单上离开时触发的事件 | 事件 `event` |
 
 **Slots**
 
@@ -157,16 +156,21 @@ type TriggerEventType = "contextmenu" | "click";
 
 另外可自行根据 `classnames` 进行样式覆盖
 
-- `v-contextmenu`: 根元素
-- `v-contextmenu--default`: 根元素-默认主题
-- `v-contextmenu--bright`: 根元素-亮色主题
-- `v-contextmenu--dark`: 根元素-暗色主题
-- `v-contextmenu-item`: 单个菜单
-- `v-contextmenu-item--hover`: 单个菜单激活状态
-- `v-contextmenu-item--disabled`: 单个菜单禁用状态
-- `v-contextmenu-divider`: 分割线
-- `v-contextmenu-group`: 按钮组根元素
-- `v-contextmenu-group__menus`: 按钮组按钮容器
-- `v-contextmenu-submenu`: 子菜单容器
-- `v-contextmenu-submenu__title`: 子菜单标题
-- `v-contextmenu-submenu__icon`: 子菜单标题 icon
+- `v-contextmenu`：根元素
+- `v-contextmenu-icon`：icon
+- `v-contextmenu-inner`：菜单根元素
+- `v-contextmenu-divider`：分割线
+- `v-contextmenu-item`：单个菜单
+- `v-contextmenu-item--hover`：单个菜单激活状态
+- `v-contextmenu-item--disabled`：单个菜单禁用状态
+- `v-contextmenu-group`：按钮组根元素
+- `v-contextmenu-group__title`：按钮组标题
+- `v-contextmenu-group__menus`：按钮组按钮容器
+- `v-contextmenu-submenu`：子菜单容器
+- `v-contextmenu-submenu__title`：子菜单标题
+- `v-contextmenu-submenu__menus`：子菜单
+- `v-contextmenu-submenu__menus--top`：子菜单 Top
+- `v-contextmenu-submenu__menus--right`：子菜单 Right
+- `v-contextmenu-submenu__menus--bottom`：子菜 Bottom单
+- `v-contextmenu-submenu__menus--left`：子菜单 Left
+- `v-contextmenu-submenu__arrow`：子菜单标题 icon

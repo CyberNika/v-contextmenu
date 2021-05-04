@@ -53,10 +53,10 @@ const Contextmenu = defineComponent({
       type: [String, Object] as PropType<string | Element>,
       default: () => "body",
     },
-    destroyOnHide: {
-      type: Boolean,
-      default: false,
-    },
+    // destroyOnHide: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   },
 
   emits: ["show", "hide", "update:modelValue"],
@@ -128,7 +128,8 @@ const Contextmenu = defineComponent({
 
         position.value = targetPosition;
 
-        emit("show", contextmenuRef.value);
+        // TODO: 添加回掉参数
+        emit("show");
       });
     };
     const hide = () => {
@@ -136,7 +137,8 @@ const Contextmenu = defineComponent({
 
       toggle(false);
 
-      emit("hide", contextmenuRef.value);
+      // TODO: 添加回掉参数
+      emit("hide");
     };
 
     const references = reactive(new Map<Element, ReferenceOptions>());
@@ -156,6 +158,8 @@ const Contextmenu = defineComponent({
       })();
 
       const handler = (evt: Event) => {
+        if (props.disabled) return;
+
         currentReference.value = el;
         show(evt as MouseEvent, {});
       };

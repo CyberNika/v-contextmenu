@@ -36,13 +36,7 @@ const ContextmenuGroup = defineComponent({
 
   methods: {
     renderTitle() {
-      let content = null;
-
-      if (this.$slots.title) {
-        content = this.$slots.title();
-      } else if (this.title) {
-        content = this.title;
-      }
+      const content = this.$slots.title?.() || this.title;
 
       return content ? (
         <div class={CLASSES.contextmenuGroupTitle}>{content}</div>
