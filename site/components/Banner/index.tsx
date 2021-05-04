@@ -1,10 +1,5 @@
 import { defineComponent } from "vue";
-import {
-  GithubOutlined,
-  GlobalOutlined,
-  BugFilled,
-  RocketFilled,
-} from "@ant-design/icons-vue";
+import { GithubOutlined, RocketFilled } from "@ant-design/icons-vue";
 
 import { Contextmenu, ContextmenuItem } from "../../../src";
 
@@ -40,36 +35,26 @@ const SiteBanner = defineComponent({
           <nav class={[styles.nav, "container"]}>
             <div class={styles.navLeft}>
               <span class={styles.logo}>
-                <BugFilled />
-              </span>
-
-              <span class={styles.navItem}>
-                <a href="https://github.com/heynext/v-contextmenu">文档</a>
-              </span>
-
-              <span class={styles.navItem}>
-                <a href="https://github.com/heynext/v-contextmenu">API</a>
-              </span>
-
-              <span class={styles.navItem}>
-                <a href="https://github.com/heynext/v-contextmenu">主题</a>
-              </span>
-
-              <span class={styles.navItem}>
-                <a href="https://github.com/heynext/v-contextmenu">关于</a>
+                <a
+                  href="https://github.com/heynext/v-contextmenu"
+                  target="__blank"
+                >
+                  <GithubOutlined />
+                </a>
               </span>
             </div>
 
             <div class={styles.navRight}>
               <span class={styles.navItem}>
-                <a href="https://github.com/heynext/v-contextmenu">
-                  <GithubOutlined />
+                <a href="v2" target="__blank">
+                  2.x 文档
                 </a>
               </span>
 
-              <span class={[styles.navItem, styles.navItemDisabled]}>
-                <GlobalOutlined />
-                &nbsp;简体中文
+              <span class={styles.navItem}>
+                <a href="https://heynext.xyz" target="__blank">
+                  关于
+                </a>
               </span>
             </div>
           </nav>
@@ -101,12 +86,17 @@ const SiteBanner = defineComponent({
 
           <div class={styles.setups}>
             <div class={styles.setup}>
-              <button class={styles.setupButton}>
-                文档
-                <span class={styles.setupButtonDocIcon}>
-                  <RocketFilled />
-                </span>
-              </button>
+              <a
+                href="https://github.com/heynext/v-contextmenu/blob/main/docs/usage.md"
+                target="__blank"
+              >
+                <button class={styles.setupButton}>
+                  文档&nbsp;
+                  <span class={styles.setupButtonDocIcon}>
+                    <RocketFilled />
+                  </span>
+                </button>
+              </a>
             </div>
 
             <div class={styles.setup}>
@@ -130,9 +120,29 @@ const SiteBanner = defineComponent({
         </header>
 
         <Contextmenu ref="contextmenu">
-          <ContextmenuItem>GitHub</ContextmenuItem>
-          <ContextmenuItem>NPM</ContextmenuItem>
-          <ContextmenuItem>Document</ContextmenuItem>
+          <ContextmenuItem
+            onClick={() => {
+              window.open("https://github.com/heynext/v-contextmenu");
+            }}
+          >
+            GitHub
+          </ContextmenuItem>
+          <ContextmenuItem
+            onClick={() => {
+              window.open("https://www.npmjs.com/package/v-contextmenu");
+            }}
+          >
+            NPM
+          </ContextmenuItem>
+          <ContextmenuItem
+            onClick={() => {
+              window.open(
+                "https://github.com/heynext/v-contextmenu/blob/main/docs/usage.md",
+              );
+            }}
+          >
+            Document
+          </ContextmenuItem>
         </Contextmenu>
       </>
     );
