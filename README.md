@@ -31,7 +31,7 @@ $ npm i -S v-contextmenu@next # yarn add v-contextmenu@next
 <script src="https://unpkg.com/vue@next"></script>
 
 <!-- 引入 VContextmenu 组件 -->
-<script src="https://unpkg.com/v-contextmenu@next/dist/index.js"></script>
+<script src="https://unpkg.com/v-contextmenu@next/dist/index.min.js"></script>
 
 <!-- 引入 VContextmenu 组件样式 -->
 <link
