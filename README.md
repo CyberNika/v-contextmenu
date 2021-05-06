@@ -24,7 +24,7 @@ $ npm i -S v-contextmenu@next # yarn add v-contextmenu@next
 
 ### CDN 引入
 
-可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu@next/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
+可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu@next) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
 
 ```html
 <!-- 引入 Vue -->

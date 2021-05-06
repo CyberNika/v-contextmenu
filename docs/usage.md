@@ -18,7 +18,7 @@
 ## 类型
 
 ```typescript
-type TriggerEventType = "contextmenu" | "click";
+type TriggerEventType = "contextmenu" | "click" | "dblclick";
 ```
 
 ## 指令
@@ -154,7 +154,7 @@ type TriggerEventType = "contextmenu" | "click";
 
 ![dark](./images/dark.jpg)
 
-另外可自行根据 `classnames` 进行样式覆盖
+另外可自行根据 [`classnames`](../src/constants/classes.ts) 进行样式覆盖
 
 - `v-contextmenu`：根元素
 - `v-contextmenu-icon`：icon
