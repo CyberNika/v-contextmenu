@@ -24,6 +24,11 @@
     props: {
       divider: Boolean,
       disabled: Boolean,
+      // 鼠标覆盖是否显示背景色
+      isActive: {
+        type: Boolean,
+        default: true,
+      },
       autoHide: {
         type: Boolean,
         default: true,
@@ -39,7 +44,7 @@
       classname () {
         return {
           'v-contextmenu-item': !this.divider,
-          'v-contextmenu-item--hover': this.hover,
+          'v-contextmenu-item--hover': this.hover && this.isActive,
           'v-contextmenu-item--disabled': this.disabled,
         }
       },

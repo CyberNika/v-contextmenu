@@ -17,8 +17,8 @@
 
         <v-contextmenu-item @click="handleClick">菜单4</v-contextmenu-item>
 
-        <v-contextmenu-item :auto-hide="false">不自动关闭1</v-contextmenu-item>
-        <v-contextmenu-item :auto-hide="false">不自动关闭2</v-contextmenu-item>
+        <v-contextmenu-item :auto-hide="false">不自动关闭</v-contextmenu-item>
+        <v-contextmenu-item :is-active="false">不显示背景色</v-contextmenu-item>
       </v-contextmenu-submenu>
     </v-contextmenu>
 
