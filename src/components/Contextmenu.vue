@@ -154,7 +154,7 @@ export default {
         }
       }
     },
-    show(position) {
+    show(position, callback) {
       Object.keys(window.$$VContextmenu)
         .forEach((key) => {
           if (key !== this.$contextmenuId) {
@@ -168,8 +168,8 @@ export default {
           left: `${position.left}px`,
         }
       }
-
       this.visible = true
+      callback && callback()
     },
     hide() {
       this.visible = false
