@@ -71,5 +71,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "element-ui": "^2.15.2"
+  }
 }

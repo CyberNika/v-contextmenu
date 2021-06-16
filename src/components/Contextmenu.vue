@@ -1,180 +1,185 @@
 <template>
-  <ul
-    v-show="visible"
-    ref="contextmenu"
-    :class="contextmenuCls"
-    :style="style"
-  >
+  <ul v-show="visible" ref="contextmenu" :class="contextmenuCls" :style="style">
     <slot />
   </ul>
 </template>
 
 <script>
-  export default {
-    name: 'VContextmenu',
+export default {
+  name: 'VContextmenu',
 
-    provide () {
-      return {
-        $$contextmenu: this,
-      }
+  provide() {
+    return {
+      $$contextmenu: this,
+    }
+  },
+
+  props: {
+    eventType: {
+      type: String,
+      default: 'contextmenu',
     },
-
-    props: {
-      eventType: {
-        type: String,
-        default: 'contextmenu',
-      },
-      theme: {
-        type: String,
-        default: 'default',
-      },
-      autoPlacement: {
-        type: Boolean,
-        default: true,
-      },
-      disabled: Boolean,
+    theme: {
+      type: String,
+      default: 'default',
     },
-
-    data () {
-      return {
-        visible: false,
-        references: [],
-        style: {
-          top: 0,
-          left: 0,
-        },
-      }
+    autoPlacement: {
+      type: Boolean,
+      default: true,
     },
-    computed: {
-      clickOutsideHandler () {
-        return this.visible ? this.hide : () => {}
+    disabled: Boolean,
+  },
+
+  data() {
+    return {
+      visible: false,
+      references: [],
+      style: {
+        top: 0,
+        left: 0,
       },
-      isClick () {
-        return this.eventType === 'click'
-      },
-      contextmenuCls () {
-        return [
-          'v-contextmenu',
-          `v-contextmenu--${this.theme}`,
-        ]
-      },
+    }
+  },
+  computed: {
+    clickOutsideHandler() {
+      return this.visible ? this.hide : () => { }
     },
-
-    watch: {
-      visible (value) {
-        if (value) {
-          this.$emit('show', this)
-
-          document.body.addEventListener('click', this.handleBodyClick)
-        } else {
-          this.$emit('hide', this)
-
-          document.body.removeEventListener('click', this.handleBodyClick)
-        }
-      },
+    isClick() {
+      return this.eventType === 'click'
     },
-    mounted () {
-      document.body.appendChild(this.$el)
+    contextmenuCls() {
+      return [
+        'v-contextmenu',
+        `v-contextmenu--${this.theme}`,
+      ]
+    },
+  },
 
-      if (window.$$VContextmenu) {
-        window.$$VContextmenu[this.$contextmenuId] = this
+  watch: {
+    visible(value) {
+      if (value) {
+        this.$emit('show', this)
+
+        document.body.addEventListener('click', this.handleBodyClick)
       } else {
-        window.$$VContextmenu = { [this.$contextmenuId]: this }
+        this.$emit('hide', this)
+
+        document.body.removeEventListener('click', this.handleBodyClick)
       }
     },
-    beforeDestroy () {
-      document.body.removeChild(this.$el)
+  },
+  mounted() {
+    document.body.appendChild(this.$el)
 
-      delete window.$$VContextmenu[this.$contextmenuId]
+    if (window.$$VContextmenu) {
+      window.$$VContextmenu[this.$contextmenuId] = this
+    } else {
+      window.$$VContextmenu = { [this.$contextmenuId]: this }
+    }
+  },
+  beforeDestroy() {
+    document.body.removeChild(this.$el)
 
-      this.references.forEach((ref) => {
-        ref.el.removeEventListener(this.eventType, this.handleReferenceContextmenu)
-      })
+    delete window.$$VContextmenu[this.$contextmenuId]
 
-      document.body.removeEventListener('click', this.handleBodyClick)
+    this.references.forEach((ref) => {
+      ref.el.removeEventListener(this.eventType, this.handleReferenceContextmenu)
+    })
+
+    document.body.removeEventListener('click', this.handleBodyClick)
+  },
+
+  methods: {
+    addRef(ref) {
+      // FIXME: 如何处理 removeRef？
+      this.references.push(ref)
+
+      ref.el.addEventListener(this.eventType, this.handleReferenceContextmenu)
     },
+    handleReferenceContextmenu(event) {
+      event.preventDefault()
 
-    methods: {
-      addRef (ref) {
-        // FIXME: 如何处理 removeRef？
-        this.references.push(ref)
+      if (this.disabled) return
 
-        ref.el.addEventListener(this.eventType, this.handleReferenceContextmenu)
-      },
-      handleReferenceContextmenu (event) {
-        event.preventDefault()
+      const reference = this.references.find(ref => ref.el.contains(event.target))
 
-        if (this.disabled) return
+      this.$emit('contextmenu', reference ? reference.vnode : null)
 
-        const reference = this.references.find(ref => ref.el.contains(event.target))
+      const eventX = event.pageX
+      const eventY = event.pageY
 
-        this.$emit('contextmenu', reference ? reference.vnode : null)
+      this.show()
 
-        const eventX = event.pageX
-        const eventY = event.pageY
+      this.$nextTick(() => {
+        const contextmenuPosition = {
+          top: eventY,
+          left: eventX,
+        }
 
-        this.show()
+        if (this.autoPlacement) {
+          const contextmenuWidth = this.$refs.contextmenu.clientWidth
+          const contextmenuHeight = this.$refs.contextmenu.clientHeight
 
-        this.$nextTick(() => {
-          const contextmenuPosition = {
-            top: eventY,
-            left: eventX,
+          if (contextmenuHeight + eventY >= window.innerHeight) {
+            contextmenuPosition.top -= contextmenuHeight
           }
 
-          if (this.autoPlacement) {
-            const contextmenuWidth = this.$refs.contextmenu.clientWidth
-            const contextmenuHeight = this.$refs.contextmenu.clientHeight
-
-            if (contextmenuHeight + eventY >= window.innerHeight) {
-              contextmenuPosition.top -= contextmenuHeight
-            }
-
-            if (contextmenuWidth + eventX >= window.innerWidth) {
-              contextmenuPosition.left -= contextmenuWidth
-            }
+          if (contextmenuWidth + eventX >= window.innerWidth) {
+            contextmenuPosition.left -= contextmenuWidth
           }
+        }
 
-          this.style = {
-            top: `${contextmenuPosition.top}px`,
-            left: `${contextmenuPosition.left}px`,
-          }
-        })
-      },
-      handleBodyClick (event) {
+        this.style = {
+          top: `${contextmenuPosition.top}px`,
+          left: `${contextmenuPosition.left}px`,
+        }
+      })
+    },
+    handleBodyClick(event) {
+      // 这里如果是动态添加、删除dom 会出现问题 给对应dom添加class="no-hidden"属性即可解决
+      let onlyClass = event.target.className
+
+      if (onlyClass instanceof Object) {
+        this.visible = true
+        return
+      } else {
+        onlyClass.replace(/\s*/g, "")
+
         const notOutside = this.$el.contains(event.target) || (
           this.isClick && this.references.some(ref => ref.el.contains(event.target))
         )
 
-        if (!notOutside) {
+        if (!notOutside && !onlyClass.includes("no-hidden")) {
           this.visible = false
         }
-      },
-      show (position) {
-        Object.keys(window.$$VContextmenu)
-          .forEach((key) => {
-            if (key !== this.$contextmenuId) {
-              window.$$VContextmenu[key].hide()
-            }
-          })
-
-        if (position) {
-          this.style = {
-            top: `${position.top}px`,
-            left: `${position.left}px`,
-          }
-        }
-
-        this.visible = true
-      },
-      hide () {
-        this.visible = false
-      },
-      hideAll () {
-        Object.keys(window.$$VContextmenu)
-          .forEach((key) => {
-            window.$$VContextmenu[key].hide()
-          })
-      },
+      }
     },
-  }
+    show(position) {
+      Object.keys(window.$$VContextmenu)
+        .forEach((key) => {
+          if (key !== this.$contextmenuId) {
+            window.$$VContextmenu[key].hide()
+          }
+        })
+
+      if (position) {
+        this.style = {
+          top: `${position.top}px`,
+          left: `${position.left}px`,
+        }
+      }
+
+      this.visible = true
+    },
+    hide() {
+      this.visible = false
+    },
+    hideAll() {
+      Object.keys(window.$$VContextmenu)
+        .forEach((key) => {
+          window.$$VContextmenu[key].hide()
+        })
+    },
+  },
+}
 </script>

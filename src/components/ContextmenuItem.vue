@@ -1,8 +1,5 @@
 <template>
-  <li
-    v-if="divider"
-    class="v-contextmenu-divider"
-  />
+  <li v-if="divider" class="v-contextmenu-divider" />
 
   <li
     v-else
@@ -16,63 +13,63 @@
 </template>
 
 <script>
-  export default {
-    name: 'VContextmenuItem',
+export default {
+  name: 'VContextmenuItem',
 
-    inject: ['$$contextmenu'],
+  inject: ['$$contextmenu'],
 
-    props: {
-      divider: Boolean,
-      disabled: Boolean,
-      // 鼠标覆盖是否显示背景色
-      isActive: {
-        type: Boolean,
-        default: true,
-      },
-      autoHide: {
-        type: Boolean,
-        default: true,
-      },
+  props: {
+    divider: Boolean,
+    disabled: Boolean,
+    // 鼠标覆盖是否显示背景色
+    isActive: {
+      type: Boolean,
+      default: true,
     },
+    autoHide: {
+      type: Boolean,
+      default: true,
+    },
+  },
 
-    data () {
+  data() {
+    return {
+      hover: false,
+    }
+  },
+  computed: {
+    classname() {
       return {
-        hover: false,
+        'v-contextmenu-item': !this.divider,
+        'v-contextmenu-item--hover': this.hover && this.isActive,
+        'v-contextmenu-item--disabled': this.disabled,
       }
     },
-    computed: {
-      classname () {
-        return {
-          'v-contextmenu-item': !this.divider,
-          'v-contextmenu-item--hover': this.hover && this.isActive,
-          'v-contextmenu-item--disabled': this.disabled,
-        }
-      },
+  },
+
+  methods: {
+    handleMouseenter(event) {
+      if (this.disabled) return
+
+      this.hover = true
+
+      this.$emit('mouseenter', this, event)
+    },
+    handleMouseleave(event) {
+      if (this.disabled) return
+
+      this.hover = false
+
+      this.$emit('mouseleave', this, event)
     },
 
-    methods: {
-      handleMouseenter (event) {
-        if (this.disabled) return
+    handleClick(event) {
+      if (this.disabled) return
 
-        this.hover = true
+      this.$emit('click', this, event)
 
-        this.$emit('mouseenter', this, event)
-      },
-      handleMouseleave (event) {
-        if (this.disabled) return
-
-        this.hover = false
-
-        this.$emit('mouseleave', this, event)
-      },
-
-      handleClick (event) {
-        if (this.disabled) return
-
-        this.$emit('click', this, event)
-
-        this.autoHide && this.$$contextmenu.hide()
-      },
+      this.autoHide && this.$$contextmenu.hide()
     },
-  }
+  },
+}
 </script>
