@@ -24,7 +24,7 @@
     "prepublishOnly": "npm run lint && npm run build:package",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix",
-    "ghpages": "npm run build:example && gh-pages -d sites"
+    "ghpages": "npm run build:example && gh-pages -b 2.x-gh-pages -d sites"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
