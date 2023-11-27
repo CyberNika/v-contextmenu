@@ -1,24 +1,24 @@
-import { defineComponent } from "vue";
-import { GithubOutlined, GitlabOutlined } from "@ant-design/icons-vue";
+import { defineComponent } from 'vue';
+import { GithubOutlined, GitlabOutlined } from '@ant-design/icons-vue';
 
-import TriggerBox from "./TriggerBox";
+import TriggerBox from './TriggerBox';
 import {
   Contextmenu,
   ContextmenuItem,
   ContextmenuSubmenu,
   ContextmenuDivider,
-} from "../src";
+} from '../src';
 
 const ExampleSimple = defineComponent({
-  name: "ExampleSimple",
+  name: 'ExampleSimple',
 
   setup() {
     return () => (
       <>
         <div
-          v-contextmenu={[null, "contextmenu"]}
+          v-contextmenu={[null, 'contextmenu']}
           style={{
-            height: "100%",
+            height: '100%',
           }}
         >
           <TriggerBox>

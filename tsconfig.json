@@ -1,11 +1,15 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "outDir": "./es",
     "target": "ES5",
-    "module": "ESNext",
-    "strict": true,
-    "jsx": "preserve",
     "moduleResolution": "node",
-    "resolveJsonModule": true
-  }
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": [
+    "./src",
+    "./site"
+  ]
 }

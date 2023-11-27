@@ -56,7 +56,7 @@ type TriggerEventType = "contextmenu" | "click" | "dblclick";
 | 参数                  | 类型                               | 可选 | 默认值   | 说明                                                                     |
 | --------------------- | ---------------------------------- | ---- | -------- | ------------------------------------------------------------------------ |
 | model-value / v-model | `boolean`                          | 可选 | `false`  | 是否显示                                                                 |
-| autoAjustPlacement    | `boolean`                          | 可选 | `true`   | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 |
+| autoAdjustPlacement    | `boolean`                          | 可选 | `true`   | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 |
 | disabled              | `boolean`                          | 可选 | `false`  | 是否禁用菜单（菜单不会出现）                                             |
 | teleport              | <code>string &#124; Element</code> | 可选 | `"body"` | 使用 Teleport                                                            |
 

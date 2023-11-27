@@ -1,4 +1,4 @@
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import json from "@rollup/plugin-json";
@@ -8,7 +8,7 @@ const extensions = [".ts", ".tsx"];
 const config = {
   input: "src/index.ts",
   plugins: [
-    json(),
+    json(), // import version from package.json
     nodeResolve({ extensions }),
     babel({
       extensions,
@@ -37,7 +37,7 @@ export default [
   {
     ...config,
     output: {
-      file: "dist/index.common.js",
+      file: "dist/index.cjs.js",
       format: "cjs",
       strict: false,
       exports: "named",

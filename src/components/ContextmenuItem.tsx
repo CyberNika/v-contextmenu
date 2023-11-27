@@ -1,9 +1,9 @@
-import { computed, defineComponent, inject, ref } from "vue";
+import { computed, defineComponent, inject, ref } from 'vue';
 
-import { CLASSES } from "../constants";
+import { CLASSES } from '../constants';
 
 const ContextmenuItem = defineComponent({
-  name: "VContextmenuItem",
+  name: 'VContextmenuItem',
 
   props: {
     disabled: {
@@ -16,10 +16,10 @@ const ContextmenuItem = defineComponent({
     },
   },
 
-  emits: ["click", "mouseenter", "mouseleave"],
+  emits: ['click', 'mouseenter', 'mouseleave'],
 
   setup(props, { emit }) {
-    const rootHide = inject<() => void>("hide");
+    const rootHide = inject<() => void>('hide');
 
     const hover = ref(false);
     const classes = computed(() => ({
@@ -31,7 +31,7 @@ const ContextmenuItem = defineComponent({
     const handleClick = (evt: Event) => {
       if (props.disabled) return;
 
-      emit("click", evt);
+      emit('click', evt);
 
       props.hideOnClick && rootHide?.();
     };
@@ -41,7 +41,7 @@ const ContextmenuItem = defineComponent({
 
       hover.value = true;
 
-      emit("mouseenter", evt);
+      emit('mouseenter', evt);
     };
 
     const handleMouseleave = (evt: Event) => {
@@ -49,7 +49,7 @@ const ContextmenuItem = defineComponent({
 
       hover.value = false;
 
-      emit("mouseleave", evt);
+      emit('mouseleave', evt);
     };
 
     return {

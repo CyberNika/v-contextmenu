@@ -1,4 +1,4 @@
-# v-contextmenu@next
+# v-contextmenu
 
 [![NPM version][badge-npm-version]][url-npm]
 [![NPM download][badge-npm-download]][url-npm]
@@ -10,7 +10,7 @@
 
 适用于 **Vue 3.0** 的 **ContextMenu** 组件。
 
-> 适用于 Vue 2.0 的文档见 https://github.com/heynext/v-contextmenu/blob/2.x/docs/usage.md
+> 适用于 Vue 2.0 的文档见 https://github.com/CyberNika/v-contextmenu/blob/2.x/docs/usage.md
 
 **简体中文 | [(WIP) English](./README_EN.md)**
 
@@ -19,24 +19,24 @@
 ### NPM 安装（推荐）
 
 ```bash
-$ npm i -S v-contextmenu@next # yarn add v-contextmenu@next
+$ npm i -S v-contextmenu # yarn add v-contextmenu
 ```
 
 ### CDN 引入
 
-可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu@next) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
+可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
 
 ```html
 <!-- 引入 Vue -->
-<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue"></script>
 
 <!-- 引入 VContextmenu 组件 -->
-<script src="https://unpkg.com/v-contextmenu@next/dist/index.min.js"></script>
+<script src="https://unpkg.com/v-contextmenu/dist/index.min.js"></script>
 
 <!-- 引入 VContextmenu 组件样式 -->
 <link
   rel="stylesheet"
-  href="https://unpkg.com/v-contextmenu@next/dist/themes/default.css"
+  href="https://unpkg.com/v-contextmenu/dist/themes/default.css"
 />
 ```
 
@@ -61,7 +61,7 @@ export default {
 
 ## 🏖 概览
 
-[访问在线示例](https://heynext.github.io/v-contextmenu)
+[访问在线示例](https://CyberNika.github.io/v-contextmenu)
 
 ![概览](./docs/images/gallery.jpg)
 
@@ -124,34 +124,34 @@ export default {
 
 **默认**
 
-`v-contextmenu@next/dist/themes/default.css`
+`v-contextmenu/dist/themes/default.css`
 
 ![default](./docs/images/default.jpg)
 
 **亮色**
 
-`v-contextmenu@next/dist/themes/bright.css`
+`v-contextmenu/dist/themes/bright.css`
 
 ![bright](./docs/images/bright.jpg)
 
 **暗色**
 
-`v-contextmenu@next/dist/themes/dark.css`
+`v-contextmenu/dist/themes/dark.css`
 
 ![dark](./docs/images/dark.jpg)
 
 ## 🛠 开发
 
 ```bash
-$ npm install # 安装依赖
-$ npm run dev # 启动开发服务
+$ pnpm install # 安装依赖
+$ pnpm dev # 启动开发服务
 ```
 
 ## 🤖 构建
 
 ```bash
-$ npm run build # 构建 npm 包
-$ npm run build:site # 构建站点
+$ pnpm build # 构建 npm 包
+$ pnpm build:site # 构建站点
 ```
 
 ## 🛎 更新日志
@@ -159,13 +159,13 @@ $ npm run build:site # 构建站点
 详见 [releases][url-releases]
 
 [badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu/next
-[badge-language]: https://img.shields.io/github/languages/top/heynext/v-contextmenu
+[badge-language]: https://img.shields.io/github/languages/top/CyberNika/v-contextmenu
 [badge-node-version]: https://img.shields.io/node/v/v-contextmenu/next
 [badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu
-[badge-license]: https://img.shields.io/github/license/heynext/v-contextmenu.svg
+[badge-license]: https://img.shields.io/github/license/CyberNika/v-contextmenu.svg
 [url-npm]: https://npmjs.org/package/v-contextmenu
 [url-dependencies]: https://david-dm.org/vkbansal/v-contextmenu
-[url-releases]: https://github.com/heynext/v-contextmenu/releases
-[url-github]: https://github.com/heynext/v-contextmenu
-[url-homepage]: https://heynext.github.io/v-contextmenu
+[url-releases]: https://github.com/CyberNika/v-contextmenu/releases
+[url-github]: https://github.com/CyberNika/v-contextmenu
+[url-homepage]: https://CyberNika.github.io/v-contextmenu
 [image-npm]: https://nodei.co/npm/v-contextmenu.png

@@ -1,6 +1,6 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
-import { Banner, Footer, Example } from "./components";
+import { Banner, Footer, Example } from './components';
 
 import {
   Simple,
@@ -9,10 +9,10 @@ import {
   Multiple,
   CustomTrigger,
   CustomShow,
-} from "../examples";
+} from '../examples';
 
 const SiteApp = defineComponent({
-  name: "SiteApp",
+  name: 'SiteApp',
 
   render() {
     return (
@@ -74,9 +74,9 @@ const SiteApp = defineComponent({
           <Example
             hideDemo
             title="多主题"
-            codepenDefaultTab={["result"]}
+            codepenDefaultTab={['result']}
             description="内置三种主题：默认、亮色和暗色，你也可以自定义你自己的样式"
-            codepens={["BapeePd", "gOgJJqW", "XWpwwOw", "ExZBagv"]}
+            codepens={['BapeePd', 'gOgJJqW', 'XWpwwOw', 'ExZBagv']}
           />
         </main>
 

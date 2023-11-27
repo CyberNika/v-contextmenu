@@ -1,3 +1,3 @@
-import CLASSES from "./classes";
+import CLASSES from './classes';
 
 export { CLASSES };

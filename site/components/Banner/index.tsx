@@ -1,42 +1,40 @@
-import { defineComponent } from "vue";
-import { GithubOutlined, RocketFilled } from "@ant-design/icons-vue";
+import { defineComponent } from 'vue';
+import { GithubOutlined, RocketFilled } from '@ant-design/icons-vue';
 
-import { Contextmenu, ContextmenuItem } from "../../../src";
+import { Contextmenu, ContextmenuItem } from '../../../src';
 
-import styles from "./index.module.less";
+import styles from './index.module.less';
 
 const badges = [
   {
-    url:
-      "https://img.shields.io/github/stars/heynext/v-contextmenu?logo=github&style=flat",
-    link: "https://github.com/heynext/v-contextmenu",
-    title: "stars",
+    url: 'https://img.shields.io/github/stars/CyberNika/v-contextmenu?logo=github&style=flat',
+    link: 'https://github.com/CyberNika/v-contextmenu',
+    title: 'stars',
   },
   {
-    url:
-      "https://img.shields.io/github/forks/heynext/v-contextmenu?logo=github&style=flat",
-    link: "https://github.com/heynext/v-contextmenu",
-    title: "fork",
+    url: 'https://img.shields.io/github/forks/CyberNika/v-contextmenu?logo=github&style=flat',
+    link: 'https://github.com/CyberNika/v-contextmenu',
+    title: 'fork',
   },
   {
-    url: "https://img.shields.io/npm/dw/v-contextmenu?logo=npm&style=flat",
-    link: "https://www.npmjs.com/package/v-contextmenu",
-    title: "downloads",
+    url: 'https://img.shields.io/npm/dw/v-contextmenu?logo=npm&style=flat',
+    link: 'https://www.npmjs.com/package/v-contextmenu',
+    title: 'downloads',
   },
 ];
 
 const SiteBanner = defineComponent({
-  name: "SiteBanner",
+  name: 'SiteBanner',
 
   setup() {
     return () => (
       <>
-        <header v-contextmenu={[null, "contextmenu"]} class={styles.header}>
-          <nav class={[styles.nav, "container"]}>
+        <header v-contextmenu={[null, 'contextmenu']} class={styles.header}>
+          <nav class={[styles.nav, 'container']}>
             <div class={styles.navLeft}>
               <span class={styles.logo}>
                 <a
-                  href="https://github.com/heynext/v-contextmenu"
+                  href="https://github.com/CyberNika/v-contextmenu"
                   target="__blank"
                 >
                   <GithubOutlined />
@@ -52,7 +50,7 @@ const SiteBanner = defineComponent({
               </span>
 
               <span class={styles.navItem}>
-                <a href="https://heynext.xyz" target="__blank">
+                <a href="https://cybernika.net/" target="__blank">
                   关于
                 </a>
               </span>
@@ -87,7 +85,7 @@ const SiteBanner = defineComponent({
           <div class={styles.setups}>
             <div class={styles.setup}>
               <a
-                href="https://github.com/heynext/v-contextmenu/blob/main/docs/usage.md"
+                href="https://github.com/CyberNika/v-contextmenu/blob/main/docs/usage.md"
                 target="__blank"
               >
                 <button class={styles.setupButton}>
@@ -102,9 +100,7 @@ const SiteBanner = defineComponent({
             <div class={styles.setup}>
               <code>
                 <span class={styles.setupLabel}>NPM</span>
-                <span class={styles.setupContent}>
-                  npm i v-contextmenu@next
-                </span>
+                <span class={styles.setupContent}>npm i v-contextmenu</span>
               </code>
             </div>
 
@@ -112,7 +108,7 @@ const SiteBanner = defineComponent({
               <code>
                 <span class={styles.setupLabel}>CDN</span>
                 <span class={styles.setupContent}>
-                  https://unpkg.com/v-contextmenu@next
+                  https://unpkg.com/v-contextmenu
                 </span>
               </code>
             </div>
@@ -122,14 +118,14 @@ const SiteBanner = defineComponent({
         <Contextmenu ref="contextmenu">
           <ContextmenuItem
             onClick={() => {
-              window.open("https://github.com/heynext/v-contextmenu");
+              window.open('https://github.com/CyberNika/v-contextmenu');
             }}
           >
             GitHub
           </ContextmenuItem>
           <ContextmenuItem
             onClick={() => {
-              window.open("https://www.npmjs.com/package/v-contextmenu");
+              window.open('https://www.npmjs.com/package/v-contextmenu');
             }}
           >
             NPM
@@ -137,7 +133,7 @@ const SiteBanner = defineComponent({
           <ContextmenuItem
             onClick={() => {
               window.open(
-                "https://github.com/heynext/v-contextmenu/blob/main/docs/usage.md",
+                'https://github.com/CyberNika/v-contextmenu/blob/main/docs/usage.md',
               );
             }}
           >

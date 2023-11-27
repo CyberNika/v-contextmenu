@@ -1,22 +1,29 @@
-import { defineComponent, computed, PropType } from "vue";
+import { defineComponent, computed } from 'vue';
+import type { PropType } from 'vue';
 
-import styles from "./index.module.less";
+import styles from './index.module.less';
 
 const Example = defineComponent({
-  name: "SiteExample",
+  name: 'SiteExample',
 
   props: {
     codepens: {
       type: [String, Array] as PropType<string | string[]>,
       required: true,
     },
-    title: String,
-    description: String,
+    title: {
+      type: String,
+      default: undefined,
+    },
+    description: {
+      type: String,
+      default: undefined,
+    },
     hideDemo: Boolean,
     mirror: Boolean,
     codepenDefaultTab: {
       type: Array as PropType<string[]>,
-      default: () => ["html", "vue", "result"],
+      default: () => ['html', 'vue', 'result'],
     },
   },
 
@@ -26,7 +33,7 @@ const Example = defineComponent({
     );
 
     return () => (
-      <div class={[styles.example, "container"]}>
+      <div class={[styles.example, 'container']}>
         {!props.hideDemo && !props.mirror && (
           <div class={styles.demo}>{slots.default?.()}</div>
         )}
@@ -45,10 +52,10 @@ const Example = defineComponent({
               <iframe
                 key={item}
                 class={styles.codepenIframe}
-                scrolling="no"
                 title={item}
-                src={`https://codepen.io/heynext/embed/${item}?height=265&theme-id=light&default-tab=${props.codepenDefaultTab.join(",")}`}
-                frameborder="no"
+                src={`https://codepen.io/CyberNika/embed/${item}?height=265&theme-id=light&default-tab=${props.codepenDefaultTab.join(
+                  ',',
+                )}`}
               />
             ))}
           </div>

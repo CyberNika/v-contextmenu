@@ -1,9 +1,9 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
-import { CLASSES } from "../constants";
+import { CLASSES } from '../constants';
 
 const ContextmenuIcon = defineComponent({
-  name: "VContextmenuIcon",
+  name: 'VContextmenuIcon',
 
   props: {
     name: {

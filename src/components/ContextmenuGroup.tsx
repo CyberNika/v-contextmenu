@@ -1,9 +1,10 @@
-import { computed, defineComponent, CSSProperties } from "vue";
+import { computed, defineComponent } from 'vue';
+import type { CSSProperties } from 'vue';
 
-import { CLASSES } from "../constants";
+import { CLASSES } from '../constants';
 
 const ContextmenuGroup = defineComponent({
-  name: "VContextmenuGroup",
+  name: 'VContextmenuGroup',
 
   props: {
     title: {
@@ -21,11 +22,11 @@ const ContextmenuGroup = defineComponent({
       if (!props.maxWidth) return;
 
       return {
-        "max-width":
-          typeof props.maxWidth === "number"
+        'max-width':
+          typeof props.maxWidth === 'number'
             ? `${props.maxWidth}px`
             : props.maxWidth,
-        "overflow-x": "auto",
+        'overflow-x': 'auto',
       } as CSSProperties;
     });
 

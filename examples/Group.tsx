@@ -1,29 +1,29 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 import {
   GithubOutlined,
   CodepenOutlined,
   AlipayOutlined,
   WechatOutlined,
-} from "@ant-design/icons-vue";
+} from '@ant-design/icons-vue';
 
-import TriggerBox from "./TriggerBox";
+import TriggerBox from './TriggerBox';
 import {
   Contextmenu,
   ContextmenuItem,
   ContextmenuDivider,
   ContextmenuGroup,
-} from "../src";
+} from '../src';
 
 const ExampleGroup = defineComponent({
-  name: "ExampleGroup",
+  name: 'ExampleGroup',
 
   setup() {
     return () => (
       <>
         <div
-          v-contextmenu={[null, "contextmenu"]}
+          v-contextmenu={[null, 'contextmenu']}
           style={{
-            height: "100%",
+            height: '100%',
           }}
         >
           <TriggerBox>

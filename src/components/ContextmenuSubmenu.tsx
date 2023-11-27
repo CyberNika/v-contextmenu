@@ -5,13 +5,13 @@ import {
   // Transition,
   inject,
   nextTick,
-} from "vue";
+} from 'vue';
 
-import ContextmenuIcon from "./ContextmenuIcon";
-import { CLASSES } from "../constants";
+import ContextmenuIcon from './ContextmenuIcon';
+import { CLASSES } from '../constants';
 
 const ContextmenuSubmenu = defineComponent({
-  name: "VContextmenuSubmenu",
+  name: 'VContextmenuSubmenu',
 
   props: {
     title: {
@@ -24,26 +24,28 @@ const ContextmenuSubmenu = defineComponent({
     },
   },
 
-  emits: ["mouseenter", "mouseleave"],
+  emits: ['mouseenter', 'mouseleave'],
 
   setup(props, { emit }) {
     const submenuRef = ref<HTMLDivElement | null>(null);
-    const autoAjustPlacement = inject<boolean>("autoAjustPlacement");
-    const placements = ref(["top", "right"]);
+    const autoAdjustPlacement = inject<boolean>('autoAdjustPlacement');
+    const placements = ref(['top', 'right']);
     const hover = ref(false);
     const handleMouseenter = (evt: Event) => {
       if (props.disabled) return;
 
       hover.value = true;
 
-      emit("mouseenter", evt);
+      emit('mouseenter', evt);
 
       nextTick(() => {
         const targetPlacements = [];
 
-        if (autoAjustPlacement) {
+        if (autoAdjustPlacement) {
           const { target } = evt;
-          const targetDimension = (target as HTMLElement).getBoundingClientRect();
+          const targetDimension = (
+            target as HTMLElement
+          ).getBoundingClientRect();
 
           if (!submenuRef.value) return;
 
@@ -51,15 +53,15 @@ const ContextmenuSubmenu = defineComponent({
           const submenuHeight = submenuRef.value.clientHeight;
 
           if (targetDimension.right + submenuWidth >= window.innerWidth) {
-            targetPlacements.push("left");
+            targetPlacements.push('left');
           } else {
-            targetPlacements.push("right");
+            targetPlacements.push('right');
           }
 
           if (targetDimension.bottom + submenuHeight >= window.innerHeight) {
-            targetPlacements.push("bottom");
+            targetPlacements.push('bottom');
           } else {
-            targetPlacements.push("top");
+            targetPlacements.push('top');
           }
         }
 
@@ -72,7 +74,7 @@ const ContextmenuSubmenu = defineComponent({
 
       hover.value = false;
 
-      emit("mouseleave", evt);
+      emit('mouseleave', evt);
     };
 
     const titleClasses = computed(() => ({
@@ -85,14 +87,12 @@ const ContextmenuSubmenu = defineComponent({
     const menusClasses = computed(() => ({
       [CLASSES.contextmenu]: true,
       [CLASSES.contextmenuSubmenuMenus]: true,
-      [CLASSES.contextmenuSubmenuMenusTop]: placements.value.includes("top"),
-      [CLASSES.contextmenuSubmenuMenusRight]: placements.value.includes(
-        "right",
-      ),
-      [CLASSES.contextmenuSubmenuMenusBottom]: placements.value.includes(
-        "bottom",
-      ),
-      [CLASSES.contextmenuSubmenuMenusLeft]: placements.value.includes("left"),
+      [CLASSES.contextmenuSubmenuMenusTop]: placements.value.includes('top'),
+      [CLASSES.contextmenuSubmenuMenusRight]:
+        placements.value.includes('right'),
+      [CLASSES.contextmenuSubmenuMenusBottom]:
+        placements.value.includes('bottom'),
+      [CLASSES.contextmenuSubmenuMenusLeft]: placements.value.includes('left'),
     }));
 
     return {

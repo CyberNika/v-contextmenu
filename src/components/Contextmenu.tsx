@@ -7,41 +7,34 @@ import {
   onBeforeUnmount,
   provide,
   Teleport,
-  PropType,
   nextTick,
-} from "vue";
+} from 'vue';
+import type { PropType } from 'vue';
 
-import { CLASSES } from "../constants";
-import {
+import type {
   TriggerEventType,
-  TriggerEventTypeOption,
   ReferenceOptions,
-} from "../types";
+  ShowOptions,
+  AddReferenceOptions,
+} from '../types';
 
-interface ShowOptions {
-  top?: number;
-  left?: number;
-  autoAjustPlacement?: boolean;
-}
-interface AddReferenceOptions {
-  trigger?: TriggerEventTypeOption;
-}
+import { CLASSES } from '../constants';
 
 const DEFAULT_REFERENCE_OPTIONS: {
   trigger: TriggerEventType[];
 } = {
-  trigger: ["contextmenu"],
+  trigger: ['contextmenu'],
 };
 
 const Contextmenu = defineComponent({
-  name: "VContextmenu",
+  name: 'VContextmenu',
 
   props: {
     modelValue: {
       type: Boolean,
       default: false,
     },
-    autoAjustPlacement: {
+    autoAdjustPlacement: {
       type: Boolean,
       default: true,
     },
@@ -51,7 +44,7 @@ const Contextmenu = defineComponent({
     },
     teleport: {
       type: [String, Object] as PropType<string | Element>,
-      default: () => "body",
+      default: () => 'body',
     },
     // destroyOnHide: {
     //   type: Boolean,
@@ -59,14 +52,15 @@ const Contextmenu = defineComponent({
     // },
   },
 
-  emits: ["show", "hide", "update:modelValue"],
+  emits: ['show', 'hide', 'update:modelValue'],
 
   setup(props, { emit }) {
     const contextmenuRef = ref<HTMLDivElement | null>(null);
+
     const visible = ref(props.modelValue || false);
     const toggle = (value: boolean) => {
       visible.value = value;
-      emit("update:modelValue", value);
+      emit('update:modelValue', value);
     };
 
     const position = ref({ top: 0, left: 0 });
@@ -78,8 +72,8 @@ const Contextmenu = defineComponent({
     const currentOptions = ref(null);
     const show = (evt: MouseEvent | ShowOptions, options?: ShowOptions) => {
       const targetOptions = evt instanceof Event ? options : evt;
-      const autoAjustPlacement =
-        targetOptions?.autoAjustPlacement || props.autoAjustPlacement;
+      const autoAdjustPlacement =
+        targetOptions?.autoAdjustPlacement || props.autoAdjustPlacement;
       const targetPosition = {
         top: targetOptions?.top || 0,
         left: targetOptions?.left || 0,
@@ -95,7 +89,7 @@ const Contextmenu = defineComponent({
       toggle(true);
 
       nextTick(() => {
-        if (autoAjustPlacement) {
+        if (autoAdjustPlacement) {
           const el = contextmenuRef.value;
 
           if (!el) return;
@@ -128,8 +122,8 @@ const Contextmenu = defineComponent({
 
         position.value = targetPosition;
 
-        // TODO: 添加回掉参数
-        emit("show");
+        // TODO: 添加回调参数
+        emit('show');
       });
     };
     const hide = () => {
@@ -137,8 +131,8 @@ const Contextmenu = defineComponent({
 
       toggle(false);
 
-      // TODO: 添加回掉参数
-      emit("hide");
+      // TODO: 添加回调参数
+      emit('hide');
     };
 
     const references = reactive(new Map<Element, ReferenceOptions>());
@@ -192,7 +186,7 @@ const Contextmenu = defineComponent({
       const notOutside =
         contextmenuRef.value.contains(evt.target as Node) ||
         (currentReferenceOptions.value &&
-          currentReferenceOptions.value.triggers.includes("click") &&
+          currentReferenceOptions.value.triggers.includes('click') &&
           currentReference.value.contains(evt.target as Node));
 
       if (!notOutside) {
@@ -207,21 +201,21 @@ const Contextmenu = defineComponent({
     // });
     watch(visible, (value) => {
       if (value) {
-        document.addEventListener("click", onBodyClick);
+        document.addEventListener('click', onBodyClick);
       } else {
-        document.removeEventListener("click", onBodyClick);
+        document.removeEventListener('click', onBodyClick);
       }
     });
 
     onBeforeUnmount(() => {
-      document.removeEventListener("click", onBodyClick);
+      document.removeEventListener('click', onBodyClick);
     });
 
-    provide("visible", visible);
-    provide("autoAjustPlacement", props.autoAjustPlacement);
+    provide('visible', visible);
+    provide('autoAdjustPlacement', props.autoAdjustPlacement);
 
-    provide("show", show);
-    provide("hide", hide);
+    provide('show', show);
+    provide('hide', hide);
 
     return {
       visible,
@@ -252,8 +246,8 @@ const Contextmenu = defineComponent({
         >
           <ul class={CLASSES.contextmenuInner}>
             {this.$slots.default?.({
-              triggerOptions: "currentReferenceOptions",
-              options: "currentOptions",
+              triggerOptions: 'currentReferenceOptions',
+              options: 'currentOptions',
             })}
           </ul>
         </div>

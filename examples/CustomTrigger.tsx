@@ -1,30 +1,30 @@
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
-import TriggerBox from "./TriggerBox";
+import TriggerBox from './TriggerBox';
 import {
   Contextmenu,
   ContextmenuItem,
   ContextmenuDivider,
   ContextmenuGroup,
-} from "../src";
+} from '../src';
 
 const ExampleCustomTrigger = defineComponent({
-  name: "ExampleCustomTrigger",
+  name: 'ExampleCustomTrigger',
 
   setup() {
     return () => (
       <>
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
           }}
         >
           <div
-            v-contextmenu={[{ trigger: "click" }, "contextmenu"]}
+            v-contextmenu={[{ trigger: 'click' }, 'contextmenu']}
             style={{
-              height: "100%",
+              height: '100%',
             }}
           >
             <TriggerBox>
@@ -34,12 +34,12 @@ const ExampleCustomTrigger = defineComponent({
 
           <div
             v-contextmenu={[
-              { trigger: ["click", "contextmenu"] },
-              "contextmenu",
+              { trigger: ['click', 'contextmenu'] },
+              'contextmenu',
             ]}
             style={{
-              marginTop: "12px",
-              height: "100%",
+              marginTop: '12px',
+              height: '100%',
             }}
           >
             <TriggerBox>
@@ -48,10 +48,10 @@ const ExampleCustomTrigger = defineComponent({
           </div>
 
           <div
-            v-contextmenu={[{ trigger: "dblclick" }, "contextmenu"]}
+            v-contextmenu={[{ trigger: 'dblclick' }, 'contextmenu']}
             style={{
-              marginTop: "12px",
-              height: "100%",
+              marginTop: '12px',
+              height: '100%',
             }}
           >
             <TriggerBox>

@@ -1,4 +1,4 @@
 [submodule "v2-site"]
 	path = v2-site
-	url = git@github.com:heynext/v-contextmenu.git
+	url = git@github.com:CyberNika/v-contextmenu.git
 	branch = 2.x-gh-pages

@@ -1,16 +1,16 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
-import TriggerBox from "./TriggerBox";
+import TriggerBox from './TriggerBox';
 import {
   Contextmenu,
   ContextmenuItem,
   ContextmenuDivider,
   ContextmenuGroup,
   ContextmenuSubmenu,
-} from "../src";
+} from '../src';
 
 const ExampleCustomShow = defineComponent({
-  name: "ExampleCustomShow",
+  name: 'ExampleCustomShow',
 
   setup() {
     const contextmenuRef = ref<typeof Contextmenu>();
@@ -44,16 +44,16 @@ const ExampleCustomShow = defineComponent({
         <div
           v-contextmenu={[null, contextmenuRef]}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
           }}
         >
           <div>
             <button type="button" onClick={show}>
               显示
             </button>
-            <button type="button" onClick={hide} style={{ marginLeft: "6px" }}>
+            <button type="button" onClick={hide} style={{ marginLeft: '6px' }}>
               隐藏
             </button>
           </div>
@@ -62,7 +62,7 @@ const ExampleCustomShow = defineComponent({
             ref={boxRef}
             style={{
               flex: 1,
-              marginTop: "12px",
+              marginTop: '12px',
             }}
           >
             <TriggerBox>

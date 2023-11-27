@@ -1,17 +1,11 @@
-import { Directive, DirectiveBinding, isRef } from "vue";
+import type { Directive } from 'vue';
 
-import { TriggerEventType } from "./types";
-interface ContextmenuDirectiveValue {
-  trigger?: TriggerEventType | TriggerEventType[];
-}
-
-interface ContextmenuDirectiveEl extends Element {
-  $contextmenuKey?: string;
-}
-type ContextmenuDirectiveBinding = DirectiveBinding<ContextmenuDirectiveValue>;
-
-// FIXME
-type ContextmenuRef = any;
+import type {
+  ContextmenuDirectiveValue,
+  ContextmenuDirectiveEl,
+  ContextmenuDirectiveBinding,
+  ContextmenuInstance,
+} from './types';
 
 const bind = (
   el: ContextmenuDirectiveEl,
@@ -20,28 +14,30 @@ const bind = (
   const contextmenuKey = binding.arg;
 
   if (!contextmenuKey) {
-    console.error("参数有误");
+    console.error('参数有误');
     return;
   }
 
   const contextmenuOptions = binding.value;
-  const contextmenuRef: ContextmenuRef = isRef(contextmenuKey)
-    ? contextmenuKey.value
-    : binding.instance?.$refs[contextmenuKey];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const contextmenuInstance: any = binding.instance?.$refs[contextmenuKey];
 
-  if (!contextmenuRef) {
+  if (!contextmenuInstance) {
     console.error(`没有找到 ${contextmenuKey} 对应的实例`);
     return;
   }
 
-  if (typeof contextmenuRef.addReference !== "function") {
+  if (typeof contextmenuInstance.addReference !== 'function') {
     console.error(`${contextmenuKey} 对应的实例不是 VContextmenu`);
     return;
   }
 
   el.$contextmenuKey = contextmenuKey;
 
-  contextmenuRef.addReference(el, contextmenuOptions);
+  (contextmenuInstance as ContextmenuInstance).addReference(
+    el,
+    contextmenuOptions,
+  );
 };
 
 const unbind = (
@@ -52,10 +48,15 @@ const unbind = (
 
   if (!contextmenuKey) return;
 
-  const contextmenuRef: ContextmenuRef =
-    binding.instance?.$refs[contextmenuKey];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const contextmenuInstance: any = binding.instance?.$refs[contextmenuKey];
 
-  contextmenuRef?.removeReference(el);
+  if (typeof contextmenuInstance.removeReference !== 'function') {
+    console.error(`${contextmenuKey} 对应的实例不是 VContextmenu`);
+    return;
+  }
+
+  (contextmenuInstance as ContextmenuInstance).removeReference(el);
 };
 
 const rebind = (

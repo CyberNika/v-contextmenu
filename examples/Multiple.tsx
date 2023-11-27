@@ -1,26 +1,26 @@
-import { defineComponent } from "vue";
-import { GithubOutlined, GitlabOutlined } from "@ant-design/icons-vue";
+import { defineComponent } from 'vue';
+import { GithubOutlined, GitlabOutlined } from '@ant-design/icons-vue';
 
-import TriggerBox from "./TriggerBox";
-import { Contextmenu, ContextmenuItem, ContextmenuSubmenu } from "../src";
+import TriggerBox from './TriggerBox';
+import { Contextmenu, ContextmenuItem, ContextmenuSubmenu } from '../src';
 
 const ExampleMultiple = defineComponent({
-  name: "ExampleMultiple",
+  name: 'ExampleMultiple',
 
   setup() {
     return () => (
       <>
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
           }}
         >
           <div
-            v-contextmenu={[null, "contextmenu"]}
+            v-contextmenu={[null, 'contextmenu']}
             style={{
-              height: "100%",
+              height: '100%',
             }}
           >
             <TriggerBox>
@@ -29,10 +29,10 @@ const ExampleMultiple = defineComponent({
           </div>
 
           <div
-            v-contextmenu={[null, "contextmenu"]}
+            v-contextmenu={[null, 'contextmenu']}
             style={{
-              marginTop: "12px",
-              height: "100%",
+              marginTop: '12px',
+              height: '100%',
             }}
           >
             <TriggerBox>
@@ -41,10 +41,10 @@ const ExampleMultiple = defineComponent({
           </div>
 
           <div
-            v-contextmenu={[null, "contextmenu1"]}
+            v-contextmenu={[null, 'contextmenu1']}
             style={{
-              marginTop: "12px",
-              height: "100%",
+              marginTop: '12px',
+              height: '100%',
             }}
           >
             <TriggerBox>

@@ -1,26 +1,26 @@
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive } from 'vue';
 
-import TriggerBox from "./TriggerBox";
+import TriggerBox from './TriggerBox';
 import {
   Contextmenu,
   ContextmenuItem,
   ContextmenuDivider,
   ContextmenuGroup,
   ContextmenuSubmenu,
-} from "../src";
+} from '../src';
 
 const ExampleDynamic = defineComponent({
-  name: "ExampleDynamic",
+  name: 'ExampleDynamic',
 
   setup() {
-    const extra = reactive<("item" | "group" | "submenu")[]>([]);
+    const extra = reactive<('item' | 'group' | 'submenu')[]>([]);
 
     return () => (
       <>
         <div
-          v-contextmenu={[null, "contextmenu"]}
+          v-contextmenu={[null, 'contextmenu']}
           style={{
-            height: "100%",
+            height: '100%',
           }}
         >
           <TriggerBox>
@@ -33,7 +33,7 @@ const ExampleDynamic = defineComponent({
             <ContextmenuItem
               hideOnClick={false}
               onClick={() => {
-                extra.push("item");
+                extra.push('item');
               }}
             >
               添加菜单
@@ -41,7 +41,7 @@ const ExampleDynamic = defineComponent({
             <ContextmenuItem
               hideOnClick={false}
               onClick={() => {
-                extra.push("group");
+                extra.push('group');
               }}
             >
               添加菜单组
@@ -49,7 +49,7 @@ const ExampleDynamic = defineComponent({
             <ContextmenuItem
               hideOnClick={false}
               onClick={() => {
-                extra.push("submenu");
+                extra.push('submenu');
               }}
             >
               添加子菜单
@@ -67,7 +67,7 @@ const ExampleDynamic = defineComponent({
           {extra.map((item, index) => {
             const res = [<ContextmenuDivider />];
 
-            if (item === "group") {
+            if (item === 'group') {
               res.push(
                 <ContextmenuGroup title={`菜单组 ${index + 1}`}>
                   <ContextmenuItem>菜单1</ContextmenuItem>
@@ -75,7 +75,7 @@ const ExampleDynamic = defineComponent({
                   <ContextmenuItem>菜单3</ContextmenuItem>
                 </ContextmenuGroup>,
               );
-            } else if (item === "submenu") {
+            } else if (item === 'submenu') {
               res.push(
                 <ContextmenuSubmenu title={`子菜单 ${index + 1}`}>
                   <ContextmenuItem>菜单1</ContextmenuItem>
