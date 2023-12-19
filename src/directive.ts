@@ -51,6 +51,11 @@ const unbind = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const contextmenuInstance: any = binding.instance?.$refs[contextmenuKey];
 
+  if (!contextmenuInstance) {
+    console.error(`没有找到 ${contextmenuKey} 对应的实例`);
+    return;
+  }
+
   if (typeof contextmenuInstance.removeReference !== 'function') {
     console.error(`${contextmenuKey} 对应的实例不是 VContextmenu`);
     return;
