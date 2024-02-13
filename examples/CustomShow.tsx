@@ -21,7 +21,7 @@ const ExampleCustomShow = defineComponent({
 
       const targetDimensions = boxRef.value.getBoundingClientRect();
 
-      const postition = {
+      const position = {
         top:
           Math.random() * targetDimensions.height +
           targetDimensions.top +
@@ -32,7 +32,7 @@ const ExampleCustomShow = defineComponent({
           window.scrollX,
       };
 
-      contextmenuRef.value?.show(postition);
+      contextmenuRef.value?.show(position);
     };
 
     const hide = () => {
@@ -42,7 +42,6 @@ const ExampleCustomShow = defineComponent({
     return () => (
       <>
         <div
-          v-contextmenu={[null, contextmenuRef]}
           style={{
             display: 'flex',
             flexDirection: 'column',

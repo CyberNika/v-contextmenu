@@ -1,4 +1,4 @@
-import type { Directive } from 'vue';
+import { isRef, type Directive } from 'vue';
 
 import type {
   ContextmenuDirectiveValue,
@@ -20,7 +20,9 @@ const bind = (
 
   const contextmenuOptions = binding.value;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const contextmenuInstance: any = binding.instance?.$refs[contextmenuKey];
+  const contextmenuInstance: any = isRef(contextmenuKey)
+    ? contextmenuKey.value
+    : binding.instance?.$refs[contextmenuKey];
 
   if (!contextmenuInstance) {
     console.error(`没有找到 ${contextmenuKey} 对应的实例`);
@@ -49,7 +51,9 @@ const unbind = (
   if (!contextmenuKey) return;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const contextmenuInstance: any = binding.instance?.$refs[contextmenuKey];
+  const contextmenuInstance: any = isRef(contextmenuKey)
+    ? contextmenuKey.value
+    : binding.instance?.$refs[contextmenuKey];
 
   if (!contextmenuInstance) {
     console.error(`没有找到 ${contextmenuKey} 对应的实例`);

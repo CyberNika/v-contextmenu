@@ -14,9 +14,13 @@ const ContextmenuItem = defineComponent({
       type: Boolean,
       default: true,
     },
+    contextmenuAsClick: {
+      type: Boolean,
+      default: true,
+    },
   },
 
-  emits: ['click', 'mouseenter', 'mouseleave'],
+  emits: ['click', 'contextmenu', 'mouseenter', 'mouseleave'],
 
   setup(props, { emit }) {
     const rootHide = inject<() => void>('hide');
@@ -29,33 +33,44 @@ const ContextmenuItem = defineComponent({
     }));
 
     const handleClick = (evt: Event) => {
-      if (props.disabled) return;
-
       emit('click', evt);
+
+      if (props.disabled) return;
 
       props.hideOnClick && rootHide?.();
     };
+    const handleContextmenu = (evt: Event) => {
+      emit('contextmenu', evt);
+
+      if (props.contextmenuAsClick) {
+        if (props.disabled) return;
+
+        props.hideOnClick && rootHide?.();
+      }
+    };
 
     const handleMouseenter = (evt: Event) => {
+      emit('mouseenter', evt);
+
       if (props.disabled) return;
 
       hover.value = true;
-
-      emit('mouseenter', evt);
     };
 
     const handleMouseleave = (evt: Event) => {
+      emit('mouseleave', evt);
+
       if (props.disabled) return;
 
       hover.value = false;
-
-      emit('mouseleave', evt);
     };
 
     return {
       classes,
 
       handleClick,
+      handleContextmenu,
+
       handleMouseenter,
       handleMouseleave,
     };
@@ -66,6 +81,7 @@ const ContextmenuItem = defineComponent({
       <li
         class={this.classes}
         onClick={this.handleClick}
+        onContextmenu={this.handleContextmenu}
         onMouseenter={this.handleMouseenter}
         onMouseleave={this.handleMouseleave}
       >

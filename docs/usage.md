@@ -18,14 +18,14 @@
 ## 类型
 
 ```typescript
-type TriggerEventType = "contextmenu" | "click" | "dblclick";
+type TriggerEventType = 'contextmenu' | 'click' | 'dblclick';
 ```
 
 ## 指令
 
 ### `v-contextmenu:ref`
 
-其中 `ref` 为一个 `VContextmenu` 的实例，例如
+其中 `ref` 指向一个 `VContextmenu` 的实例，例如
 
 ```html
 <v-contextmenu ref="contextmenu">
@@ -56,9 +56,10 @@ type TriggerEventType = "contextmenu" | "click" | "dblclick";
 | 参数                  | 类型                               | 可选 | 默认值   | 说明                                                                     |
 | --------------------- | ---------------------------------- | ---- | -------- | ------------------------------------------------------------------------ |
 | model-value / v-model | `boolean`                          | 可选 | `false`  | 是否显示                                                                 |
-| autoAdjustPlacement    | `boolean`                          | 可选 | `true`   | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 |
+| autoAdjustPlacement   | `boolean`                          | 可选 | `true`   | 是否自动切换方位，即当菜单显示时溢出浏览器窗口可视区域，自动切换显示方位 |
 | disabled              | `boolean`                          | 可选 | `false`  | 是否禁用菜单（菜单不会出现）                                             |
 | teleport              | <code>string &#124; Element</code> | 可选 | `"body"` | 使用 Teleport                                                            |
+| preventContextmenu    | `boolean`                          | 可选 | `true`   | 是否阻止菜单内 contextmenu 事件的默认行为                                |
 
 **Methods**
 
@@ -69,10 +70,11 @@ type TriggerEventType = "contextmenu" | "click" | "dblclick";
 
 **Events**
 
-| 事件名称 | 说明                 | 回调参数        |
-| -------- | -------------------- | --------------- |
-| show     | 菜单显示时触发的事件 | -- |
-| hide     | 菜单隐藏时触发的事件 | -- |
+| 事件名称    | 说明                      | 回调参数     |
+| ----------- | ------------------------- | ------------ |
+| show        | 菜单显示时触发的事件      | --           |
+| hide        | 菜单隐藏时触发的事件      | --           |
+| contextmenu | 菜单内的 contextmenu 事件 | 事件 `event` |
 
 ### `VContextmenuItem`
 
@@ -80,18 +82,20 @@ type TriggerEventType = "contextmenu" | "click" | "dblclick";
 
 **Attributes**
 
-| 参数        | 类型      | 可选 | 默认值  | 说明                     |
-| ----------- | --------- | ---- | ------- | ------------------------ |
-| disabled    | `boolean` | 可选 | `false` | 是否禁用               |
-| hideOnClick | `boolean` | 可选 | `true`  | 被点击后菜单是否自动隐藏 |
+| 参数               | 类型      | 可选 | 默认值  | 说明                              |
+| ------------------ | --------- | ---- | ------- | --------------------------------- |
+| disabled           | `boolean` | 可选 | `false` | 是否禁用                          |
+| hideOnClick        | `boolean` | 可选 | `true`  | 被点击后菜单是否自动隐藏          |
+| contextmenuAsClick | `boolean` | 可选 | `true`  | 是否将 contextmenu 事件等同于点击 |
 
 **Events**
 
-| 事件名称   | 说明                         | 回调参数                                        |
-| ---------- | ---------------------------- | ----------------------------------------------- |
-| click      | 菜单被点击时触发的事件       | 事件 `event` |
-| mouseenter | 鼠标移动到菜单上时触发的事件 | 事件 `event` |
-| mouseleave | 鼠标从菜单上离开时触发的事件 | 事件 `event` |
+| 事件名称    | 说明                         | 回调参数     |
+| ----------- | ---------------------------- | ------------ |
+| click       | 菜单被点击时触发的事件       | 事件 `event` |
+| contextmenu | 菜单的 contextmenu 事件      | 事件 `event` |
+| mouseenter  | 鼠标移动到菜单上时触发的事件 | 事件 `event` |
+| mouseleave  | 鼠标从菜单上离开时触发的事件 | 事件 `event` |
 
 ### `VContextmenuDivider`
 
@@ -110,8 +114,8 @@ type TriggerEventType = "contextmenu" | "click" | "dblclick";
 
 **Events**
 
-| 事件名称   | 说明                         | 回调参数                                        |
-| ---------- | ---------------------------- | ----------------------------------------------- |
+| 事件名称   | 说明                         | 回调参数     |
+| ---------- | ---------------------------- | ------------ |
 | mouseenter | 鼠标移动到菜单上时触发的事件 | 事件 `event` |
 | mouseleave | 鼠标从菜单上离开时触发的事件 | 事件 `event` |
 

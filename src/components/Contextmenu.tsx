@@ -46,13 +46,17 @@ const Contextmenu = defineComponent({
       type: [String, Object] as PropType<string | Element>,
       default: () => 'body',
     },
+    preventContextmenu: {
+      type: Boolean,
+      default: true,
+    },
     // destroyOnHide: {
     //   type: Boolean,
     //   default: false,
     // },
   },
 
-  emits: ['show', 'hide', 'update:modelValue'],
+  emits: ['show', 'hide', 'update:modelValue', 'contextmenu'],
 
   setup(props, { emit }) {
     const contextmenuRef = ref<HTMLDivElement | null>(null);
@@ -243,6 +247,13 @@ const Contextmenu = defineComponent({
           ref="contextmenuRef"
           v-show="visible"
           style={this.style}
+          onContextmenu={(evt) => {
+            if (this.$props.preventContextmenu) {
+              evt.preventDefault();
+            }
+
+            this.$emit('contextmenu', evt);
+          }}
         >
           <ul class={CLASSES.contextmenuInner}>
             {this.$slots.default?.({
