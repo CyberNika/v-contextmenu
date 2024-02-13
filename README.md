@@ -1,10 +1,10 @@
 # v-contextmenu
 
 [![NPM version][badge-npm-version]][url-npm]
-[![Node version][badge-node-version]][url-npm]
 [![NPM download][badge-npm-download]][url-npm]
-![Dependencies][badge-dependencies]
+[![NPM version][badge-language]][url-github]
 ![License][badge-license]
+[![Node version][badge-node-version]][url-npm]
 
 [![NPM][image-npm]][url-npm]
 
@@ -16,17 +16,17 @@
 
 ### CDN 引入
 
-可通过 [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
+可通过 [unpkg.com/v-contextmenu@2](https://unpkg.com/v-contextmenu@2/) 获取最新版本的资源，在页面中引入相应 js 和 css 文件即可。
 
 ``` html
-<!-- 引入 Vue -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入 Vue2 -->
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
 
 <!-- 引入 VContextmenu 组件 -->
-<script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
+<script src="https://unpkg.com/v-contextmenu@2/dist/index.js"></script>
 
 <!-- 引入 VContextmenu 组件样式 -->
-<link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css">
+<link rel="stylesheet" href="https://unpkg.com/v-contextmenu@2/dist/index.css">
 ```
 
 > 建议使用 NPM 安装
@@ -34,14 +34,14 @@
 ### NPM 安装
 
 ```bash
-$ npm i -S v-contextmenu # yarn add v-contextmenu
+$ npm i -S v-contextmenu@2 # yarn add v-contextmenu@2
 ```
 
 ## 概览
 
 ![概览](./docs/images/gallery.jpg)
 
-[访问在线示例](https://heynext.github.io/v-contextmenu) 或 [查看在线示例 GIF](./docs/images/example.gif)
+[访问在线示例](https://cybernika.github.io/v-contextmenu/v2) 或 [查看在线示例 GIF](./docs/images/example.gif)
 
 ## 使用
 
@@ -106,14 +106,16 @@ $ npm run build # build:package & build:example
 详见 [releases][url-releases]
 
 
-[badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg
-[badge-node-version]: https://img.shields.io/node/v/v-contextmenu.svg
-[badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu.svg
-[badge-license]: https://img.shields.io/github/license/heynext/v-contextmenu.svg
-[badge-dependencies]: https://img.shields.io/david/dev/heynext/v-contextmenu.svg
+[badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu/next
+[badge-language]: https://img.shields.io/github/languages/top/CyberNika/v-contextmenu
+[badge-node-version]: https://img.shields.io/node/v/v-contextmenu/next
+[badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu
+[badge-license]: https://img.shields.io/github/license/CyberNika/v-contextmenu.svg
 
 [url-npm]: https://npmjs.org/package/v-contextmenu
 [url-dependencies]: https://david-dm.org/vkbansal/v-contextmenu
-[url-releases]: https://github.com/heynext/v-contextmenu/releases
+[url-releases]: https://github.com/CyberNika/v-contextmenu/releases
+[url-github]: https://github.com/CyberNika/v-contextmenu
+[url-homepage]: https://CyberNika.github.io/v-contextmenu
 
 [image-npm]: https://nodei.co/npm/v-contextmenu.png

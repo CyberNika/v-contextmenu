@@ -46,7 +46,7 @@
 
     methods: {
       handleClick (vm, event) {
-        window.open('https://github.com/heynext/v-contextmenu/')
+        window.open('https://github.com/CyberNika/v-contextmenu/tree/2.x')
       },
     },
   }

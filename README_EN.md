@@ -1,10 +1,10 @@
 # v-contextmenu
 
 [![NPM version][badge-npm-version]][url-npm]
-[![Node version][badge-node-version]][url-npm]
 [![NPM download][badge-npm-download]][url-npm]
-![Dependencies][badge-dependencies]
+[![NPM version][badge-language]][url-github]
 ![License][badge-license]
+[![Node version][badge-node-version]][url-npm]
 
 [![NPM][image-npm]][url-npm]
 
@@ -16,17 +16,17 @@ ContextMenu component for Vue 2.0.
 
 ### CDN
 
-Get the latest version from [unpkg.com/v-contextmenu](https://unpkg.com/v-contextmenu/), and then import JavaScript and CSS file in your page.
+Get the latest version from [unpkg.com/v-contextmenu@2](https://unpkg.com/v-contextmenu@2/), and then import JavaScript and CSS file in your page.
 
 ``` html
 <!-- import Vue -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
 
 <!-- import JavaScript -->
-<script src="https://unpkg.com/v-contextmenu/dist/index.js"></script>
+<script src="https://unpkg.com/v-contextmenu@2/dist/index.js"></script>
 
 <!-- import CSS -->
-<link rel="stylesheet" href="https://unpkg.com/v-contextmenu/dist/index.css">
+<link rel="stylesheet" href="https://unpkg.com/v-contextmenu@2/dist/index.css">
 ```
 
 > NPM is recommended.
@@ -34,14 +34,14 @@ Get the latest version from [unpkg.com/v-contextmenu](https://unpkg.com/v-contex
 ### NPM
 
 ```bash
-$ npm i -S v-contextmenu # yarn add v-contextmenu
+$ npm i -S v-contextmenu@2 # yarn add v-contextmenu@2
 ```
 
 ## Gallery
 
 ![gallery](./docs/images/gallery.jpg)
 
-[Go online examples](https://heynext.github.io/v-contextmenu) or [see online examples' GIF](./docs/images/example.gif)
+[Go online examples](https://cybernika.github.io/v-contextmenu/v2) or [see online examples' GIF](./docs/images/example.gif)
 
 ## Usage
 
@@ -106,14 +106,16 @@ $ npm run build # build:package & build:example
 See [releases][url-releases]
 
 
-[badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu.svg
-[badge-node-version]: https://img.shields.io/node/v/v-contextmenu.svg
-[badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu.svg
-[badge-license]: https://img.shields.io/github/license/heynext/v-contextmenu.svg
-[badge-dependencies]: https://img.shields.io/david/dev/heynext/v-contextmenu.svg
+[badge-npm-version]: https://img.shields.io/npm/v/v-contextmenu/next
+[badge-language]: https://img.shields.io/github/languages/top/CyberNika/v-contextmenu
+[badge-node-version]: https://img.shields.io/node/v/v-contextmenu/next
+[badge-npm-download]: https://img.shields.io/npm/dt/v-contextmenu
+[badge-license]: https://img.shields.io/github/license/CyberNika/v-contextmenu.svg
 
 [url-npm]: https://npmjs.org/package/v-contextmenu
 [url-dependencies]: https://david-dm.org/vkbansal/v-contextmenu
-[url-releases]: https://github.com/heynext/v-contextmenu/releases
+[url-releases]: https://github.com/CyberNika/v-contextmenu/releases
+[url-github]: https://github.com/CyberNika/v-contextmenu
+[url-homepage]: https://CyberNika.github.io/v-contextmenu
 
 [image-npm]: https://nodei.co/npm/v-contextmenu.png

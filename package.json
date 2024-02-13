@@ -1,8 +1,8 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.9.0",
-  "author": "heynext <heynext.xyz@gmail.com>",
+  "version": "2.9.1",
+  "author": "CyberNika <cybernika.net@gmail.com>",
   "main": "dist/index.common.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -56,12 +56,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/heynext/v-contextmenu.git"
+    "url": "https://github.com/CyberNika/v-contextmenu.git"
   },
   "bugs": {
-    "url": "https://github.com/heynext/v-contextmenu/issues"
+    "url": "https://github.com/CyberNika/v-contextmenu/issues"
   },
-  "homepage": "https://github.com/heynext/v-contextmenu",
+  "homepage": "https://github.com/CyberNika/v-contextmenu",
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
