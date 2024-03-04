@@ -1,7 +1,7 @@
 {
   "name": "v-contextmenu",
   "description": "ContextMenu based on Vue 2.0",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "author": "CyberNika <cybernika.net@gmail.com>",
   "main": "dist/index.common.js",
   "module": "dist/index.esm.js",
